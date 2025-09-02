@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crafted to Thrive - Dashboard Style</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: '#6B8E6B',
+                        blush: '#F4E4E1',
+                        cream: '#F8F6F3',
+                        teal: '#4A6B6B',
+                        'warm-gray': '#8B8680'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-poppins { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-cream text-warm-gray">
+    
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-sage rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold text-teal font-poppins">Crafted to Thrive</h1>
+                        <p class="text-sm text-warm-gray">Podcast Planner Dashboard</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="text-right">
+                        <p class="text-sm font-medium text-teal">Welcome back, Sarah!</p>
+                        <p class="text-xs text-warm-gray">Let's build your podcast empire</p>
+                    </div>
+                    <div class="w-10 h-10 bg-blush rounded-full flex items-center justify-center">
+                        <span class="text-sage font-medium">SW</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Progress Overview -->
+        <div class="mb-8">
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6">
+                    <div>
+                        <h2 class="text-3xl font-bold text-teal font-poppins mb-2">Your Podcast Journey</h2>
+                        <p class="text-warm-gray">You're making excellent progress! 3 of 8 sections completed.</p>
+                    </div>
+                    <div class="mt-4 lg:mt-0 lg:text-right">
+                        <div class="text-4xl font-bold text-sage mb-1">37.5%</div>
+                        <div class="text-sm text-warm-gray">Overall Completion</div>
+                    </div>
+                </div>
+                
+                <!-- Progress Bar -->
+                <div class="w-full bg-gray-100 rounded-full h-3 mb-6">
+                    <div class="bg-gradient-to-r from-sage to-teal h-3 rounded-full transition-all duration-500" style="width: 37.5%"></div>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-sage">3</div>
+                        <div class="text-sm text-warm-gray">Sections Done</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-teal">12</div>
+                        <div class="text-sm text-warm-gray">Episodes Planned</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-sage">5</div>
+                        <div class="text-sm text-warm-gray">Interview Targets</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-teal">85%</div>
+                        <div class="text-sm text-warm-gray">Setup Complete</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
+            
+            <!-- Section 1 - Completed -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-sage"></div>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 bg-sage rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xs font-medium text-sage bg-sage bg-opacity-10 px-3 py-1 rounded-full">Complete</span>
+                </div>
+                <h3 class="text-lg font-semibold text-teal mb-2">Purpose-Filled Podcast</h3>
+                <p class="text-sm text-warm-gray mb-4">Define your mission, audience, and unique value proposition.</p>
+                <div class="flex items-center text-xs text-sage">
+                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    Completed 3 days ago
+                </div>
+            </div>
+
+            <!-- Section 2 - Completed -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-teal"></div>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 bg-teal rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xs font-medium text-teal bg-teal bg-opacity-10 px-3 py-1 rounded-full">Complete</span>
+                </div>
+                <h3 class="text-lg font-semibold text-teal mb-2">Leverage Expertise</h3>
+                <p class="text-sm text-warm-gray mb-4">Position yourself as the go-to authority in your niche.</p>
+                <div class="flex items-center text-xs text-teal">
+                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    Completed 2 days ago
+                </div>
+            </div>
+
+            <!-- Section 3 - Current -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border-2 border-sage relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-sage to-teal"></div>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 bg-gradient-to-r from-sage to-teal rounded-xl flex items-center justify-center animate-pulse">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xs font-medium text-sage bg-sage bg-opacity-10 px-3 py-1 rounded-full">In Progress</span>
+                </div>
+                <h3 class="text-lg font-semibold text-sage mb-2">Episode Planning</h3>
+                <p class="text-sm text-warm-gray mb-4">Create magnetic episode content that keeps listeners coming back.</p>
+                <div class="w-full bg-gray-100 rounded-full h-2 mb-2">
+                    <div class="bg-sage h-2 rounded-full" style="width: 75%"></div>
+                </div>
+                <div class="flex items-center text-xs text-sage">
+                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                    </svg>
+                    75% complete
+                </div>
+            </div>
+
+            <!-- Section 4 - Pending -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 relative overflow-hidden opacity-75">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gray-200"></div>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 bg-gray-200 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xs font-medium text-gray-400 bg-gray-100 px-3 py-1 rounded-full">Locked</span>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-600 mb-2">Expand Interviewees</h3>
+                <p class="text-sm text-gray-500 mb-4">Build your network and book high-value guests.</p>
+                <div class="text-xs text-gray-400">
+                    Complete Episode Planning to unlock
+                </div>
+            </div>
+
+            <!-- Section 5 - Pending -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 relative overflow-hidden opacity-75">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gray-200"></div>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 bg-gray-200 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xs font-medium text-gray-400 bg-gray-100 px-3 py-1 rounded-full">Locked</span>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-600 mb-2">Recording Strategies</h3>
+                <p class="text-sm text-gray-500 mb-4">Master the technical and creative aspects of recording.</p>
+                <div class="text-xs text-gray-400">
+                    Complete previous sections to unlock
+                </div>
+            </div>
+
+            <!-- Section 6 - Pending -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 relative overflow-hidden opacity-75">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gray-200"></div>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 bg-gray-200 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xs font-medium text-gray-400 bg-gray-100 px-3 py-1 rounded-full">Locked</span>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-600 mb-2">Publish Confidently</h3>
+                <p class="text-sm text-gray-500 mb-4">Launch and distribute your podcast across all platforms.</p>
+                <div class="text-xs text-gray-400">
+                    Complete previous sections to unlock
+                </div>
+            </div>
+
+            <!-- Section 7 - Pending -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 relative overflow-hidden opacity-75">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gray-200"></div>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 bg-gray-200 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xs font-medium text-gray-400 bg-gray-100 px-3 py-1 rounded-full">Locked</span>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-600 mb-2">Build Momentum</h3>
+                <p class="text-sm text-gray-500 mb-4">Grow your audience and create sustainable engagement.</p>
+                <div class="text-xs text-gray-400">
+                    Complete previous sections to unlock
+                </div>
+            </div>
+
+            <!-- Section 8 - Pending -->
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 relative overflow-hidden opacity-75">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gray-200"></div>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="w-12 h-12 bg-gray-200 rounded-xl flex items-center justify-center">
+                        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xs font-medium text-gray-400 bg-gray-100 px-3 py-1 rounded-full">Locked</span>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-600 mb-2">Monetize Message</h3>
+                <p class="text-sm text-gray-500 mb-4">Turn your podcast into a profitable business venture.</p>
+                <div class="text-xs text-gray-400">
+                    Complete previous sections to unlock
+                </div>
+            </div>
+        </div>
+
+        <!-- Current Section Detail -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Main Content -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                    <div class="bg-gradient-to-r from-sage to-teal text-white p-8">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h2 class="text-2xl font-bold mb-2 font-poppins">Section 3: Magnetic Episode Plan</h2>
+                                <p class="text-sage-100 opacity-90">Create compelling episode content that resonates with your audience</p>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-3xl font-bold">75%</div>
+                                <div class="text-sm opacity-80">Complete</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8">
+                        <!-- Episode Planning Form -->
+                        <div class="space-y-8">
+                            
+                            <!-- Episode Topic -->
+                            <div>
+                                <label class="block text-sm font-medium text-teal mb-3">Current Episode Topic</label>
+                                <input type="text" 
+                                       value="Building Authentic Relationships in Business" 
+                                       class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-sage focus:border-transparent transition-all" 
+                                       placeholder="What's your episode about?">
+                            </div>
+
+                            <!-- Key Points -->
+                            <div>
+                                <label class="block text-sm font-medium text-teal mb-3">Key Discussion Points</label>
+                                <div class="space-y-3">
+                                    <div class="flex items-center p-4 bg-sage bg-opacity-5 rounded-xl border border-sage border-opacity-20">
+                                        <svg class="w-5 h-5 text-sage mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-warm-gray">The importance of vulnerability in professional relationships</span>
+                                    </div>
+                                    <div class="flex items-center p-4 bg-teal bg-opacity-5 rounded-xl border border-teal border-opacity-20">
+                                        <svg class="w-5 h-5 text-teal mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="text-warm-gray">How to network without feeling "salesy" or inauthentic</span>
+                                    </div>
+                                    <div class="flex items-start p-4 bg-gray-50 rounded-xl border border-gray-200">
+                                        <svg class="w-5 h-5 text-gray-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                        </svg>
+                                        <input type="text" 
+                                               placeholder="Add another key point..." 
+                                               class="w-full bg-transparent border-none focus:outline-none text-warm-gray">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Episode Structure -->
+                            <div>
+                                <label class="block text-sm font-medium text-teal mb-3">Episode Structure (45 min episode)</label>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-xl">
+                                        <div class="flex items-center">
+                                            <div class="w-8 h-8 bg-sage text-white rounded-lg flex items-center justify-center text-sm font-medium mr-3">1</div>
+                                            <span class="font-medium text-warm-gray">Opening & Welcome</span>
+                                        </div>
+                                        <span class="text-sm text-sage font-medium">3 min</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-xl">
+                                        <div class="flex items-center">
+                                            <div class="w-8 h-8 bg-sage text-white rounded-lg flex items-center justify-center text-sm font-medium mr-3">2</div>
+                                            <span class="font-medium text-warm-gray">Main Content & Discussion</span>
+                                        </div>
+                                        <span class="text-sm text-sage font-medium">35 min</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-4 bg-white border border-gray-200 rounded-xl">
+                                        <div class="flex items-center">
+                                            <div class="w-8 h-8 bg-sage text-white rounded-lg flex items-center justify-center text-sm font-medium mr-3">3</div>
+                                            <span class="font-medium text-warm-gray">Key Takeaways & CTA</span>
+                                        </div>
+                                        <span class="text-sm text-sage font-medium">7 min</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-100">
+                                <button class="flex-1 bg-sage text-white px-6 py-3 rounded-xl font-medium hover:bg-teal transition-colors">
+                                    Save Episode Plan
+                                </button>
+                                <button class="flex-1 border-2 border-sage text-sage px-6 py-3 rounded-xl font-medium hover:bg-sage hover:text-white transition-colors">
+                                    Preview Episode Guide
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="space-y-6">
+                
+                <!-- Quick Actions -->
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                    <h3 class="text-lg font-semibold text-teal mb-4 font-poppins">Quick Actions</h3>
+                    <div class="space-y-3">
+                        <button class="w-full flex items-center p-3 bg-sage bg-opacity-5 text-sage rounded-lg hover:bg-sage hover:text-white transition-colors">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                            Create New Episode
+                        </button>
+                        <button class="w-full flex items-center p-3 text-warm-gray rounded-lg hover:bg-gray-50 transition-colors">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            View All Episodes
+                        </button>
+                        <button class="w-full flex items-center p-3 text-warm-gray rounded-lg hover:bg-gray-50 transition-colors">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
+                            </svg>
+                            Share Episode Plan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recent Episodes -->
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                    <h3 class="text-lg font-semibold text-teal mb-4 font-poppins">Recent Episodes</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-sage rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-warm-gray">Finding Your Voice</p>
+                                <p class="text-xs text-gray-500">Episode 001 • Completed</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-teal rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-warm-gray">Authority Building</p>
+                                <p class="text-xs text-gray-500">Episode 002 • Completed</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 bg-gray-200 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-gray-600">Building Relationships</p>
+                                <p class="text-xs text-gray-500">Episode 003 • In Progress</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tips & Resources -->
+                <div class="bg-gradient-to-br from-sage to-teal rounded-xl p-6 text-white">
+                    <h3 class="text-lg font-semibold mb-3 font-poppins">💡 Pro Tip</h3>
+                    <p class="text-sm opacity-90 mb-4">Great episodes start with understanding your listener's biggest pain point. What keeps them up at night?</p>
+                    <button class="w-full bg-white bg-opacity-20 text-white px-4 py-2 rounded-lg font-medium hover:bg-opacity-30 transition-colors">
+                        View Episode Templates
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-16 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="flex flex-col sm:flex-row justify-between items-center">
+                <p class="text-sm text-warm-gray">© 2024 Crafted to Thrive. Created by Nikita Williams.</p>
+                <div class="flex items-center space-x-4 mt-4 sm:mt-0">
+                    <a href="#" class="text-sage hover:text-teal transition-colors">Support</a>
+                    <a href="#" class="text-sage hover:text-teal transition-colors">Export Data</a>
+                    <a href="#" class="text-sage hover:text-teal transition-colors">Settings</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

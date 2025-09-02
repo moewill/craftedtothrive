@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crafted to Thrive - Productivity Suite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Brand colors from ChatGPT guide
+                        'brand-primary': {
+                            50: '#F5F7FF',
+                            100: '#EAF0FF', 
+                            500: '#4A63FF',
+                            700: '#2C3BCC',
+                            900: '#1A237A'
+                        },
+                        'brand-accent': {
+                            500: '#FF6B3D'
+                        },
+                        'neutral': {
+                            0: '#FFFFFF',
+                            50: '#F7F7F8',
+                            100: '#EFEFF1',
+                            300: '#D5D7DB',
+                            600: '#636773',
+                            900: '#111318'
+                        },
+                        // State colors
+                        'success': { 500: '#16A34A' },
+                        'warning': { 500: '#F59E0B' },
+                        'info': { 500: '#0EA5E9' }
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'system-ui', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-neutral-50 text-neutral-900 font-inter">
+    
+    <!-- Functional Header -->
+    <header class="bg-neutral-0 border-b border-neutral-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo & Nav -->
+                <div class="flex items-center space-x-8">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-brand-primary-500 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
+                        </svg>
+                        </div>
+                        <span class="text-lg font-bold text-neutral-900">Crafted to Thrive</span>
+                    </div>
+                    
+                    <!-- Quick Navigation -->
+                    <nav class="hidden md:flex space-x-1">
+                        <a href="#overview" class="px-3 py-2 rounded-lg text-sm font-medium text-brand-primary-700 bg-brand-primary-50">Overview</a>
+                        <a href="#episodes" class="px-3 py-2 rounded-lg text-sm font-medium text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100">Episodes</a>
+                        <a href="#analytics" class="px-3 py-2 rounded-lg text-sm font-medium text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100">Analytics</a>
+                        <a href="#tools" class="px-3 py-2 rounded-lg text-sm font-medium text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100">Tools</a>
+                    </nav>
+                </div>
+
+                <!-- User & Actions -->
+                <div class="flex items-center space-x-4">
+                    <!-- Progress Indicator -->
+                    <div class="hidden lg:flex items-center space-x-2 text-sm text-neutral-600">
+                        <span>Progress:</span>
+                        <div class="w-20 h-2 bg-neutral-200 rounded-full">
+                            <div class="w-3/8 h-2 bg-brand-primary-500 rounded-full"></div>
+                        </div>
+                        <span class="font-medium">3/8</span>
+                    </div>
+                    
+                    <!-- Quick Actions -->
+                    <button class="p-2 text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 rounded-lg">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-5 5-5-5h5z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h5l-5-5-5 5h5z"></path>
+                        </svg>
+                    </button>
+                    <button class="p-2 text-neutral-600 hover:text-neutral-900 hover:bg-neutral-100 rounded-lg">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </button>
+                    
+                    <div class="w-8 h-8 bg-brand-accent-500 rounded-lg flex items-center justify-center">
+                        <span class="text-white text-sm font-medium">S</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Dashboard Metrics -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-neutral-0 rounded-xl p-6 border border-neutral-100">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-neutral-600">Completion Rate</p>
+                        <p class="text-3xl font-bold text-brand-primary-700">37.5%</p>
+                    </div>
+                    <div class="w-12 h-12 bg-brand-primary-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-brand-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex items-center text-sm text-success-500">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 10l5 5 5-5"></path>
+                        </svg>
+                        +12% from last week
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-neutral-0 rounded-xl p-6 border border-neutral-100">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-neutral-600">Episodes Planned</p>
+                        <p class="text-3xl font-bold text-brand-accent-500">12</p>
+                    </div>
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-brand-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex items-center text-sm text-info-500">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        3 in progress
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-neutral-0 rounded-xl p-6 border border-neutral-100">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-neutral-600">Time Invested</p>
+                        <p class="text-3xl font-bold text-neutral-900">24.5<span class="text-lg text-neutral-600">h</span></p>
+                    </div>
+                    <div class="w-12 h-12 bg-warning-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-warning-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="flex items-center text-sm text-neutral-600">
+                        <span class="font-mono">~2.5h</span>
+                        <span class="ml-1">this week</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-neutral-0 rounded-xl p-6 border border-neutral-100">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-neutral-600">Next Deadline</p>
+                        <p class="text-3xl font-bold text-neutral-900">3<span class="text-lg text-neutral-600">d</span></p>
+                    </div>
+                    <div class="w-12 h-12 bg-neutral-100 rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <div class="text-sm text-neutral-600">Episode 003 review</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Main Work Area -->
+            <div class="lg:col-span-2">
+                
+                <!-- Section Progress -->
+                <div class="bg-neutral-0 rounded-xl border border-neutral-100 mb-8">
+                    <div class="p-6 border-b border-neutral-100">
+                        <h2 class="text-xl font-bold text-neutral-900 mb-2">Podcast Development Pipeline</h2>
+                        <p class="text-neutral-600">Track your progress through each essential stage</p>
+                    </div>
+                    
+                    <div class="p-6 space-y-4">
+                        
+                        <!-- Completed Sections -->
+                        <div class="flex items-center p-4 bg-success-50 border border-success-200 rounded-lg">
+                            <div class="flex items-center justify-center w-10 h-10 bg-success-500 rounded-lg mr-4">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-1">
+                                    <h3 class="font-semibold text-success-900">Purpose-Filled Podcast</h3>
+                                    <span class="text-sm font-medium text-success-700">Complete</span>
+                                </div>
+                                <p class="text-sm text-success-700">Mission defined • Target audience identified • Value proposition clear</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center p-4 bg-success-50 border border-success-200 rounded-lg">
+                            <div class="flex items-center justify-center w-10 h-10 bg-success-500 rounded-lg mr-4">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-1">
+                                    <h3 class="font-semibold text-success-900">Leverage Your Expertise</h3>
+                                    <span class="text-sm font-medium text-success-700">Complete</span>
+                                </div>
+                                <p class="text-sm text-success-700">Authority positioning • Unique angle developed • Credibility framework built</p>
+                            </div>
+                        </div>
+
+                        <!-- Current Section -->
+                        <div class="flex items-center p-4 bg-brand-primary-50 border-2 border-brand-primary-200 rounded-lg">
+                            <div class="flex items-center justify-center w-10 h-10 bg-brand-primary-500 rounded-lg mr-4">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-1">
+                                    <h3 class="font-semibold text-brand-primary-900">Plan Your Episodes</h3>
+                                    <span class="text-sm font-medium text-brand-primary-700">75% Complete</span>
+                                </div>
+                                <div class="flex items-center justify-between mb-2">
+                                    <p class="text-sm text-brand-primary-700">Episode structure • Content calendar • Workflow optimization</p>
+                                    <button class="text-sm font-medium text-brand-primary-700 hover:text-brand-primary-900">Continue →</button>
+                                </div>
+                                <div class="w-full bg-brand-primary-100 rounded-full h-2">
+                                    <div class="bg-brand-primary-500 h-2 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Upcoming Sections -->
+                        <div class="flex items-center p-4 bg-neutral-50 border border-neutral-200 rounded-lg opacity-70">
+                            <div class="flex items-center justify-center w-10 h-10 bg-neutral-300 rounded-lg mr-4">
+                                <svg class="w-5 h-5 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-1">
+                                    <h3 class="font-semibold text-neutral-600">Expand Your Interviewee List</h3>
+                                    <span class="text-sm font-medium text-neutral-500">Locked</span>
+                                </div>
+                                <p class="text-sm text-neutral-500">Guest research • Outreach templates • Interview prep</p>
+                            </div>
+                        </div>
+
+                        <div class="text-center py-4">
+                            <button class="text-sm text-neutral-500 hover:text-neutral-700 font-medium">
+                                View All Sections (5 more) ↓
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Current Task Detail -->
+                <div class="bg-neutral-0 rounded-xl border border-neutral-100">
+                    <div class="p-6 border-b border-neutral-100">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h2 class="text-xl font-bold text-neutral-900 mb-2">Episode 003: Building Authentic Business Relationships</h2>
+                                <p class="text-neutral-600">Create compelling content structure and talking points</p>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-2xl font-bold text-brand-primary-700">75%</div>
+                                <div class="text-sm text-neutral-600">Complete</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <!-- Task Checklist -->
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center p-3 bg-success-50 border border-success-200 rounded-lg">
+                                <div class="w-5 h-5 bg-success-500 rounded flex items-center justify-center mr-3">
+                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-success-800 font-medium">Hook & Opening (3 min)</span>
+                            </div>
+                            
+                            <div class="flex items-center p-3 bg-success-50 border border-success-200 rounded-lg">
+                                <div class="w-5 h-5 bg-success-500 rounded flex items-center justify-center mr-3">
+                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-success-800 font-medium">Main content points (32 min)</span>
+                            </div>
+                            
+                            <div class="flex items-center p-3 bg-success-50 border border-success-200 rounded-lg">
+                                <div class="w-5 h-5 bg-success-500 rounded flex items-center justify-center mr-3">
+                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-success-800 font-medium">Actionable takeaways defined</span>
+                            </div>
+                            
+                            <div class="flex items-center p-3 bg-warning-50 border border-warning-200 rounded-lg">
+                                <div class="w-5 h-5 bg-warning-500 rounded flex items-center justify-center mr-3">
+                                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-warning-800 font-medium">Closing & CTA (10 min) - In Progress</span>
+                            </div>
+                            
+                            <div class="flex items-center p-3 bg-neutral-50 border border-neutral-200 rounded-lg">
+                                <div class="w-5 h-5 bg-neutral-300 rounded flex items-center justify-center mr-3">
+                                    <div class="w-3 h-3 bg-neutral-600 rounded"></div>
+                                </div>
+                                <span class="text-neutral-600 font-medium">Show notes & links</span>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex space-x-4">
+                            <button class="flex-1 bg-brand-primary-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-brand-primary-600 transition-colors">
+                                Continue Episode Planning
+                            </button>
+                            <button class="px-6 py-3 border border-neutral-300 text-neutral-700 rounded-lg font-medium hover:bg-neutral-50 transition-colors">
+                                Save Progress
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Productivity Sidebar -->
+            <div class="space-y-6">
+                
+                <!-- Quick Actions -->
+                <div class="bg-neutral-0 rounded-xl p-6 border border-neutral-100">
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-4">Quick Actions</h3>
+                    <div class="space-y-3">
+                        <button class="w-full flex items-center p-3 text-left bg-brand-primary-500 text-white rounded-lg hover:bg-brand-primary-600 transition-colors">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                            </svg>
+                            <span class="font-medium">New Episode</span>
+                        </button>
+                        <button class="w-full flex items-center p-3 text-left text-neutral-700 border border-neutral-200 rounded-lg hover:bg-neutral-50 transition-colors">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            <span class="font-medium">Episode Library</span>
+                        </button>
+                        <button class="w-full flex items-center p-3 text-left text-neutral-700 border border-neutral-200 rounded-lg hover:bg-neutral-50 transition-colors">
+                            <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
+                            </svg>
+                            <span class="font-medium">Export & Share</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="bg-neutral-0 rounded-xl p-6 border border-neutral-100">
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-4">Recent Activity</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-success-500 rounded-full mt-2"></div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-neutral-900">Completed Episode 002</p>
+                                <p class="text-xs text-neutral-600">2 hours ago</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-brand-primary-500 rounded-full mt-2"></div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-neutral-900">Updated expertise section</p>
+                                <p class="text-xs text-neutral-600">Yesterday</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-brand-accent-500 rounded-full mt-2"></div>
+                            <div class="flex-1 min-w-0">
+                                <p class="text-sm font-medium text-neutral-900">Started episode planning</p>
+                                <p class="text-xs text-neutral-600">3 days ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools & Resources -->
+                <div class="bg-neutral-0 rounded-xl p-6 border border-neutral-100">
+                    <h3 class="text-lg font-semibold text-neutral-900 mb-4">Tools & Resources</h3>
+                    <div class="space-y-3">
+                        <a href="#" class="flex items-center p-3 text-neutral-700 hover:bg-neutral-50 rounded-lg transition-colors">
+                            <svg class="w-5 h-5 mr-3 text-brand-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            <span class="text-sm font-medium">Episode Templates</span>
+                        </a>
+                        <a href="#" class="flex items-center p-3 text-neutral-700 hover:bg-neutral-50 rounded-lg transition-colors">
+                            <svg class="w-5 h-5 mr-3 text-brand-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                            <span class="text-sm font-medium">Progress Analytics</span>
+                        </a>
+                        <a href="#" class="flex items-center p-3 text-neutral-700 hover:bg-neutral-50 rounded-lg transition-colors">
+                            <svg class="w-5 h-5 mr-3 text-info-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path>
+                            </svg>
+                            <span class="text-sm font-medium">Share Progress</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Pro Tip -->
+                <div class="bg-gradient-to-br from-brand-primary-500 to-brand-primary-700 rounded-xl p-6 text-white">
+                    <div class="flex items-center mb-3">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <h3 class="font-semibold">Pro Tip</h3>
+                    </div>
+                    <p class="text-sm text-brand-primary-100 mb-4">Time-block your episode planning sessions. Consistent, focused work beats sporadic long sessions.</p>
+                    <button class="text-sm text-white underline hover:no-underline">View time management guide →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

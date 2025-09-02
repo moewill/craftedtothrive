@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crafted to Thrive - Podcast Planner Mockups</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sage': '#6B8E6B',
+                        'blush': '#F4E4E1',
+                        'cream': '#F8F6F3',
+                        'teal': '#4A6B6B',
+                        'warm-gray': '#8B8680',
+                        'deep-sage': '#5A7A5A',
+                        'light-sage': '#E8F0E8'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'system-ui', 'sans-serif'],
+                        'crimson': ['Crimson Pro', 'serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'float': 'float 6s ease-in-out infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        .mockup-card {
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        .mockup-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 32px 64px rgba(107, 142, 107, 0.2);
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-cream via-blush to-light-sage min-h-screen font-inter">
+    
+    <!-- Header -->
+    <header class="relative overflow-hidden py-20">
+        <div class="absolute inset-0 opacity-10">
+            <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                    <pattern id="headerDots" patternUnits="userSpaceOnUse" width="20" height="20">
+                        <circle cx="10" cy="10" r="1.5" fill="#6B8E6B" opacity="0.4"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#headerDots)"/>
+            </svg>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="glass rounded-3xl p-12 animate-fade-in">
+                <div class="w-24 h-24 bg-gradient-to-br from-sage to-teal rounded-2xl mx-auto mb-8 flex items-center justify-center shadow-xl animate-float">
+                    <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
+                    </svg>
+                </div>
+                
+                <h1 class="text-5xl lg:text-7xl font-bold font-crimson text-teal mb-6">
+                    Crafted to <span class="bg-gradient-to-r from-sage to-teal bg-clip-text text-transparent">Thrive</span>
+                </h1>
+                <p class="text-2xl text-warm-gray mb-8 max-w-4xl mx-auto">
+                    Transforming Nikita Williams' 71-page podcast planner into beautiful, 
+                    functional single-page applications with premium user experiences.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8">
+                    <div class="bg-sage bg-opacity-10 rounded-full px-6 py-3">
+                        <span class="text-sage font-semibold">✨ 6 Unique Design Approaches</span>
+                    </div>
+                    <div class="bg-teal bg-opacity-10 rounded-full px-6 py-3">
+                        <span class="text-teal font-semibold">🎨 Premium Animations & Interactions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mockups Gallery -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        
+        <!-- Section Title -->
+        <div class="text-center mb-16 animate-slide-up">
+            <h2 class="text-4xl font-bold font-crimson text-teal mb-6">Design Mockup Gallery</h2>
+            <p class="text-xl text-warm-gray max-w-3xl mx-auto">
+                Each mockup offers a different approach to user experience, visual design, and customer journey optimization. 
+                Choose the one that best aligns with your vision.
+            </p>
+        </div>
+
+        <!-- Mockups Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            <!-- Premium Journey - Featured -->
+            <div class="lg:col-span-2 mockup-card bg-white rounded-3xl shadow-2xl overflow-hidden border border-sage border-opacity-20 animate-slide-up">
+                <div class="relative">
+                    <!-- Preview Image Placeholder -->
+                    <div class="h-80 bg-gradient-to-br from-light-sage via-blush to-cream flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="w-20 h-20 bg-gradient-to-br from-sage to-teal rounded-2xl mx-auto mb-4 flex items-center justify-center shadow-lg">
+                                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold text-teal font-crimson">Premium Journey Experience</h3>
+                            <p class="text-warm-gray">Featured Design</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Badge -->
+                    <div class="absolute top-4 left-4">
+                        <span class="bg-sage text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                            ⭐ Featured
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="p-8">
+                    <div class="flex items-start justify-between mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold font-crimson text-teal mb-3">Premium Journey Experience</h3>
+                            <p class="text-warm-gray mb-4">
+                                The ultimate user experience with smooth animations, premium interactions, and crystal-clear progress resumption. 
+                                Designed for users who return sporadically and need to quickly understand where they left off.
+                            </p>
+                            
+                            <!-- Key Features -->
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-2 h-2 bg-sage rounded-full"></div>
+                                    <span class="text-sm text-warm-gray">Smooth CSS animations</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-2 h-2 bg-teal rounded-full"></div>
+                                    <span class="text-sm text-warm-gray">Visual journey mapping</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-2 h-2 bg-sage rounded-full"></div>
+                                    <span class="text-sm text-warm-gray">Clear progress indicators</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-2 h-2 bg-teal rounded-full"></div>
+                                    <span class="text-sm text-warm-gray">Premium micro-interactions</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="mockups/premium-journey.html" target="_blank" 
+                           class="flex-1 bg-gradient-to-r from-sage to-teal text-white px-8 py-4 rounded-xl font-semibold text-center hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                            View Live Demo →
+                        </a>
+                        <button class="border-2 border-sage text-sage px-6 py-4 rounded-xl font-semibold hover:bg-sage hover:text-white transition-all duration-300">
+                            <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                            Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Creative Artistic -->
+            <div class="mockup-card bg-white rounded-3xl shadow-xl overflow-hidden border border-warm-gray border-opacity-20 animate-slide-up" style="animation-delay: 0.2s">
+                <div class="h-48 bg-gradient-to-br from-blush to-light-sage flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-sage to-teal rounded-2xl mx-auto mb-3 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-teal font-crimson">Creative Artistic</h4>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold font-crimson text-teal mb-2">Creative Artistic Journey</h3>
+                    <p class="text-warm-gray mb-4 text-sm">
+                        Beautiful, flowing design with dotted path connections and artistic visual elements. 
+                        Perfect for creative entrepreneurs who appreciate visual storytelling.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="mockups/creative-artistic.html" target="_blank" 
+                           class="flex-1 bg-sage text-white px-4 py-3 rounded-lg font-medium text-center text-sm hover:bg-deep-sage transition-all">
+                            View Demo
+                        </a>
+                        <button class="border border-sage text-sage px-4 py-3 rounded-lg text-sm hover:bg-sage hover:text-white transition-all">
+                            Info
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Coaching -->
+            <div class="mockup-card bg-white rounded-3xl shadow-xl overflow-hidden border border-warm-gray border-opacity-20 animate-slide-up" style="animation-delay: 0.3s">
+                <div class="h-48 bg-gradient-to-br from-cream to-blush flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-teal to-sage rounded-2xl mx-auto mb-3 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-teal font-crimson">Personal Coaching</h4>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold font-crimson text-teal mb-2">Personal Coaching Experience</h3>
+                    <p class="text-warm-gray mb-4 text-sm">
+                        Warm, encouraging tone with personal messages and gentle guidance. 
+                        Feels like having a personal coach cheering you on every step of the way.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="mockups/personal-coaching.html" target="_blank" 
+                           class="flex-1 bg-teal text-white px-4 py-3 rounded-lg font-medium text-center text-sm hover:bg-sage transition-all">
+                            View Demo
+                        </a>
+                        <button class="border border-teal text-teal px-4 py-3 rounded-lg text-sm hover:bg-teal hover:text-white transition-all">
+                            Info
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Productivity Tools -->
+            <div class="mockup-card bg-white rounded-3xl shadow-xl overflow-hidden border border-warm-gray border-opacity-20 animate-slide-up" style="animation-delay: 0.4s">
+                <div class="h-48 bg-gradient-to-br from-light-sage to-cream flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-warm-gray to-teal rounded-2xl mx-auto mb-3 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-teal font-crimson">Productivity Tools</h4>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold font-crimson text-teal mb-2">Productivity-Focused Dashboard</h3>
+                    <p class="text-warm-gray mb-4 text-sm">
+                        Clean, functional interface with clear navigation, metrics, and task management. 
+                        Perfect for goal-oriented users who love tracking progress and staying organized.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="mockups/productivity-tools.html" target="_blank" 
+                           class="flex-1 bg-warm-gray text-white px-4 py-3 rounded-lg font-medium text-center text-sm hover:bg-teal transition-all">
+                            View Demo
+                        </a>
+                        <button class="border border-warm-gray text-warm-gray px-4 py-3 rounded-lg text-sm hover:bg-warm-gray hover:text-white transition-all">
+                            Info
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Original Mockups -->
+            <div class="mockup-card bg-white rounded-3xl shadow-xl overflow-hidden border border-warm-gray border-opacity-20 animate-slide-up" style="animation-delay: 0.5s">
+                <div class="h-48 bg-gradient-to-br from-blush via-cream to-light-sage flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-sage to-warm-gray rounded-2xl mx-auto mb-3 flex items-center justify-center">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-bold text-teal font-crimson">Original Concepts</h4>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold font-crimson text-teal mb-2">Original Design Explorations</h3>
+                    <p class="text-warm-gray mb-4 text-sm">
+                        View the initial design concepts that led to our refined approaches. 
+                        Includes clean professional, creative journey, and dashboard-style layouts.
+                    </p>
+                    <div class="flex flex-col space-y-2">
+                        <a href="mockups/mockup-option-1.html" target="_blank" 
+                           class="bg-sage text-white px-4 py-2 rounded-lg font-medium text-center text-sm hover:bg-deep-sage transition-all">
+                            Option 1: Professional
+                        </a>
+                        <a href="mockups/mockup-option-2.html" target="_blank" 
+                           class="bg-teal text-white px-4 py-2 rounded-lg font-medium text-center text-sm hover:bg-sage transition-all">
+                            Option 2: Journey Flow
+                        </a>
+                        <a href="mockups/mockup-option-3.html" target="_blank" 
+                           class="bg-warm-gray text-white px-4 py-2 rounded-lg font-medium text-center text-sm hover:bg-teal transition-all">
+                            Option 3: Dashboard
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Features Section -->
+        <div class="mt-20 text-center animate-slide-up" style="animation-delay: 0.6s">
+            <h2 class="text-3xl font-bold font-crimson text-teal mb-8">Key Design Principles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-sage border-opacity-20">
+                    <div class="w-16 h-16 bg-sage bg-opacity-10 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-teal font-crimson mb-3">Clear Progress Resumption</h3>
+                    <p class="text-warm-gray text-sm">
+                        Users can instantly see where they left off and what their next step is, 
+                        perfect for sporadic engagement patterns.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-teal border-opacity-20">
+                    <div class="w-16 h-16 bg-teal bg-opacity-10 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-teal font-crimson mb-3">Premium Interactions</h3>
+                    <p class="text-warm-gray text-sm">
+                        Smooth animations, hover effects, and micro-interactions that create 
+                        a premium feel comparable to top-tier brands.
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-warm-gray border-opacity-20">
+                    <div class="w-16 h-16 bg-warm-gray bg-opacity-10 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-warm-gray" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-teal font-crimson mb-3">Authentic Branding</h3>
+                    <p class="text-warm-gray text-sm">
+                        True to Nikita's brand colors, personality, and coaching philosophy, 
+                        creating an authentic extension of the Crafted to Thrive experience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-teal via-sage to-deep-sage text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-3xl font-bold font-crimson mb-4">Ready to Build Your Podcast Empire?</h3>
+            <p class="text-xl text-white text-opacity-90 mb-8 max-w-3xl mx-auto">
+                These mockups represent the transformation of Nikita Williams' comprehensive podcast planner 
+                into modern, engaging digital experiences that help entrepreneurs thrive.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8">
+                <a href="https://github.com/moewill/craftedtothrive" target="_blank" 
+                   class="bg-white text-teal px-8 py-3 rounded-xl font-semibold hover:bg-cream transition-all duration-300 transform hover:scale-105">
+                    <svg class="w-5 h-5 inline mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    View Source Code
+                </a>
+                <a href="mailto:hello@craftedtothrive.com" 
+                   class="border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-teal transition-all duration-300">
+                    Get In Touch
+                </a>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-white border-opacity-20">
+                <p class="text-white text-opacity-70">
+                    Designed with ♥ for Nikita Williams • Crafted to Thrive Podcast Planner • 2024
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

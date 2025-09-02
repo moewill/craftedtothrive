@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crafted to Thrive - Podcast Planner (Option 1: Clean Professional)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: '#6B8E6B',
+                        blush: '#F4E4E1',
+                        cream: '#F8F6F3',
+                        teal: '#4A6B6B',
+                        'warm-gray': '#8B8680'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-cream min-h-screen">
+    
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-sage">Crafted to Thrive</h1>
+                    <span class="ml-2 text-sm text-warm-gray">Podcast Planner</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="text-sm text-warm-gray">Welcome back, Nikita</div>
+                    <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=32&h=32&fit=crop&crop=face" alt="Profile">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Progress Bar -->
+    <div class="bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex items-center justify-between mb-2">
+                <h2 class="text-sm font-medium text-teal">Your Podcast Journey</h2>
+                <span class="text-sm text-warm-gray">3 of 8 sections completed</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-sage h-2 rounded-full transition-all duration-300" style="width: 37.5%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Hero Section -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-teal mb-4">Start Your Podcast Journey</h1>
+            <p class="text-lg text-warm-gray max-w-2xl mx-auto">
+                Transform your expertise into a powerful podcast with our step-by-step planner. 
+                Follow the same 8-section framework from Nikita's comprehensive guide.
+            </p>
+        </div>
+
+        <!-- Section Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            
+            <!-- Section 1: Completed -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 relative">
+                <div class="absolute top-4 right-4">
+                    <div class="w-6 h-6 bg-sage rounded-full flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="w-12 h-12 bg-sage/10 rounded-xl flex items-center justify-center mb-3">
+                        <svg class="w-6 h-6 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-teal mb-2">Purpose-Filled Podcast</h3>
+                    <p class="text-sm text-warm-gray mb-4">Engineer your podcast's mission and vibe</p>
+                </div>
+                <button class="w-full py-2 px-4 bg-sage/10 text-sage rounded-xl text-sm font-medium">
+                    Completed ✓
+                </button>
+            </div>
+
+            <!-- Section 2: Completed -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 relative">
+                <div class="absolute top-4 right-4">
+                    <div class="w-6 h-6 bg-sage rounded-full flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="w-12 h-12 bg-teal/10 rounded-xl flex items-center justify-center mb-3">
+                        <svg class="w-6 h-6 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-teal mb-2">Leverage Your Expertise</h3>
+                    <p class="text-sm text-warm-gray mb-4">Plan your perfect podcast strategy</p>
+                </div>
+                <button class="w-full py-2 px-4 bg-sage/10 text-sage rounded-xl text-sm font-medium">
+                    Completed ✓
+                </button>
+            </div>
+
+            <!-- Section 3: Active -->
+            <div class="bg-white rounded-2xl shadow-md border-2 border-sage p-6 relative transform scale-105">
+                <div class="absolute top-4 right-4">
+                    <div class="w-6 h-6 bg-sage rounded-full flex items-center justify-center animate-pulse">
+                        <span class="text-xs text-white font-bold">3</span>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="w-12 h-12 bg-sage/20 rounded-xl flex items-center justify-center mb-3">
+                        <svg class="w-6 h-6 text-sage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-teal mb-2">Magnetic Episode Plan</h3>
+                    <p class="text-sm text-warm-gray mb-4">Create your episode format and flow</p>
+                </div>
+                <button class="w-full py-2 px-4 bg-sage text-white rounded-xl text-sm font-medium hover:bg-teal transition-colors">
+                    Continue Section
+                </button>
+            </div>
+
+            <!-- Section 4: Upcoming -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 opacity-75">
+                <div class="mb-4">
+                    <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mb-3">
+                        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-600 mb-2">Remarkable Interviewees</h3>
+                    <p class="text-sm text-gray-500 mb-4">Expand your reach with great guests</p>
+                </div>
+                <button class="w-full py-2 px-4 bg-gray-100 text-gray-500 rounded-xl text-sm font-medium cursor-not-allowed">
+                    Locked
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Current Section Detail -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-bold text-teal">Section 3: Engineer a Magnetic Episode Plan & Format</h2>
+                <div class="flex items-center text-sm text-warm-gray">
+                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                    </svg>
+                    Est. 25 minutes
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Content Area -->
+                <div class="lg:col-span-2">
+                    <div class="prose prose-lg max-w-none">
+                        <p class="text-warm-gray mb-6">
+                            Now let's think about the flow of each podcast episode. Do you prefer to go solo or do you want guests to interview? Or do you want to have a mix? There's no right or wrong answer, but if interviewing makes your palms sweaty, start solo and work your way up to having guests.
+                        </p>
+                        
+                        <!-- Interactive Form Section -->
+                        <div class="bg-blush/30 rounded-xl p-6 mb-6">
+                            <h3 class="text-lg font-semibold text-teal mb-4">Choose Your Podcast Format</h3>
+                            
+                            <div class="space-y-4">
+                                <label class="flex items-center p-4 border border-gray-200 rounded-xl cursor-pointer hover:bg-white transition-colors">
+                                    <input type="radio" name="format" class="h-4 w-4 text-sage border-gray-300 focus:ring-sage" checked>
+                                    <div class="ml-3">
+                                        <div class="text-sm font-medium text-teal">Solo Episodes</div>
+                                        <div class="text-xs text-warm-gray">Just you sharing your expertise</div>
+                                    </div>
+                                </label>
+                                
+                                <label class="flex items-center p-4 border border-gray-200 rounded-xl cursor-pointer hover:bg-white transition-colors">
+                                    <input type="radio" name="format" class="h-4 w-4 text-sage border-gray-300 focus:ring-sage">
+                                    <div class="ml-3">
+                                        <div class="text-sm font-medium text-teal">Interview Format</div>
+                                        <div class="text-xs text-warm-gray">Focus on guest conversations</div>
+                                    </div>
+                                </label>
+                                
+                                <label class="flex items-center p-4 border border-gray-200 rounded-xl cursor-pointer hover:bg-white transition-colors">
+                                    <input type="radio" name="format" class="h-4 w-4 text-sage border-gray-300 focus:ring-sage">
+                                    <div class="ml-3">
+                                        <div class="text-sm font-medium text-teal">Mixed Format</div>
+                                        <div class="text-xs text-warm-gray">Combination of solo and interview episodes</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Episode Flow Builder -->
+                        <div class="bg-white border border-gray-200 rounded-xl p-6">
+                            <h3 class="text-lg font-semibold text-teal mb-4">Build Your Episode Flow</h3>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-sage text-white px-3 py-1 rounded-full text-sm">Intro</span>
+                                <span class="bg-teal text-white px-3 py-1 rounded-full text-sm">Main Content</span>
+                                <span class="bg-sage text-white px-3 py-1 rounded-full text-sm">Call to Action</span>
+                                <span class="bg-teal text-white px-3 py-1 rounded-full text-sm">Outro</span>
+                            </div>
+                            <button class="text-sage text-sm font-medium hover:text-teal">+ Add Segment</button>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="space-y-6">
+                    
+                    <!-- Progress Card -->
+                    <div class="bg-sage/10 rounded-xl p-4">
+                        <h4 class="font-semibold text-teal mb-2">Section Progress</h4>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+                            <div class="bg-sage h-2 rounded-full" style="width: 60%"></div>
+                        </div>
+                        <div class="text-xs text-warm-gray">3 of 5 exercises completed</div>
+                    </div>
+
+                    <!-- Quick Tips -->
+                    <div class="bg-white border border-gray-200 rounded-xl p-4">
+                        <h4 class="font-semibold text-teal mb-3">💡 Quick Tips</h4>
+                        <ul class="text-sm text-warm-gray space-y-2">
+                            <li class="flex items-start">
+                                <span class="text-sage mr-2">•</span>
+                                <span>Start with 15-30 minute episodes</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-sage mr-2">•</span>
+                                <span>Keep your format consistent</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-sage mr-2">•</span>
+                                <span>Always include a clear call to action</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="space-y-3">
+                        <button class="w-full py-3 px-4 bg-sage text-white rounded-xl font-medium hover:bg-teal transition-colors">
+                            Save & Continue
+                        </button>
+                        <button class="w-full py-3 px-4 border border-gray-200 text-warm-gray rounded-xl font-medium hover:bg-gray-50 transition-colors">
+                            Save Draft
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-100 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-sm text-warm-gray">
+                <p>© 2024 Crafted to Thrive. Created with 💜 by Nikita Williams</p>
+                <p class="mt-1">From the "She's Crafted to Thrive™" podcast community</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

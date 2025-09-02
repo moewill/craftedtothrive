@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crafted to Thrive - Creative Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Primary brand colors from ChatGPT guide  
+                        'brand-primary': {
+                            50: '#F5F7FF',
+                            100: '#EAF0FF', 
+                            500: '#4A63FF',
+                            700: '#2C3BCC',
+                            900: '#1A237A'
+                        },
+                        'brand-accent': {
+                            500: '#FF6B3D'
+                        },
+                        // Neutrals
+                        'neutral': {
+                            0: '#FFFFFF',
+                            50: '#F7F7F8',
+                            100: '#EFEFF1',
+                            300: '#D5D7DB',
+                            600: '#636773',
+                            900: '#111318'
+                        }
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'system-ui', 'sans-serif'],
+                        'crimson': ['Crimson Pro', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Artistic visual elements */
+        .journey-path {
+            background: linear-gradient(135deg, #4A63FF 0%, #FF6B3D 100%);
+            mask: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3cdefs%3e%3cpattern id='dotted' patternUnits='userSpaceOnUse' width='8' height='8'%3e%3ccircle cx='4' cy='4' r='1.5' fill='%23000'/%3e%3c/pattern%3e%3c/defs%3e%3crect width='100%25' height='100%25' fill='url(%23dotted)'/%3e%3c/svg%3e");
+            -webkit-mask: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3cdefs%3e%3cpattern id='dotted' patternUnits='userSpaceOnUse' width='8' height='8'%3e%3ccircle cx='4' cy='4' r='1.5' fill='%23000'/%3e%3c/pattern%3e%3c/defs%3e%3crect width='100%25' height='100%25' fill='url(%23dotted)'/%3e%3c/svg%3e");
+        }
+
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .creative-card {
+            background: linear-gradient(135deg, rgba(245, 247, 255, 0.8) 0%, rgba(255, 255, 255, 0.9) 100%);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-neutral-50 to-brand-primary-50 text-neutral-900 min-h-screen">
+    
+    <!-- Artistic Header -->
+    <header class="relative overflow-hidden">
+        <!-- Background pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="dots" patternUnits="userSpaceOnUse" width="20" height="20">
+                        <circle cx="10" cy="10" r="1.5" fill="#4A63FF"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#dots)"/>
+            </svg>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                <div class="mb-6 lg:mb-0">
+                    <h1 class="text-4xl lg:text-5xl font-bold font-crimson text-brand-primary-900 mb-3">
+                        Your Podcast Journey
+                    </h1>
+                    <p class="text-xl text-neutral-600 font-inter">
+                        Where creativity meets strategy • <span class="text-brand-accent-500">3 of 8 milestones reached</span>
+                    </p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="text-right">
+                        <p class="text-sm font-medium text-brand-primary-700">Welcome back, Sarah</p>
+                        <p class="text-xs text-neutral-600">Last active: Episode Planning</p>
+                    </div>
+                    <div class="w-12 h-12 bg-gradient-to-br from-brand-accent-500 to-brand-primary-500 rounded-2xl flex items-center justify-center shadow-lg">
+                        <span class="text-white font-bold text-lg">S</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Visual Journey Path -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- Journey Overview -->
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-brand-primary-900 font-crimson mb-4">Your Creative Path</h2>
+            <p class="text-lg text-neutral-600 max-w-2xl mx-auto">
+                Every great podcast starts with a spark of purpose. Follow your personalized journey from concept to community.
+            </p>
+        </div>
+
+        <!-- Journey Flow -->
+        <div class="relative">
+            <!-- Connection Lines -->
+            <div class="absolute inset-0 flex items-center justify-center">
+                <svg class="w-full h-full" viewBox="0 0 1200 800" fill="none">
+                    <!-- Completed path (dotted gradient) -->
+                    <path d="M150,200 Q300,100 450,180 Q600,260 750,200" 
+                          stroke="url(#completedGradient)" 
+                          stroke-width="4" 
+                          stroke-dasharray="8,6" 
+                          fill="none" 
+                          opacity="0.8"/>
+                    
+                    <!-- Current progress (pulsing) -->
+                    <path d="M750,200 Q900,140 1050,220" 
+                          stroke="#4A63FF" 
+                          stroke-width="4" 
+                          stroke-dasharray="8,6" 
+                          fill="none" 
+                          opacity="0.6">
+                        <animate attributeName="stroke-dashoffset" 
+                                 values="0;-28" 
+                                 dur="2s" 
+                                 repeatCount="indefinite"/>
+                    </path>
+                    
+                    <!-- Future path (faded) -->
+                    <path d="M150,450 Q300,350 450,420 Q600,500 750,440 Q900,380 1050,460" 
+                          stroke="#D5D7DB" 
+                          stroke-width="2" 
+                          stroke-dasharray="4,8" 
+                          fill="none" 
+                          opacity="0.4"/>
+                    
+                    <defs>
+                        <linearGradient id="completedGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#4A63FF;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FF6B3D;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Journey Milestones -->
+            <div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                
+                <!-- Milestone 1: Purpose - Completed -->
+                <div class="floating-element creative-card rounded-3xl p-8 border border-brand-primary-100 shadow-xl">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-brand-primary-500 to-brand-accent-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-crimson text-brand-primary-900 mb-3">Purpose Discovered</h3>
+                        <p class="text-sm text-neutral-600 mb-4">Your unique mission is clear and compelling</p>
+                        <div class="inline-flex items-center text-xs text-brand-primary-700 bg-brand-primary-50 px-3 py-1 rounded-full">
+                            ✨ Complete
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Milestone 2: Expertise - Completed -->
+                <div class="floating-element creative-card rounded-3xl p-8 border border-brand-accent-100 shadow-xl" style="animation-delay: -2s">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-brand-accent-500 to-brand-primary-700 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-crimson text-brand-primary-900 mb-3">Authority Built</h3>
+                        <p class="text-sm text-neutral-600 mb-4">Your expertise shines as your unique advantage</p>
+                        <div class="inline-flex items-center text-xs text-brand-accent-700 bg-orange-50 px-3 py-1 rounded-full">
+                            🎯 Complete
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Milestone 3: Episodes - Current -->
+                <div class="floating-element creative-card rounded-3xl p-8 border-2 border-brand-primary-500 shadow-2xl transform scale-105" style="animation-delay: -4s">
+                    <div class="text-center relative">
+                        <!-- Pulsing indicator -->
+                        <div class="absolute -top-2 -right-2 w-4 h-4 bg-brand-primary-500 rounded-full animate-ping"></div>
+                        <div class="absolute -top-2 -right-2 w-4 h-4 bg-brand-primary-500 rounded-full"></div>
+                        
+                        <div class="w-16 h-16 bg-gradient-to-br from-brand-primary-500 to-brand-primary-700 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-crimson text-brand-primary-900 mb-3">Episodes Crafting</h3>
+                        <p class="text-sm text-neutral-600 mb-4">Creating magnetic content that captivates</p>
+                        
+                        <!-- Progress indicator -->
+                        <div class="w-full bg-neutral-100 rounded-full h-2 mb-3">
+                            <div class="bg-gradient-to-r from-brand-primary-500 to-brand-accent-500 h-2 rounded-full transition-all duration-1000" style="width: 75%"></div>
+                        </div>
+                        
+                        <div class="inline-flex items-center text-xs text-brand-primary-700 bg-brand-primary-100 px-3 py-1 rounded-full">
+                            🎨 75% Complete
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Milestone 4: Network - Next -->
+                <div class="creative-card rounded-3xl p-8 border border-neutral-200 shadow-lg opacity-70">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-neutral-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-neutral-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold font-crimson text-neutral-600 mb-3">Network Expansion</h3>
+                        <p class="text-sm text-neutral-500 mb-4">Connect with inspiring guests</p>
+                        <div class="inline-flex items-center text-xs text-neutral-500 bg-neutral-100 px-3 py-1 rounded-full">
+                            🔒 Unlock Soon
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Continue Your Journey CTA -->
+            <div class="text-center mb-12">
+                <button class="bg-gradient-to-r from-brand-primary-500 to-brand-accent-500 text-white px-8 py-4 rounded-2xl font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-200">
+                    Continue Your Journey →
+                </button>
+                <p class="text-sm text-neutral-600 mt-4">You're doing amazing! Let's keep building your podcast empire.</p>
+            </div>
+        </div>
+
+        <!-- Current Focus: Episode Planning -->
+        <div class="bg-white rounded-3xl shadow-2xl border border-neutral-100 overflow-hidden">
+            <div class="bg-gradient-to-r from-brand-primary-500 to-brand-accent-500 text-white p-8">
+                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                    <div>
+                        <h2 class="text-3xl font-bold font-crimson mb-3">✨ Magnetic Episode Planning</h2>
+                        <p class="text-brand-primary-100 text-lg">Transform your ideas into captivating content that keeps listeners coming back</p>
+                    </div>
+                    <div class="mt-4 lg:mt-0 text-right">
+                        <div class="text-4xl font-bold mb-1">75%</div>
+                        <div class="text-sm opacity-80">Complete</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="p-8">
+                <!-- Simple, Clear Actions -->
+                <div class="max-w-4xl mx-auto">
+                    
+                    <!-- Current Episode -->
+                    <div class="bg-gradient-to-r from-brand-primary-50 to-neutral-50 rounded-2xl p-6 mb-8 border border-brand-primary-100">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold font-crimson text-brand-primary-900">
+                                🎙️ Current Episode: "Building Authentic Business Relationships"
+                            </h3>
+                            <span class="text-sm text-brand-accent-500 font-medium">Episode 003</span>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-brand-primary-700 mb-1">12</div>
+                                <div class="text-sm text-neutral-600">Key Points Defined</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-brand-accent-500 mb-1">45</div>
+                                <div class="text-sm text-neutral-600">Minutes Planned</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-brand-primary-700 mb-1">3</div>
+                                <div class="text-sm text-neutral-600">Action Steps Ready</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Clear Next Steps -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        
+                        <!-- Primary Action -->
+                        <div class="bg-gradient-to-br from-brand-primary-500 to-brand-primary-700 text-white rounded-2xl p-8 shadow-xl">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-white bg-opacity-20 rounded-xl flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold font-crimson">Finish Episode Outline</h3>
+                            </div>
+                            <p class="text-brand-primary-100 mb-6">Complete the remaining discussion points and wrap up your episode structure.</p>
+                            <button class="w-full bg-white text-brand-primary-700 px-6 py-3 rounded-xl font-semibold hover:bg-neutral-50 transition-colors">
+                                Continue Writing →
+                            </button>
+                        </div>
+
+                        <!-- Secondary Actions -->
+                        <div class="space-y-4">
+                            <div class="bg-white border border-neutral-200 rounded-2xl p-6 hover:border-brand-primary-300 transition-colors">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-brand-accent-100 rounded-lg flex items-center justify-center mr-3">
+                                            <svg class="w-5 h-5 text-brand-accent-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                            </svg>
+                                        </div>
+                                        <span class="font-medium text-neutral-900">View All Episodes</span>
+                                    </div>
+                                    <svg class="w-5 h-5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white border border-neutral-200 rounded-2xl p-6 hover:border-brand-primary-300 transition-colors">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="w-10 h-10 bg-brand-primary-100 rounded-lg flex items-center justify-center mr-3">
+                                            <svg class="w-5 h-5 text-brand-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                            </svg>
+                                        </div>
+                                        <span class="font-medium text-neutral-900">Start New Episode</span>
+                                    </div>
+                                    <svg class="w-5 h-5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-20 bg-neutral-900 text-neutral-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold font-crimson text-white mb-4">Crafted to Thrive</h3>
+                <p class="text-neutral-400 mb-6">Your journey to podcast mastery, one authentic step at a time.</p>
+                <div class="flex justify-center space-x-8 text-sm">
+                    <a href="#" class="hover:text-white transition-colors">Get Support</a>
+                    <a href="#" class="hover:text-white transition-colors">Export Progress</a>
+                    <a href="#" class="hover:text-white transition-colors">Settings</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

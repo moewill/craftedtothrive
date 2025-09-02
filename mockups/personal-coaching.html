@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crafted to Thrive - Your Personal Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Warmer, more personal palette based on ChatGPT guide
+                        'brand-primary': {
+                            50: '#F5F7FF',
+                            100: '#EAF0FF', 
+                            500: '#4A63FF',
+                            700: '#2C3BCC',
+                            900: '#1A237A'
+                        },
+                        'brand-accent': {
+                            500: '#FF6B3D',
+                            600: '#F55A2C'
+                        },
+                        'neutral': {
+                            0: '#FFFFFF',
+                            50: '#F7F7F8',
+                            100: '#EFEFF1',
+                            300: '#D5D7DB',
+                            600: '#636773',
+                            900: '#111318'
+                        },
+                        // Warm, coaching colors
+                        'warm': {
+                            50: '#FDF7F0',
+                            100: '#FCE7D6',
+                            200: '#F9D0B4',
+                            500: '#E17B47'
+                        }
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'system-ui', 'sans-serif'],
+                        'crimson': ['Crimson Pro', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .handwritten {
+            font-family: 'Crimson Pro', serif;
+            font-style: italic;
+        }
+        .warm-gradient {
+            background: linear-gradient(135deg, #FDF7F0 0%, #F5F7FF 100%);
+        }
+    </style>
+</head>
+<body class="warm-gradient text-neutral-900 font-inter">
+    
+    <!-- Personal Header -->
+    <header class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-brand-primary-50 via-neutral-0 to-warm-50"></div>
+        <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center mb-8">
+                <div class="w-24 h-24 bg-gradient-to-br from-brand-accent-500 to-warm-500 rounded-full mx-auto mb-6 flex items-center justify-center shadow-lg">
+                    <span class="text-2xl font-bold text-white">SW</span>
+                </div>
+                <h1 class="text-4xl lg:text-5xl font-bold font-crimson text-brand-primary-900 mb-4">
+                    Hey there, Sarah! 👋
+                </h1>
+                <p class="text-xl text-neutral-600 max-w-2xl mx-auto">
+                    Welcome back to your podcast creation journey. I'm so proud of how far you've come – 
+                    <span class="text-brand-accent-500 font-medium">you're 37.5% of the way there!</span>
+                </p>
+            </div>
+            
+            <!-- Personal Progress Celebration -->
+            <div class="max-w-2xl mx-auto bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-neutral-100">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl font-bold font-crimson text-brand-primary-900 mb-3">Your Journey So Far</h2>
+                    <p class="text-neutral-600 handwritten">Every step forward is a victory worth celebrating</p>
+                </div>
+                
+                <div class="flex items-center justify-center mb-6">
+                    <div class="flex space-x-4">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gradient-to-br from-brand-primary-500 to-brand-accent-500 rounded-full flex items-center justify-center mb-2">
+                                <span class="text-2xl font-bold text-white">3</span>
+                            </div>
+                            <p class="text-sm font-medium text-neutral-600">Sections<br>Complete</p>
+                        </div>
+                        <div class="flex items-center px-4">
+                            <div class="w-8 h-1 bg-gradient-to-r from-brand-primary-500 to-brand-accent-500 rounded-full"></div>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-neutral-200 rounded-full flex items-center justify-center mb-2">
+                                <span class="text-2xl font-bold text-neutral-500">5</span>
+                            </div>
+                            <p class="text-sm font-medium text-neutral-600">More to<br>Discover</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-lg font-medium text-brand-primary-700 mb-2">You're building something amazing ✨</p>
+                    <p class="text-sm text-neutral-600 handwritten">"The secret to getting ahead is getting started." - You've already started!</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- Personal Journey Map -->
+        <div class="mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold font-crimson text-brand-primary-900 mb-4">Your Personal Podcast Path</h2>
+                <p class="text-lg text-neutral-600 max-w-3xl mx-auto">
+                    This isn't just any path – it's <em>your</em> path. Designed around your unique story, 
+                    your expertise, and your dreams of making a real impact through podcasting.
+                </p>
+            </div>
+
+            <!-- Story-driven sections -->
+            <div class="space-y-8">
+                
+                <!-- Completed: Your Foundation -->
+                <div class="flex flex-col lg:flex-row items-center lg:items-start space-y-6 lg:space-y-0 lg:space-x-8">
+                    <div class="flex-shrink-0">
+                        <div class="w-20 h-20 bg-gradient-to-br from-brand-primary-500 to-brand-accent-500 rounded-2xl flex items-center justify-center shadow-lg">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex-1 bg-white rounded-2xl p-8 shadow-lg border border-neutral-100">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold font-crimson text-brand-primary-900">Your Heart & Purpose</h3>
+                            <span class="bg-brand-primary-100 text-brand-primary-700 text-sm font-medium px-3 py-1 rounded-full">✓ Discovered</span>
+                        </div>
+                        <p class="text-neutral-600 mb-4">
+                            Remember when you first felt that spark? That moment when you knew your story could help others? 
+                            You've captured that beautiful vision and turned it into a clear, compelling mission.
+                        </p>
+                        <div class="bg-brand-primary-50 rounded-xl p-4">
+                            <p class="text-brand-primary-800 font-medium handwritten">
+                                "Your podcast will be a beacon for entrepreneurs who feel lost in the noise – 
+                                showing them how to build authentic, purpose-driven businesses."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col lg:flex-row items-center lg:items-start space-y-6 lg:space-y-0 lg:space-x-8">
+                    <div class="flex-shrink-0">
+                        <div class="w-20 h-20 bg-gradient-to-br from-brand-accent-500 to-warm-500 rounded-2xl flex items-center justify-center shadow-lg">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex-1 bg-white rounded-2xl p-8 shadow-lg border border-neutral-100">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold font-crimson text-brand-primary-900">Your Unique Expertise</h3>
+                            <span class="bg-warm-100 text-warm-700 text-sm font-medium px-3 py-1 rounded-full">✓ Defined</span>
+                        </div>
+                        <p class="text-neutral-600 mb-4">
+                            You've done the deep work of recognizing what makes you special. Your unique blend of experience, 
+                            wisdom, and perspective isn't just valuable – it's exactly what your future listeners need to hear.
+                        </p>
+                        <div class="bg-warm-50 rounded-xl p-4">
+                            <p class="text-warm-800 font-medium handwritten">
+                                "Your journey from corporate burnout to thriving entrepreneur gives you a rare perspective 
+                                that resonates with so many ambitious professionals."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Current: Your Stories -->
+                <div class="flex flex-col lg:flex-row items-center lg:items-start space-y-6 lg:space-y-0 lg:space-x-8">
+                    <div class="flex-shrink-0">
+                        <div class="w-20 h-20 bg-gradient-to-br from-brand-primary-500 to-brand-primary-700 rounded-2xl flex items-center justify-center shadow-lg ring-4 ring-brand-primary-200 ring-opacity-50">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex-1 bg-gradient-to-br from-brand-primary-50 to-neutral-0 rounded-2xl p-8 shadow-lg border-2 border-brand-primary-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold font-crimson text-brand-primary-900">Your Stories Come Alive</h3>
+                            <div class="text-right">
+                                <span class="bg-brand-primary-500 text-white text-sm font-medium px-3 py-1 rounded-full">🎯 In Progress</span>
+                                <p class="text-sm text-brand-primary-700 mt-1">75% there!</p>
+                            </div>
+                        </div>
+                        <p class="text-neutral-700 mb-4">
+                            This is where the magic happens, Sarah! You're taking all that beautiful purpose and expertise 
+                            and weaving it into episodes that will genuinely change lives. Each episode is like a letter 
+                            to someone who needs exactly what you have to offer.
+                        </p>
+                        
+                        <!-- Current Episode Focus -->
+                        <div class="bg-white rounded-xl p-6 mb-4 border border-brand-primary-100">
+                            <h4 class="text-lg font-bold text-brand-primary-900 mb-3">
+                                💫 Currently Crafting: "Building Authentic Business Relationships"
+                            </h4>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-brand-accent-500 mb-1">12</div>
+                                    <div class="text-sm text-neutral-600">Personal insights<br>to share</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-brand-primary-600 mb-1">5</div>
+                                    <div class="text-sm text-neutral-600">Actionable tips<br>for listeners</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-warm-600 mb-1">3</div>
+                                    <div class="text-sm text-neutral-600">Stories that<br>inspire change</div>
+                                </div>
+                            </div>
+                            <div class="w-full bg-brand-primary-100 rounded-full h-3 mb-3">
+                                <div class="bg-gradient-to-r from-brand-primary-500 to-brand-accent-500 h-3 rounded-full transition-all duration-1000" style="width: 75%"></div>
+                            </div>
+                            <p class="text-sm text-brand-primary-700 handwritten">You're so close to completing another episode that will touch hearts and change minds!</p>
+                        </div>
+                        
+                        <button class="w-full bg-brand-primary-500 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:bg-brand-primary-600 transition-colors">
+                            Continue Your Story →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Upcoming: Your Community -->
+                <div class="flex flex-col lg:flex-row items-center lg:items-start space-y-6 lg:space-y-0 lg:space-x-8 opacity-70">
+                    <div class="flex-shrink-0">
+                        <div class="w-20 h-20 bg-neutral-300 rounded-2xl flex items-center justify-center shadow-lg">
+                            <svg class="w-10 h-10 text-neutral-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex-1 bg-neutral-100 rounded-2xl p-8 shadow-lg border border-neutral-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold font-crimson text-neutral-700">Your Inspiring Guests</h3>
+                            <span class="bg-neutral-200 text-neutral-600 text-sm font-medium px-3 py-1 rounded-full">Coming Soon</span>
+                        </div>
+                        <p class="text-neutral-600 mb-4">
+                            Soon, you'll be connecting with incredible guests who align with your mission. 
+                            These conversations will add new dimensions to your podcast and create lasting relationships.
+                        </p>
+                        <div class="bg-neutral-200 rounded-xl p-4">
+                            <p class="text-neutral-700 font-medium handwritten">
+                                "Imagine the meaningful conversations you'll have with fellow entrepreneurs who share your values..."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Personal Encouragement & Next Steps -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Encouragement -->
+            <div class="bg-gradient-to-br from-warm-50 to-brand-primary-50 rounded-3xl p-8 border border-warm-200">
+                <div class="text-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-br from-brand-accent-500 to-warm-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-2xl">💝</span>
+                    </div>
+                    <h3 class="text-2xl font-bold font-crimson text-brand-primary-900 mb-3">A Personal Note for You</h3>
+                </div>
+                
+                <div class="space-y-4 text-center">
+                    <p class="text-lg text-neutral-700 handwritten">
+                        "Sarah, I see you showing up consistently, doing the work that matters, 
+                        and staying true to your vision even when it gets challenging."
+                    </p>
+                    <p class="text-neutral-600">
+                        Your podcast isn't just another show in the sea of content – it's going to be a lighthouse 
+                        for people who are navigating the same storms you once faced. Keep going. The world needs your voice.
+                    </p>
+                    <p class="text-sm text-brand-accent-500 font-medium">
+                        — Nikita Williams, your guide on this journey
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Next Steps -->
+            <div class="bg-white rounded-3xl p-8 shadow-lg border border-neutral-100">
+                <h3 class="text-2xl font-bold font-crimson text-brand-primary-900 mb-6">Your Next Gentle Steps</h3>
+                
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-4 p-4 bg-brand-primary-50 rounded-xl border border-brand-primary-100">
+                        <div class="flex-shrink-0 w-8 h-8 bg-brand-primary-500 rounded-lg flex items-center justify-center">
+                            <span class="text-white text-sm font-bold">1</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-brand-primary-900 mb-1">Finish Your Current Episode</h4>
+                            <p class="text-sm text-brand-primary-700">You're so close! Just the closing and call-to-action left.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4 p-4 bg-neutral-50 rounded-xl">
+                        <div class="flex-shrink-0 w-8 h-8 bg-neutral-300 rounded-lg flex items-center justify-center">
+                            <span class="text-neutral-600 text-sm font-bold">2</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-neutral-700 mb-1">Celebrate This Win</h4>
+                            <p class="text-sm text-neutral-600">Take a moment to acknowledge how far you've come.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4 p-4 bg-neutral-50 rounded-xl">
+                        <div class="flex-shrink-0 w-8 h-8 bg-neutral-300 rounded-lg flex items-center justify-center">
+                            <span class="text-neutral-600 text-sm font-bold">3</span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-neutral-700 mb-1">Plan Your Next Episode</h4>
+                            <p class="text-sm text-neutral-600">When you're ready, we'll dive into your next story together.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <button class="bg-gradient-to-r from-brand-primary-500 to-brand-accent-500 text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all">
+                        Let's Continue Together
+                    </button>
+                    <p class="text-sm text-neutral-600 mt-3 handwritten">One step at a time, one story at a time.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Warm Footer -->
+    <footer class="mt-20 bg-gradient-to-r from-brand-primary-900 to-neutral-900 text-neutral-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center">
+                <h3 class="text-3xl font-bold font-crimson text-white mb-4">You're Not Alone on This Journey</h3>
+                <p class="text-xl text-brand-primary-100 mb-8">
+                    Every great podcast starts with courage to share your story. You have that courage.
+                </p>
+                <div class="flex justify-center space-x-8 text-sm">
+                    <a href="#" class="hover:text-white transition-colors">Get Personal Support</a>
+                    <a href="#" class="hover:text-white transition-colors">Share Your Progress</a>
+                    <a href="#" class="hover:text-white transition-colors">Community</a>
+                </div>
+                <div class="mt-8 pt-8 border-t border-neutral-700">
+                    <p class="text-sm text-neutral-400">
+                        Crafted with love by Nikita Williams • Your podcast journey companion
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
