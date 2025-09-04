@@ -95,20 +95,21 @@
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-baby-pink via-gainsboro to-cookies-cream font-muli">
+<body class="bg-gradient-to-br from-white via-gray-50 to-baby-pink/10 font-muli">
     <!-- Header with Warm Welcome -->
-    <header class="warm-gradient shadow-lg">
+    <header class="bg-white shadow-lg border-b border-baby-pink/20">
         <div class="max-w-7xl mx-auto px-6 py-8">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-4">
-                    <img src="../brand-assets/New Branding Kit/Thrive-with-Nikita-Logo-Main.png" alt="Thrive with Nikita" class="h-16 warm-float">
+                    <img src="../brand-assets/New Branding Kit/Web Files/Thrive-with-Nikita-Logo-Main.png" alt="Thrive with Nikita" class="h-16 warm-float">
                     <div>
-                        <h1 class="text-3xl font-crimson font-semibold text-white">Your Podcast Journey</h1>
-                        <p class="text-white/90 font-muli font-light">Where dreams become reality, one episode at a time</p>
+                        <h1 class="text-3xl font-crimson font-semibold text-pewter-blue">Your Podcast Journey</h1>
+                        <p class="text-gray-600 font-muli font-light">Where dreams become reality, one episode at a time</p>
                     </div>
                 </div>
-                <div class="hidden md:flex items-center space-x-6 text-white">
-                    <span class="font-muli font-light">✨ You're doing amazing</span>
+                <div class="hidden md:flex items-center space-x-6">
+                    <img src="../brand-assets/New Branding Kit/Web Files/Thrive-With-Nikita-Submark.png" alt="Thrive Icon" class="h-8 warm-float">
+                    <span class="font-muli font-light text-coral">✨ You're doing amazing</span>
                 </div>
             </div>
         </div>
@@ -147,13 +148,120 @@
                     </div>
                     <div class="lg:w-1/3">
                         <div class="relative">
-                            <img src="../brand-assets/New Branding Kit/TWN_310.jpg" alt="Coach Nikita" class="rounded-2xl shadow-2xl gentle-pulse">
+                            <img src="../brand-assets/Headshot, BTS & Show Logo/TWN_310.jpg" alt="Coach Nikita" class="rounded-2xl shadow-2xl gentle-pulse">
                             <div class="absolute -bottom-4 -right-4 bg-white rounded-xl p-4 shadow-lg warm-float">
                                 <p class="coach-signature text-sm">You've got this!</p>
                                 <p class="coach-signature text-xs">- Nikita ✨</p>
                             </div>
+                            <img src="../brand-assets/New Branding Kit/Web Files/Thrive-With-Nikita-Submark-2.png" alt="Decorative Icon" class="absolute -top-6 -left-6 h-12 warm-float opacity-80">
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Journey Map -->
+        <section class="mb-16">
+            <div class="coaching-card bg-white rounded-3xl p-10 encouraging-glow">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-crimson font-semibold text-pewter-blue mb-4">Your Interactive Journey Map</h2>
+                    <p class="text-gray-600 font-muli font-light text-lg">Click any section to see your progress and next steps</p>
+                </div>
+                
+                <!-- Journey Path Visualization -->
+                <div class="relative bg-gradient-to-br from-baby-pink/10 to-cookies-cream/20 rounded-2xl p-8 mb-8">
+                    <!-- SVG Journey Path -->
+                    <svg class="w-full h-64" viewBox="0 0 800 200" preserveAspectRatio="xMidYMid meet">
+                        <!-- Completed path -->
+                        <path d="M50,100 Q200,60 350,100 T650,100" stroke="#F18070" stroke-width="4" fill="none" stroke-dasharray="0" class="progress-warmth"/>
+                        <!-- Future path -->
+                        <path d="M650,100 Q750,120 800,100" stroke="#D8D7DF" stroke-width="2" fill="none" stroke-dasharray="8,4"/>
+                        
+                        <!-- Progress particles -->
+                        <circle cx="50" cy="100" r="3" fill="#F18070" class="gentle-pulse"/>
+                        <circle cx="200" cy="80" r="2" fill="#F5CABF" class="warm-float"/>
+                        <circle cx="400" cy="100" r="2" fill="#81B0AA" class="warm-float" style="animation-delay: -1s;"/>
+                    </svg>
+                    
+                    <!-- Journey Milestones -->
+                    <div class="absolute inset-0 flex items-center justify-between px-12">
+                        <!-- Milestone 1 - Completed -->
+                        <div class="text-center coaching-card cursor-pointer hover:scale-110 transition-transform duration-300">
+                            <div class="w-16 h-16 bg-pewter-blue rounded-full flex items-center justify-center mb-3 shadow-lg gentle-pulse">
+                                <span class="text-white font-semibold text-lg">1</span>
+                            </div>
+                            <h4 class="font-crimson font-semibold text-pewter-blue text-sm">Foundation</h4>
+                            <p class="text-xs text-gray-600 font-muli">Complete ✅</p>
+                        </div>
+                        
+                        <!-- Milestone 2 - Completed -->
+                        <div class="text-center coaching-card cursor-pointer hover:scale-110 transition-transform duration-300">
+                            <div class="w-16 h-16 bg-coral rounded-full flex items-center justify-center mb-3 shadow-lg gentle-pulse">
+                                <span class="text-white font-semibold text-lg">2</span>
+                            </div>
+                            <h4 class="font-crimson font-semibold text-coral text-sm">Audience</h4>
+                            <p class="text-xs text-gray-600 font-muli">Complete ✅</p>
+                        </div>
+                        
+                        <!-- Milestone 3 - Current -->
+                        <div class="text-center coaching-card cursor-pointer hover:scale-110 transition-transform duration-300">
+                            <div class="w-20 h-20 bg-baby-pink rounded-full flex items-center justify-center mb-3 shadow-xl border-4 border-coral progress-indicator ring-4 ring-coral/30">
+                                <span class="text-coral font-semibold text-xl">3</span>
+                            </div>
+                            <h4 class="font-crimson font-semibold text-coral text-sm">Episodes</h4>
+                            <p class="text-xs text-coral font-muli font-semibold">Active 🎯</p>
+                        </div>
+                        
+                        <!-- Milestone 4 - Next -->
+                        <div class="text-center coaching-card cursor-pointer hover:scale-110 transition-transform duration-300">
+                            <div class="w-14 h-14 bg-gainsboro rounded-full flex items-center justify-center mb-3 shadow-md warm-float">
+                                <span class="text-gray-600 font-semibold">4</span>
+                            </div>
+                            <h4 class="font-crimson font-semibold text-gray-600 text-sm">Content</h4>
+                            <p class="text-xs text-gray-500 font-muli">Up Next 🌟</p>
+                        </div>
+                        
+                        <!-- Milestone 5 - Future -->
+                        <div class="text-center coaching-card cursor-pointer hover:scale-110 transition-transform duration-300">
+                            <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mb-3 shadow-sm">
+                                <span class="text-gray-500 font-semibold text-sm">5</span>
+                            </div>
+                            <h4 class="font-crimson font-semibold text-gray-500 text-xs">Recording</h4>
+                            <p class="text-xs text-gray-400 font-muli">Soon ✨</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Journey Insights -->
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-gradient-to-br from-pewter-blue/10 to-baby-pink/10 rounded-xl p-6 text-center">
+                        <img src="../brand-assets/New Branding Kit/Web Files/Thrive-With-Nikita-Submark.png" alt="Completed" class="h-8 mx-auto mb-3 gentle-pulse">
+                        <h4 class="font-crimson font-semibold text-pewter-blue mb-2">2 Sections Complete</h4>
+                        <p class="font-muli font-light text-gray-600 text-sm">You're building momentum beautifully!</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-coral/10 to-baby-pink/10 rounded-xl p-6 text-center">
+                        <img src="../brand-assets/New Branding Kit/Web Files/Thrive-With-Nikita-Submark-2.png" alt="Current" class="h-8 mx-auto mb-3 progress-indicator">
+                        <h4 class="font-crimson font-semibold text-coral mb-2">75% Through Section 3</h4>
+                        <p class="font-muli font-light text-gray-600 text-sm">Your episode structure is taking shape!</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-cookies-cream/10 to-gainsboro/10 rounded-xl p-6 text-center">
+                        <img src="../brand-assets/New Branding Kit/Web Files/Thrive-With-Nikita-Submark-3.png" alt="Upcoming" class="h-8 mx-auto mb-3 warm-float">
+                        <h4 class="font-crimson font-semibold text-gray-700 mb-2">5 Exciting Sections Ahead</h4>
+                        <p class="font-muli font-light text-gray-600 text-sm">Amazing content creation awaits you!</p>
+                    </div>
+                </div>
+                
+                <!-- Encouraging Message -->
+                <div class="mt-8 text-center">
+                    <p class="text-lg font-muli font-light text-gray-700 mb-4">
+                        <span class="font-semibold text-coral">Remember:</span> Every successful podcast started exactly where you are. 
+                        You're not just planning episodes – you're crafting a legacy. ✨
+                    </p>
+                    <button class="encouraging-glow bg-coral text-white px-8 py-3 rounded-xl font-muli font-semibold hover:bg-coral/90 transition-all duration-300">
+                        Continue Your Beautiful Journey
+                    </button>
                 </div>
             </div>
         </section>
@@ -327,16 +435,19 @@
     </main>
 
     <!-- Warm Footer -->
-    <footer class="warm-gradient text-white py-12">
+    <footer class="bg-white border-t border-baby-pink/20 py-12">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center justify-between">
                 <div class="mb-6 md:mb-0">
-                    <img src="../brand-assets/New Branding Kit/Thrive-with-Nikita-Logo-Main.png" alt="Thrive with Nikita" class="h-12 mb-4 warm-float">
-                    <p class="font-muli font-light text-white/90">Building podcasts with purpose, heart, and authenticity</p>
+                    <img src="../brand-assets/New Branding Kit/Web Files/Thrive-with-Nikita-Logo-Main.png" alt="Thrive with Nikita" class="h-12 mb-4 warm-float">
+                    <p class="font-muli font-light text-gray-600">Building podcasts with purpose, heart, and authenticity</p>
                 </div>
-                <div class="text-center md:text-right">
-                    <p class="coach-signature text-white text-lg mb-2">You're exactly where you need to be ✨</p>
-                    <p class="font-muli font-light text-white/80 text-sm">© 2024 Thrive with Nikita. Made with love for creative entrepreneurs.</p>
+                <div class="text-center md:text-right flex items-center space-x-4">
+                    <img src="../brand-assets/New Branding Kit/Web Files/Thrive-With-Nikita-Submark-3.png" alt="Decorative Icon" class="h-8 warm-float">
+                    <div>
+                        <p class="coach-signature text-coral text-lg mb-2">You're exactly where you need to be ✨</p>
+                        <p class="font-muli font-light text-gray-500 text-sm">© 2024 Thrive with Nikita. Made with love for creative entrepreneurs.</p>
+                    </div>
                 </div>
             </div>
         </div>
