@@ -40,8 +40,9 @@
         }
         
         .coaching-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(129, 176, 170, 0.25);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(129, 176, 170, 0.15);
+            background-color: rgba(248, 250, 252, 0.8);
         }
         
         .gentle-pulse {
@@ -64,24 +65,12 @@
         
         .encouraging-glow {
             position: relative;
+            transition: all 0.3s ease;
         }
         
-        .encouraging-glow::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #F18070, #81B0AA, #F5CABF);
-            border-radius: inherit;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .encouraging-glow:hover::before {
-            opacity: 0.7;
+        .encouraging-glow:hover {
+            background-color: rgba(245, 202, 191, 0.05);
+            border: 1px solid rgba(241, 128, 112, 0.1);
         }
         
         .coach-signature {
@@ -173,18 +162,18 @@
                     <!-- SVG Journey Path -->
                     <svg class="w-full h-64" viewBox="0 0 800 200" preserveAspectRatio="xMidYMid meet">
                         <!-- Completed path -->
-                        <path d="M50,100 Q200,60 350,100 T650,100" stroke="#F18070" stroke-width="4" fill="none" stroke-dasharray="0" class="progress-warmth"/>
+                        <path d="M80,140 Q240,120 400,140" stroke="#F18070" stroke-width="4" fill="none" stroke-dasharray="0"/>
                         <!-- Future path -->
-                        <path d="M650,100 Q750,120 800,100" stroke="#D8D7DF" stroke-width="2" fill="none" stroke-dasharray="8,4"/>
+                        <path d="M400,140 Q560,160 720,140" stroke="#D8D7DF" stroke-width="2" fill="none" stroke-dasharray="8,4"/>
                         
                         <!-- Progress particles -->
-                        <circle cx="50" cy="100" r="3" fill="#F18070" class="gentle-pulse"/>
-                        <circle cx="200" cy="80" r="2" fill="#F5CABF" class="warm-float"/>
-                        <circle cx="400" cy="100" r="2" fill="#81B0AA" class="warm-float" style="animation-delay: -1s;"/>
+                        <circle cx="80" cy="140" r="3" fill="#F18070" class="gentle-pulse"/>
+                        <circle cx="240" cy="130" r="2" fill="#F5CABF" class="warm-float"/>
+                        <circle cx="400" cy="140" r="2" fill="#81B0AA" class="warm-float" style="animation-delay: -1s;"/>
                     </svg>
                     
                     <!-- Journey Milestones -->
-                    <div class="absolute inset-0 flex items-center justify-between px-12">
+                    <div class="absolute inset-0 flex items-center justify-between px-16" style="padding-top: 80px;">
                         <!-- Milestone 1 - Completed -->
                         <div class="text-center coaching-card cursor-pointer hover:scale-110 transition-transform duration-300">
                             <div class="w-16 h-16 bg-pewter-blue rounded-full flex items-center justify-center mb-3 shadow-lg gentle-pulse">

@@ -36,7 +36,8 @@
         
         .path-container {
             position: relative;
-            height: 800px;
+            height: 600px;
+            z-index: 1;
         }
         
         .journey-path {
@@ -69,6 +70,7 @@
         .journey-node {
             position: absolute;
             transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 10;
         }
         
         .journey-node.completed {
@@ -167,6 +169,8 @@
         .milestone-card {
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             backdrop-filter: blur(10px);
+            z-index: 5;
+            position: relative;
         }
         
         .milestone-card:hover {
@@ -284,9 +288,9 @@
                 <p class="text-gray-600 font-muli font-light text-xl">Follow the flowing path as it guides you through each section</p>
             </div>
             
-            <div class="relative bg-white/50 backdrop-blur-sm rounded-3xl p-8 overflow-hidden">
+            <div class="relative bg-white/80 rounded-3xl p-8">
                 <!-- SVG Path Animation -->
-                <svg class="absolute inset-0 w-full h-full" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+                <svg class="absolute inset-0 w-full h-full z-0" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet">
                     <!-- Background decorative paths -->
                     <path class="dotted-connection" d="M50,100 Q200,50 350,100 T650,100"/>
                     <path class="dotted-connection" d="M50,200 Q200,150 350,200 T650,200" style="animation-delay: -1s;"/>
@@ -307,96 +311,93 @@
                 <!-- Journey Nodes -->
                 <div class="path-container relative z-10">
                     <!-- Section 1 - Completed -->
-                    <div class="journey-node completed absolute" style="left: 80px; top: 100px;">
-                        <div class="w-20 h-20 bg-pewter-blue rounded-full flex items-center justify-center shadow-lg">
-                            <span class="text-white text-xl font-semibold">1</span>
+                    <div class="journey-node completed absolute" style="left: 60px; top: 80px;">
+                        <div class="w-16 h-16 bg-pewter-blue rounded-full flex items-center justify-center shadow-lg">
+                            <span class="text-white font-semibold">1</span>
                         </div>
-                        <div class="milestone-card bg-white/90 backdrop-blur-sm rounded-xl p-4 mt-4 min-w-48">
-                            <h3 class="font-crimson font-semibold text-pewter-blue">Foundation</h3>
-                            <p class="font-muli font-light text-gray-600 text-sm">Complete ✅</p>
-                            <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
-                                <div class="bg-pewter-blue h-2 rounded-full w-full"></div>
+                        <div class="milestone-card bg-white/95 rounded-xl p-3 mt-3 w-40">
+                            <h3 class="font-crimson font-semibold text-pewter-blue text-sm">Foundation</h3>
+                            <p class="font-muli font-light text-gray-600 text-xs">Complete ✅</p>
+                            <div class="w-full bg-gray-200 rounded-full h-1.5 mt-2">
+                                <div class="bg-pewter-blue h-1.5 rounded-full w-full"></div>
                             </div>
                         </div>
-                        <div class="celebration-burst absolute -top-2 -right-2 text-xl">🌟</div>
+                        <div class="celebration-burst absolute -top-2 -right-2 text-lg">🌟</div>
                     </div>
                     
                     <!-- Section 2 - Completed -->
-                    <div class="journey-node completed absolute" style="left: 320px; top: 100px;">
-                        <div class="w-20 h-20 bg-coral rounded-full flex items-center justify-center shadow-lg">
-                            <span class="text-white text-xl font-semibold">2</span>
+                    <div class="journey-node completed absolute" style="left: 260px; top: 80px;">
+                        <div class="w-16 h-16 bg-coral rounded-full flex items-center justify-center shadow-lg">
+                            <span class="text-white font-semibold">2</span>
                         </div>
-                        <div class="milestone-card bg-white/90 backdrop-blur-sm rounded-xl p-4 mt-4 min-w-48">
-                            <h3 class="font-crimson font-semibold text-coral">Audience</h3>
-                            <p class="font-muli font-light text-gray-600 text-sm">Complete ✅</p>
-                            <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
-                                <div class="bg-coral h-2 rounded-full w-full"></div>
+                        <div class="milestone-card bg-white/95 rounded-xl p-3 mt-3 w-40">
+                            <h3 class="font-crimson font-semibold text-coral text-sm">Audience</h3>
+                            <p class="font-muli font-light text-gray-600 text-xs">Complete ✅</p>
+                            <div class="w-full bg-gray-200 rounded-full h-1.5 mt-2">
+                                <div class="bg-coral h-1.5 rounded-full w-full"></div>
                             </div>
                         </div>
-                        <div class="celebration-burst absolute -top-2 -right-2 text-xl" style="animation-delay: -1s;">⭐</div>
+                        <div class="celebration-burst absolute -top-2 -right-2 text-lg" style="animation-delay: -1s;">⭐</div>
                     </div>
                     
                     <!-- Section 3 - Current -->
-                    <div class="journey-node current absolute" style="left: 560px; top: 100px;">
-                        <div class="w-24 h-24 bg-baby-pink rounded-full flex items-center justify-center shadow-xl border-4 border-coral progress-indicator">
-                            <span class="text-coral text-xl font-semibold">3</span>
+                    <div class="journey-node current absolute" style="left: 460px; top: 80px;">
+                        <div class="w-20 h-20 bg-baby-pink rounded-full flex items-center justify-center shadow-xl border-4 border-coral progress-indicator">
+                            <span class="text-coral font-semibold text-lg">3</span>
                         </div>
-                        <div class="milestone-card bg-white/95 backdrop-blur-sm rounded-xl p-6 mt-4 min-w-56 border-2 border-coral/30">
-                            <h3 class="font-crimson font-semibold text-coral text-lg">Episode Planning</h3>
-                            <p class="font-muli font-light text-gray-600 text-sm">In Progress 🎯</p>
-                            <div class="w-full bg-gray-200 rounded-full h-3 mt-3">
-                                <div class="bg-gradient-to-r from-coral to-baby-pink h-3 rounded-full w-3/4 progress-indicator"></div>
+                        <div class="milestone-card bg-white/98 rounded-xl p-4 mt-4 w-48 border-2 border-coral/30">
+                            <h3 class="font-crimson font-semibold text-coral">Episode Planning</h3>
+                            <p class="font-muli font-light text-gray-600 text-xs">In Progress 🎯</p>
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                                <div class="bg-gradient-to-r from-coral to-baby-pink h-2 rounded-full w-3/4 progress-indicator"></div>
                             </div>
-                            <p class="font-muli font-light text-gray-700 text-xs mt-2">75% Complete</p>
+                            <p class="font-muli font-light text-gray-700 text-xs mt-1">75% Complete</p>
                         </div>
-                        <div class="celebration-burst absolute -top-4 -right-4 text-2xl">🎨</div>
+                        <div class="celebration-burst absolute -top-3 -right-3 text-xl">🎨</div>
                     </div>
                     
                     <!-- Section 4 - Upcoming -->
-                    <div class="journey-node upcoming absolute" style="left: 200px; top: 280px;">
-                        <div class="w-16 h-16 bg-gainsboro rounded-full flex items-center justify-center shadow-md">
-                            <span class="text-gray-600 font-semibold">4</span>
+                    <div class="journey-node upcoming absolute" style="left: 160px; top: 280px;">
+                        <div class="w-14 h-14 bg-gainsboro rounded-full flex items-center justify-center shadow-md">
+                            <span class="text-gray-600 font-semibold text-sm">4</span>
                         </div>
-                        <div class="milestone-card bg-white/70 backdrop-blur-sm rounded-xl p-4 mt-4 min-w-44">
-                            <h3 class="font-crimson font-semibold text-gray-600">Content</h3>
-                            <p class="font-muli font-light text-gray-500 text-sm">Coming Soon 🌟</p>
-                            <div class="w-full bg-gray-100 rounded-full h-2 mt-2">
-                                <div class="bg-gray-200 h-2 rounded-full w-0"></div>
-                            </div>
+                        <div class="milestone-card bg-white/80 rounded-xl p-3 mt-3 w-36">
+                            <h3 class="font-crimson font-semibold text-gray-600 text-sm">Content</h3>
+                            <p class="font-muli font-light text-gray-500 text-xs">Coming Soon 🌟</p>
                         </div>
                     </div>
                     
                     <!-- Section 5 - Upcoming -->
-                    <div class="journey-node upcoming absolute" style="left: 450px; top: 280px;">
-                        <div class="w-16 h-16 bg-gainsboro rounded-full flex items-center justify-center shadow-md">
-                            <span class="text-gray-600 font-semibold">5</span>
+                    <div class="journey-node upcoming absolute" style="left: 360px; top: 280px;">
+                        <div class="w-14 h-14 bg-gainsboro rounded-full flex items-center justify-center shadow-md">
+                            <span class="text-gray-600 font-semibold text-sm">5</span>
                         </div>
-                        <div class="milestone-card bg-white/70 backdrop-blur-sm rounded-xl p-4 mt-4 min-w-44">
-                            <h3 class="font-crimson font-semibold text-gray-600">Recording</h3>
-                            <p class="font-muli font-light text-gray-500 text-sm">Soon ✨</p>
-                            <div class="w-full bg-gray-100 rounded-full h-2 mt-2">
-                                <div class="bg-gray-200 h-2 rounded-full w-0"></div>
-                            </div>
+                        <div class="milestone-card bg-white/80 rounded-xl p-3 mt-3 w-36">
+                            <h3 class="font-crimson font-semibold text-gray-600 text-sm">Recording</h3>
+                            <p class="font-muli font-light text-gray-500 text-xs">Soon ✨</p>
                         </div>
                     </div>
                     
                     <!-- Additional upcoming sections -->
-                    <div class="journey-node upcoming absolute" style="left: 120px; top: 450px;">
-                        <div class="w-14 h-14 bg-gainsboro rounded-full flex items-center justify-center shadow-md">
-                            <span class="text-gray-600 font-semibold text-sm">6</span>
+                    <div class="journey-node upcoming absolute" style="left: 100px; top: 420px;">
+                        <div class="w-12 h-12 bg-gainsboro rounded-full flex items-center justify-center shadow-md">
+                            <span class="text-gray-600 font-semibold text-xs">6</span>
                         </div>
+                        <p class="font-muli text-xs text-gray-500 mt-1 text-center w-16">Launch</p>
                     </div>
                     
-                    <div class="journey-node upcoming absolute" style="left: 320px; top: 450px;">
-                        <div class="w-14 h-14 bg-gainsboro rounded-full flex items-center justify-center shadow-md">
-                            <span class="text-gray-600 font-semibold text-sm">7</span>
+                    <div class="journey-node upcoming absolute" style="left: 250px; top: 420px;">
+                        <div class="w-12 h-12 bg-gainsboro rounded-full flex items-center justify-center shadow-md">
+                            <span class="text-gray-600 font-semibold text-xs">7</span>
                         </div>
+                        <p class="font-muli text-xs text-gray-500 mt-1 text-center w-16">Growth</p>
                     </div>
                     
-                    <div class="journey-node upcoming absolute" style="left: 520px; top: 450px;">
-                        <div class="w-14 h-14 bg-gainsboro rounded-full flex items-center justify-center shadow-md">
-                            <span class="text-gray-600 font-semibold text-sm">8</span>
+                    <div class="journey-node upcoming absolute" style="left: 400px; top: 420px;">
+                        <div class="w-12 h-12 bg-gainsboro rounded-full flex items-center justify-center shadow-md">
+                            <span class="text-gray-600 font-semibold text-xs">8</span>
                         </div>
+                        <p class="font-muli text-xs text-gray-500 mt-1 text-center w-16">Scale</p>
                     </div>
                 </div>
             </div>
@@ -509,6 +510,9 @@
 
         <!-- Animated Motivation Section -->
         <section class="mb-16">
+            <div class="text-center mb-8">
+                <img src="../brand-assets/New Branding Kit/Web Files/Thrive-With-Nikita-Submark-3.png" alt="Section Divider" class="h-12 mx-auto journey-node upcoming">
+            </div>
             <div class="milestone-card bg-gradient-to-r from-cookies-cream via-baby-pink to-pewter-blue/20 rounded-3xl p-12 text-center relative overflow-hidden">
                 <!-- Animated background elements -->
                 <div class="absolute inset-0 overflow-hidden">
