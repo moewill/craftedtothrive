@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crafted to Thrive - Professional Journey</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Muli:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Authentic Thrive with Nikita Brand Colors
+                        'pewter-blue': '#81B0AA',
+                        'coral': '#F18070',
+                        'baby-pink': '#F5CABF',
+                        'gainsboro': '#D8D7DF',
+                        'cookies-cream': '#F1E6B2',
+                        'deep-pewter': '#6B9A94',
+                        'light-pewter': '#A5C4BF',
+                        'warm-white': '#FEFFFE'
+                    },
+                    fontFamily: {
+                        'crimson': ['Crimson Text', 'serif'],
+                        'muli': ['Muli', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'gentle-pulse': 'gentlePulse 2s ease-in-out infinite',
+                        'subtle-float': 'subtleFloat 4s ease-in-out infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes gentlePulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        @keyframes subtleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+        .professional-card {
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        .professional-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(129, 176, 170, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-warm-white to-baby-pink font-muli">
+    
+    <!-- Professional Header with Authentic Branding -->
+    <header class="bg-warm-white shadow-sm border-b border-gainsboro">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Official Thrive with Nikita Logo -->
+                <div class="flex items-center space-x-4">
+                    <img src="../brand-assets/New Branding Kit/Web Files/Thrive-with-Nikita-Logo-Main.png" 
+                         alt="Thrive with Nikita" 
+                         class="h-12 w-auto animate-subtle-float"
+                         style="min-width: 76px;">
+                </div>
+                
+                <!-- Professional Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#overview" class="text-pewter-blue font-muli font-semibold hover:text-coral transition-colors">OVERVIEW</a>
+                    <a href="#progress" class="text-gainsboro font-muli font-light hover:text-pewter-blue transition-colors">PROGRESS</a>
+                    <a href="#episodes" class="text-gainsboro font-muli font-light hover:text-pewter-blue transition-colors">EPISODES</a>
+                    <a href="#resources" class="text-gainsboro font-muli font-light hover:text-pewter-blue transition-colors">RESOURCES</a>
+                </nav>
+                
+                <!-- User Profile -->
+                <div class="flex items-center space-x-4">
+                    <div class="text-right hidden sm:block">
+                        <p class="text-sm font-muli font-semibold text-pewter-blue">Welcome back, Sarah!</p>
+                        <p class="text-xs font-muli font-light text-gainsboro">Last active: Episode Planning</p>
+                    </div>
+                    <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-pewter-blue">
+                        <img src="../brand-assets/Headshot, BTS & Show Logo/TWN_310.jpg" 
+                             alt="Coach Nikita"
+                             class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Enhanced Welcome Section -->
+    <div class="bg-gradient-to-r from-pewter-blue to-deep-pewter text-warm-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center animate-fade-in">
+                <h1 class="text-4xl lg:text-5xl font-crimson font-bold mb-6">
+                    Your Podcast Journey Continues
+                </h1>
+                <p class="text-xl font-muli font-light mb-8 max-w-3xl mx-auto opacity-90">
+                    You're building something extraordinary, Sarah. Let's pick up exactly where you left off 
+                    and continue crafting your authentic podcasting success story.
+                </p>
+                
+                <!-- Progress Highlight -->
+                <div class="bg-white bg-opacity-20 rounded-2xl p-6 max-w-md mx-auto backdrop-blur-sm">
+                    <div class="text-3xl font-crimson font-bold mb-2">3 of 8 Complete</div>
+                    <div class="w-full bg-white bg-opacity-30 rounded-full h-2 mb-3">
+                        <div class="bg-coral h-2 rounded-full transition-all duration-1000" style="width: 37.5%"></div>
+                    </div>
+                    <p class="text-sm font-muli font-light opacity-90">37.5% of your podcast empire built</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- Current Focus Section -->
+        <div class="mb-12 animate-slide-up">
+            <h2 class="text-3xl font-crimson font-bold text-pewter-blue mb-8 text-center">
+                Where You Left Off
+            </h2>
+            
+            <div class="professional-card bg-warm-white rounded-2xl shadow-lg border border-baby-pink overflow-hidden">
+                <div class="bg-gradient-to-r from-coral to-baby-pink p-6">
+                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                        <div>
+                            <h3 class="text-2xl font-crimson font-bold text-warm-white mb-2">
+                                Section 3: Plan Your Episodes
+                            </h3>
+                            <p class="text-warm-white font-muli font-light opacity-90">
+                                Create magnetic episode content that captivates your audience
+                            </p>
+                        </div>
+                        <div class="mt-4 lg:mt-0 text-right">
+                            <div class="text-4xl font-crimson font-bold text-warm-white mb-1">75%</div>
+                            <div class="text-sm font-muli font-light text-warm-white opacity-80">Complete</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-8">
+                    <!-- Current Episode Details -->
+                    <div class="bg-cookies-cream bg-opacity-30 rounded-xl p-6 mb-6">
+                        <h4 class="text-xl font-muli font-bold text-pewter-blue mb-4">
+                            Current Episode: "Building Authentic Business Relationships"
+                        </h4>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                            <div class="text-center p-4 bg-warm-white rounded-lg border border-baby-pink">
+                                <div class="text-2xl font-crimson font-bold text-pewter-blue mb-2">12</div>
+                                <div class="text-sm font-muli font-light text-gainsboro uppercase">Key Points Defined</div>
+                            </div>
+                            <div class="text-center p-4 bg-warm-white rounded-lg border border-baby-pink">
+                                <div class="text-2xl font-crimson font-bold text-coral mb-2">45</div>
+                                <div class="text-sm font-muli font-light text-gainsboro uppercase">Minutes Structured</div>
+                            </div>
+                            <div class="text-center p-4 bg-baby-pink bg-opacity-50 rounded-lg border-2 border-dashed border-coral">
+                                <div class="text-2xl font-crimson font-bold text-coral mb-2">CTA</div>
+                                <div class="text-sm font-muli font-light text-pewter-blue uppercase">Next: Call to Action</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-warm-white rounded-lg p-4 border border-pewter-blue">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h5 class="font-muli font-bold text-pewter-blue mb-1">Your Next Step</h5>
+                                    <p class="text-sm font-muli font-light text-gainsboro">
+                                        Craft a compelling call-to-action that transforms listeners into engaged community members
+                                    </p>
+                                </div>
+                                <button class="bg-coral text-warm-white px-6 py-3 rounded-lg font-muli font-semibold hover:bg-pewter-blue transition-colors">
+                                    Continue →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="flex-1 bg-pewter-blue text-warm-white px-8 py-4 rounded-xl font-muli font-semibold text-lg hover:bg-deep-pewter transition-colors">
+                            Continue Episode Planning
+                        </button>
+                        <button class="flex-1 border-2 border-pewter-blue text-pewter-blue px-8 py-4 rounded-xl font-muli font-semibold hover:bg-pewter-blue hover:text-warm-white transition-colors">
+                            Preview Your Progress
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            
+            <!-- Completed Sections -->
+            <div class="professional-card bg-warm-white rounded-xl p-6 shadow-lg border border-pewter-blue animate-slide-up" style="animation-delay: 0.1s">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-pewter-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-warm-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-muli font-bold text-pewter-blue mb-2">Purpose-Filled Podcast</h3>
+                    <p class="text-sm font-muli font-light text-gainsboro mb-3">Mission and audience defined</p>
+                    <span class="text-xs font-muli font-semibold text-pewter-blue bg-pewter-blue bg-opacity-10 px-3 py-1 rounded-full">
+                        COMPLETE
+                    </span>
+                </div>
+            </div>
+
+            <div class="professional-card bg-warm-white rounded-xl p-6 shadow-lg border border-coral animate-slide-up" style="animation-delay: 0.2s">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-coral rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-warm-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-muli font-bold text-coral mb-2">Leverage Your Expertise</h3>
+                    <p class="text-sm font-muli font-light text-gainsboro mb-3">Authority positioning complete</p>
+                    <span class="text-xs font-muli font-semibold text-coral bg-coral bg-opacity-10 px-3 py-1 rounded-full">
+                        COMPLETE
+                    </span>
+                </div>
+            </div>
+
+            <!-- Current Section -->
+            <div class="professional-card bg-gradient-to-br from-pewter-blue to-deep-pewter text-warm-white rounded-xl p-6 shadow-xl transform scale-105 animate-slide-up" style="animation-delay: 0.3s">
+                <div class="text-center relative">
+                    <div class="absolute -top-1 -right-1 w-3 h-3 bg-coral rounded-full animate-gentle-pulse"></div>
+                    <div class="w-16 h-16 bg-warm-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-muli font-bold mb-2">Plan Your Episodes</h3>
+                    <p class="text-sm font-muli font-light mb-3 opacity-90">Structuring compelling content</p>
+                    
+                    <div class="w-full bg-warm-white bg-opacity-30 rounded-full h-2 mb-3">
+                        <div class="bg-coral h-2 rounded-full" style="width: 75%"></div>
+                    </div>
+                    
+                    <span class="text-xs font-muli font-semibold bg-warm-white text-pewter-blue px-3 py-1 rounded-full">
+                        75% COMPLETE
+                    </span>
+                </div>
+            </div>
+
+            <!-- Next Section -->
+            <div class="professional-card bg-warm-white rounded-xl p-6 shadow-lg border border-gainsboro opacity-60 animate-slide-up" style="animation-delay: 0.4s">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-gainsboro rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-warm-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-muli font-bold text-gainsboro mb-2">Expand Interviewees</h3>
+                    <p class="text-sm font-muli font-light text-gainsboro mb-3">Build your guest network</p>
+                    <span class="text-xs font-muli font-semibold text-gainsboro bg-gainsboro bg-opacity-10 px-3 py-1 rounded-full">
+                        COMING NEXT
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Remaining Sections Preview -->
+        <div class="text-center animate-fade-in">
+            <h3 class="text-2xl font-crimson font-bold text-pewter-blue mb-4">Your Complete Journey Ahead</h3>
+            <p class="text-lg font-muli font-light text-gainsboro mb-6 max-w-2xl mx-auto">
+                You're building a comprehensive podcasting system that will serve your audience authentically and grow your business sustainably.
+            </p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div class="p-4 bg-warm-white rounded-lg border border-baby-pink">
+                    <div class="text-sm font-muli font-semibold text-gainsboro uppercase mb-1">Section 5</div>
+                    <div class="text-pewter-blue font-muli font-light">Record Like a Pro</div>
+                </div>
+                <div class="p-4 bg-warm-white rounded-lg border border-baby-pink">
+                    <div class="text-sm font-muli font-semibold text-gainsboro uppercase mb-1">Section 6</div>
+                    <div class="text-pewter-blue font-muli font-light">Publish with Confidence</div>
+                </div>
+                <div class="p-4 bg-warm-white rounded-lg border border-baby-pink">
+                    <div class="text-sm font-muli font-semibold text-gainsboro uppercase mb-1">Section 7</div>
+                    <div class="text-pewter-blue font-muli font-light">Build Momentum</div>
+                </div>
+                <div class="p-4 bg-warm-white rounded-lg border border-baby-pink">
+                    <div class="text-sm font-muli font-semibold text-gainsboro uppercase mb-1">Section 8</div>
+                    <div class="text-pewter-blue font-muli font-light">Monetize Your Message</div>
+                </div>
+            </div>
+            
+            <button class="bg-gradient-to-r from-coral to-baby-pink text-warm-white px-8 py-3 rounded-xl font-muli font-semibold hover:shadow-lg transition-all">
+                View Complete Roadmap
+            </button>
+        </div>
+    </div>
+
+    <!-- Professional Footer -->
+    <footer class="bg-pewter-blue text-warm-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <img src="../brand-assets/New Branding Kit/Web Files/Thrive-with-Nikita-Logo-Main-W.png" 
+                     alt="Thrive with Nikita" 
+                     class="h-8 w-auto mx-auto mb-6 opacity-90">
+                <p class="text-lg font-crimson font-light mb-4 opacity-90">
+                    Empowering female entrepreneurs to thrive through authentic podcasting
+                </p>
+                <div class="flex justify-center space-x-8 text-sm font-muli font-light">
+                    <a href="#" class="hover:text-coral transition-colors">Support</a>
+                    <a href="#" class="hover:text-coral transition-colors">Resources</a>
+                    <a href="#" class="hover:text-coral transition-colors">Community</a>
+                    <a href="#" class="hover:text-coral transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

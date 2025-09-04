@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Interactive - Crafted to Thrive Podcast Planner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Muli:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pewter-blue': '#81B0AA',
+                        'coral': '#F18070',
+                        'baby-pink': '#F5CABF',
+                        'gainsboro': '#D8D7DF',
+                        'cookies-cream': '#F1E6B2'
+                    },
+                    fontFamily: {
+                        'crimson': ['Crimson Text', 'serif'],
+                        'muli': ['Muli', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .interactive-gradient {
+            background: linear-gradient(135deg, #81B0AA 0%, #F5CABF 50%, #F1E6B2 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .interactive-card {
+            transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+        
+        .interactive-card:hover {
+            transform: translateY(-12px) rotateY(5deg);
+            box-shadow: 0 25px 50px rgba(129, 176, 170, 0.3);
+        }
+        
+        .shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shimmer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .morphing-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .morphing-button:hover {
+            transform: scale(1.05);
+        }
+        
+        .morphing-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transition: all 0.5s ease;
+            transform: translate(-50%, -50%);
+        }
+        
+        .morphing-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .progress-animated {
+            background: linear-gradient(90deg, #81B0AA 0%, #F5CABF 50%, #F18070 100%);
+            background-size: 200% 100%;
+            animation: progressFlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes progressFlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        
+        .floating-elements {
+            animation: floatingElements 6s ease-in-out infinite;
+        }
+        
+        @keyframes floatingElements {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-15px) rotate(2deg); }
+            66% { transform: translateY(-5px) rotate(-1deg); }
+        }
+        
+        .interactive-hover-zone {
+            transition: all 0.3s ease;
+        }
+        
+        .interactive-hover-zone:hover {
+            background: rgba(129, 176, 170, 0.1);
+            border-radius: 12px;
+            transform: scale(1.02);
+        }
+        
+        .pulse-ring {
+            animation: pulseRing 2s ease-out infinite;
+        }
+        
+        @keyframes pulseRing {
+            0% {
+                transform: scale(0.8);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2.4);
+                opacity: 0;
+            }
+        }
+        
+        .stagger-in {
+            animation: staggerIn 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        @keyframes staggerIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .section-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .interactive-progress-bar {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .interactive-progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 30px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+            animation: progressShine 2s ease-in-out infinite;
+        }
+        
+        @keyframes progressShine {
+            0% { left: -30px; }
+            100% { left: 100%; }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gainsboro via-cookies-cream to-baby-pink font-muli overflow-x-hidden">
+    <!-- Interactive Header -->
+    <header class="interactive-gradient shadow-2xl relative">
+        <div class="absolute inset-0 opacity-20">
+            <div class="floating-elements absolute top-4 left-4 w-8 h-8 bg-white rounded-full"></div>
+            <div class="floating-elements absolute top-8 right-12 w-6 h-6 bg-white/70 rounded-full" style="animation-delay: -2s;"></div>
+            <div class="floating-elements absolute bottom-6 left-1/3 w-4 h-4 bg-white/50 rounded-full" style="animation-delay: -4s;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 py-12 relative z-10">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-6">
+                    <img src="../brand-assets/New Branding Kit/Thrive-with-Nikita-Logo-Main.png" alt="Thrive with Nikita" class="h-20 shimmer floating-elements">
+                    <div class="stagger-in" style="animation-delay: 0.2s;">
+                        <h1 class="text-4xl font-crimson font-semibold text-white mb-2">Interactive Podcast Planner</h1>
+                        <p class="text-white/90 font-muli font-light text-lg">Experience the future of podcast planning</p>
+                    </div>
+                </div>
+                <div class="hidden lg:flex items-center space-x-8 text-white">
+                    <div class="interactive-hover-zone px-4 py-2">
+                        <span class="font-muli font-light">✨ Premium Experience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-16">
+        <!-- Interactive Welcome Dashboard -->
+        <section class="mb-20">
+            <div class="interactive-card bg-white rounded-3xl p-12 shimmer">
+                <div class="grid lg:grid-cols-3 gap-12 items-center">
+                    <div class="lg:col-span-2">
+                        <div class="mb-8">
+                            <h2 class="text-5xl font-crimson font-semibold text-pewter-blue mb-6 stagger-in">
+                                Welcome to Your Success Journey
+                            </h2>
+                            <p class="text-xl text-gray-700 font-muli font-light leading-relaxed mb-8 stagger-in" style="animation-delay: 0.3s;">
+                                Step into an interactive experience designed to transform your podcast dreams into reality. Every click, every interaction brings you closer to launching something extraordinary.
+                            </p>
+                            
+                            <!-- Interactive Progress Ring -->
+                            <div class="relative mb-8 stagger-in" style="animation-delay: 0.6s;">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h3 class="text-2xl font-crimson font-semibold text-coral">Your Progress</h3>
+                                    <div class="relative">
+                                        <div class="w-16 h-16 relative">
+                                            <svg class="w-16 h-16 transform -rotate-90" viewBox="0 0 64 64">
+                                                <circle cx="32" cy="32" r="28" fill="none" stroke="#D8D7DF" stroke-width="4"/>
+                                                <circle cx="32" cy="32" r="28" fill="none" stroke="#F18070" stroke-width="4" 
+                                                        stroke-dasharray="175.929" stroke-dashoffset="43.982" 
+                                                        class="transition-all duration-1000 ease-out"/>
+                                            </svg>
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <span class="text-xl font-muli font-semibold text-coral">75%</span>
+                                            </div>
+                                        </div>
+                                        <div class="absolute -inset-2 bg-coral/20 rounded-full pulse-ring"></div>
+                                    </div>
+                                </div>
+                                <div class="bg-gradient-to-r from-coral/10 to-pewter-blue/10 rounded-2xl p-6">
+                                    <p class="text-gray-700 font-muli font-light mb-4">
+                                        <span class="font-semibold text-coral">Section 3: Episode Planning</span> - You're in the creative zone where your content strategy comes alive!
+                                    </p>
+                                    <div class="interactive-progress-bar bg-gray-200 h-3 rounded-full overflow-hidden">
+                                        <div class="progress-animated h-3 rounded-full w-3/4"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4 stagger-in" style="animation-delay: 0.9s;">
+                            <button class="morphing-button bg-coral text-white px-10 py-5 rounded-2xl font-muli font-semibold text-lg relative z-10">
+                                Continue Your Journey
+                            </button>
+                            <button class="morphing-button border-2 border-pewter-blue text-pewter-blue px-10 py-5 rounded-2xl font-muli font-semibold text-lg hover:bg-pewter-blue hover:text-white">
+                                Explore Features
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Interactive Coach Photo -->
+                    <div class="relative">
+                        <div class="interactive-card">
+                            <img src="../brand-assets/New Branding Kit/TWN_310.jpg" alt="Coach Nikita" class="rounded-3xl shadow-2xl">
+                            <div class="absolute -top-4 -right-4 bg-gradient-to-r from-coral to-baby-pink text-white rounded-2xl p-4 shadow-lg floating-elements">
+                                <p class="font-crimson font-semibold text-lg">Let's create magic! ✨</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Current Focus -->
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-crimson font-semibold text-pewter-blue mb-4">Interactive Dashboard</h2>
+                <p class="text-gray-600 font-muli font-light text-xl">Hover, click, and explore your personalized journey</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Main Current Task -->
+                <div class="lg:col-span-2">
+                    <div class="interactive-card bg-gradient-to-br from-white to-coral/5 rounded-3xl p-10 border border-coral/20">
+                        <div class="flex items-start justify-between mb-8">
+                            <div>
+                                <div class="flex items-center mb-4">
+                                    <div class="relative">
+                                        <div class="w-16 h-16 bg-coral rounded-full flex items-center justify-center mr-6">
+                                            <span class="text-white text-2xl font-semibold">3</span>
+                                        </div>
+                                        <div class="absolute -inset-1 bg-coral/30 rounded-full pulse-ring"></div>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-3xl font-crimson font-semibold text-coral">Episode Planning</h3>
+                                        <p class="text-gray-600 font-muli font-light text-lg">Currently Active</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-8">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <span class="font-muli font-light text-gray-600 text-lg">Section Progress</span>
+                                        <span class="font-muli font-semibold text-coral text-xl">75%</span>
+                                    </div>
+                                    <div class="interactive-progress-bar bg-gray-200 h-4 rounded-full">
+                                        <div class="progress-animated h-4 rounded-full w-3/4"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <div class="interactive-hover-zone p-6 rounded-xl">
+                                <h4 class="font-crimson font-semibold text-pewter-blue mb-3 text-xl">Current Task</h4>
+                                <p class="text-gray-700 font-muli font-light mb-4 text-lg leading-relaxed">
+                                    Design your signature episode structure that will keep listeners engaged and coming back for more. This is where your unique voice and format come to life.
+                                </p>
+                                <button class="morphing-button bg-pewter-blue text-white px-8 py-4 rounded-xl font-muli font-semibold">
+                                    Work on This Now
+                                </button>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="interactive-hover-zone p-4 rounded-xl border border-gray-200">
+                                    <h5 class="font-muli font-semibold text-gray-700 mb-2">✅ Completed Today</h5>
+                                    <p class="font-muli font-light text-gray-600 text-sm">Episode format templates</p>
+                                </div>
+                                <div class="interactive-hover-zone p-4 rounded-xl border border-gray-200">
+                                    <h5 class="font-muli font-semibold text-gray-700 mb-2">⏰ Up Next</h5>
+                                    <p class="font-muli font-light text-gray-600 text-sm">Content calendar creation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Interactive Sidebar -->
+                <div class="space-y-6">
+                    <div class="interactive-card bg-gradient-to-br from-pewter-blue to-pewter-blue/80 text-white rounded-2xl p-8">
+                        <h4 class="font-crimson font-semibold text-2xl mb-4">Next Milestone</h4>
+                        <div class="mb-6">
+                            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4 floating-elements">
+                                <span class="text-xl">🎯</span>
+                            </div>
+                            <p class="font-muli font-light mb-4">Content Creation Framework</p>
+                            <div class="bg-white/20 h-2 rounded-full">
+                                <div class="bg-white/60 h-2 rounded-full w-0 transition-all duration-1000"></div>
+                            </div>
+                        </div>
+                        <button class="morphing-button border border-white/40 text-white px-6 py-3 rounded-xl font-muli font-semibold w-full hover:bg-white/20">
+                            Preview Section
+                        </button>
+                    </div>
+                    
+                    <div class="interactive-card bg-white rounded-2xl p-6 border border-baby-pink">
+                        <h4 class="font-crimson font-semibold text-baby-pink text-xl mb-4">Quick Actions</h4>
+                        <div class="space-y-3">
+                            <button class="interactive-hover-zone w-full text-left p-3 rounded-lg text-gray-700 font-muli">
+                                📝 Review Progress
+                            </button>
+                            <button class="interactive-hover-zone w-full text-left p-3 rounded-lg text-gray-700 font-muli">
+                                💡 Get Inspiration
+                            </button>
+                            <button class="interactive-hover-zone w-full text-left p-3 rounded-lg text-gray-700 font-muli">
+                                🎨 Customize Experience
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Section Overview -->
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-crimson font-semibold text-pewter-blue mb-4">Your Interactive Journey Map</h2>
+                <p class="text-gray-600 font-muli font-light text-xl">Click any section to explore your progress</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Completed Sections -->
+                <div class="section-card bg-gradient-to-br from-pewter-blue to-pewter-blue/90 text-white rounded-2xl p-6 cursor-pointer shimmer">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                            <span class="font-semibold">1</span>
+                        </div>
+                        <div>
+                            <h3 class="font-crimson font-semibold text-lg">Foundation</h3>
+                            <p class="text-white/80 font-muli font-light text-sm">Complete ✨</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="w-full bg-white/20 rounded-full h-2">
+                            <div class="bg-white h-2 rounded-full w-full"></div>
+                        </div>
+                    </div>
+                    <p class="font-muli font-light text-sm text-white/90">Solid foundation established</p>
+                </div>
+
+                <div class="section-card bg-gradient-to-br from-coral to-coral/90 text-white rounded-2xl p-6 cursor-pointer shimmer">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                            <span class="font-semibold">2</span>
+                        </div>
+                        <div>
+                            <h3 class="font-crimson font-semibold text-lg">Audience</h3>
+                            <p class="text-white/80 font-muli font-light text-sm">Complete ✨</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="w-full bg-white/20 rounded-full h-2">
+                            <div class="bg-white h-2 rounded-full w-full"></div>
+                        </div>
+                    </div>
+                    <p class="font-muli font-light text-sm text-white/90">Audience deeply understood</p>
+                </div>
+
+                <!-- Current Section -->
+                <div class="section-card bg-gradient-to-br from-baby-pink to-baby-pink/90 text-gray-800 rounded-2xl p-6 cursor-pointer border-2 border-coral ring-4 ring-coral/30">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-coral text-white rounded-full flex items-center justify-center mr-4 pulse-ring-small">
+                            <span class="font-semibold">3</span>
+                        </div>
+                        <div>
+                            <h3 class="font-crimson font-semibold text-lg">Episodes</h3>
+                            <p class="text-gray-600 font-muli font-light text-sm">Active 🎯</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="interactive-progress-bar bg-gray-200 rounded-full h-2">
+                            <div class="progress-animated h-2 rounded-full w-3/4"></div>
+                        </div>
+                    </div>
+                    <p class="font-muli font-light text-sm text-gray-700">Crafting your format</p>
+                </div>
+
+                <!-- Upcoming Section -->
+                <div class="section-card bg-white border-2 border-dashed border-gainsboro rounded-2xl p-6 cursor-pointer hover:border-pewter-blue">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gainsboro rounded-full flex items-center justify-center mr-4">
+                            <span class="font-semibold text-gray-600">4</span>
+                        </div>
+                        <div>
+                            <h3 class="font-crimson font-semibold text-gray-600 text-lg">Content</h3>
+                            <p class="text-gray-500 font-muli font-light text-sm">Coming Soon 🌟</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <div class="w-full bg-gray-100 rounded-full h-2">
+                            <div class="bg-gray-200 h-2 rounded-full w-0"></div>
+                        </div>
+                    </div>
+                    <p class="font-muli font-light text-sm text-gray-500">Ready when you are</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Call to Action -->
+        <section class="mb-16">
+            <div class="interactive-card bg-gradient-to-r from-cookies-cream via-baby-pink to-gainsboro rounded-3xl p-12 text-center shimmer">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-4xl font-crimson font-semibold text-pewter-blue mb-6 stagger-in">
+                        Experience the Difference
+                    </h2>
+                    <p class="text-xl text-gray-700 font-muli font-light leading-relaxed mb-10 stagger-in" style="animation-delay: 0.3s;">
+                        This interactive experience is designed to keep you engaged, motivated, and moving forward. Every element responds to your actions, creating a truly personalized journey to podcast success.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center stagger-in" style="animation-delay: 0.6s;">
+                        <button class="morphing-button bg-coral text-white px-10 py-5 rounded-2xl font-muli font-semibold text-lg shadow-lg">
+                            Continue Interactive Journey
+                        </button>
+                        <button class="morphing-button border-2 border-pewter-blue text-pewter-blue px-10 py-5 rounded-2xl font-muli font-semibold text-lg hover:bg-pewter-blue hover:text-white">
+                            Explore All Features
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Interactive Footer -->
+    <footer class="interactive-gradient text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="floating-elements absolute top-8 left-8 w-12 h-12 border-2 border-white rounded-full"></div>
+            <div class="floating-elements absolute top-20 right-20 w-8 h-8 bg-white/30 rounded-full" style="animation-delay: -3s;"></div>
+            <div class="floating-elements absolute bottom-12 left-1/4 w-6 h-6 border border-white rounded-full" style="animation-delay: -1.5s;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-3 gap-8 items-center">
+                <div>
+                    <img src="../brand-assets/New Branding Kit/Thrive-with-Nikita-Logo-Main.png" alt="Thrive with Nikita" class="h-16 mb-4 floating-elements">
+                    <p class="font-muli font-light text-white/90 text-lg">Interactive podcast planning, elevated.</p>
+                </div>
+                <div class="text-center">
+                    <div class="interactive-hover-zone inline-block p-4 rounded-xl">
+                        <p class="font-crimson font-semibold text-white text-xl mb-2">Premium Experience</p>
+                        <p class="font-muli font-light text-white/80">Designed for ambitious creators</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="font-muli font-light text-white/90 mb-4">Transform your podcast journey</p>
+                    <p class="font-muli font-light text-white/70 text-sm">© 2024 Thrive with Nikita. Interactive excellence.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add stagger animation to elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const staggerElements = document.querySelectorAll('.stagger-in');
+            staggerElements.forEach((element, index) => {
+                element.style.animationDelay = `${index * 0.2}s`;
+            });
+            
+            // Interactive card click handlers
+            document.querySelectorAll('.section-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

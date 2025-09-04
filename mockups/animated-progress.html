@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Progress Journey - Crafted to Thrive Podcast Planner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Muli:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pewter-blue': '#81B0AA',
+                        'coral': '#F18070',
+                        'baby-pink': '#F5CABF',
+                        'gainsboro': '#D8D7DF',
+                        'cookies-cream': '#F1E6B2'
+                    },
+                    fontFamily: {
+                        'crimson': ['Crimson Text', 'serif'],
+                        'muli': ['Muli', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .journey-gradient {
+            background: radial-gradient(ellipse at top, #F1E6B2 0%, #F5CABF 50%, #81B0AA 100%);
+        }
+        
+        .path-container {
+            position: relative;
+            height: 800px;
+        }
+        
+        .journey-path {
+            stroke: #81B0AA;
+            stroke-width: 3;
+            stroke-dasharray: 10, 5;
+            fill: none;
+            animation: pathDraw 8s ease-in-out infinite;
+        }
+        
+        .journey-path-completed {
+            stroke: #F18070;
+            stroke-width: 4;
+            stroke-dasharray: 0;
+            fill: none;
+            stroke-dashoffset: 0;
+            animation: completedPathGlow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes pathDraw {
+            0%, 100% { stroke-dashoffset: 0; }
+            50% { stroke-dashoffset: -50; }
+        }
+        
+        @keyframes completedPathGlow {
+            0% { stroke-width: 4; opacity: 1; }
+            100% { stroke-width: 6; opacity: 0.8; }
+        }
+        
+        .journey-node {
+            position: absolute;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .journey-node.completed {
+            animation: nodeSuccess 2s ease-out infinite;
+        }
+        
+        .journey-node.current {
+            animation: nodePulse 2s ease-in-out infinite;
+        }
+        
+        .journey-node.upcoming {
+            animation: nodeFloat 4s ease-in-out infinite;
+            opacity: 0.6;
+        }
+        
+        @keyframes nodeSuccess {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes nodePulse {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(241, 128, 112, 0.7);
+            }
+            50% { 
+                transform: scale(1.05);
+                box-shadow: 0 0 0 20px rgba(241, 128, 112, 0);
+            }
+        }
+        
+        @keyframes nodeFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        
+        .progress-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #F18070;
+            border-radius: 50%;
+            animation: particleFlow 6s linear infinite;
+        }
+        
+        @keyframes particleFlow {
+            0% { 
+                transform: translate(0, 0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% { 
+                transform: translate(400px, 200px) scale(0);
+                opacity: 0;
+            }
+        }
+        
+        .celebration-burst {
+            position: absolute;
+            animation: celebrationBurst 3s ease-out infinite;
+        }
+        
+        @keyframes celebrationBurst {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2) rotate(180deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .dotted-connection {
+            stroke-dasharray: 8, 12;
+            stroke: #D8D7DF;
+            stroke-width: 2;
+            animation: dottedFlow 4s linear infinite;
+        }
+        
+        @keyframes dottedFlow {
+            0% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: -40; }
+        }
+        
+        .milestone-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            backdrop-filter: blur(10px);
+        }
+        
+        .milestone-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(129, 176, 170, 0.2);
+        }
+        
+        .progress-indicator {
+            animation: progressGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes progressGlow {
+            0% { box-shadow: 0 0 20px rgba(241, 128, 112, 0.3); }
+            100% { box-shadow: 0 0 30px rgba(241, 128, 112, 0.6); }
+        }
+        
+        .journey-stat {
+            animation: statCounter 2s ease-out;
+        }
+        
+        @keyframes statCounter {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .animated-welcome {
+            animation: welcomeSlide 1s ease-out;
+        }
+        
+        @keyframes welcomeSlide {
+            0% {
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="journey-gradient font-muli overflow-x-hidden">
+    <!-- Animated Header -->
+    <header class="bg-white/90 backdrop-blur-sm shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img src="../brand-assets/New Branding Kit/Thrive-with-Nikita-Logo-Main.png" alt="Thrive with Nikita" class="h-16 journey-node current">
+                    <div class="animated-welcome">
+                        <h1 class="text-3xl font-crimson font-semibold text-pewter-blue">Animated Progress Journey</h1>
+                        <p class="text-gray-600 font-muli font-light">Watch your podcast dreams come to life</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <div class="journey-stat text-center">
+                        <div class="text-2xl font-crimson font-semibold text-coral">75%</div>
+                        <div class="text-xs font-muli font-light text-gray-600">COMPLETE</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-12">
+        <!-- Animated Welcome Section -->
+        <section class="mb-16">
+            <div class="milestone-card bg-white/80 backdrop-blur-sm rounded-3xl p-12 border border-white/50">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-5xl font-crimson font-semibold text-pewter-blue mb-6 animated-welcome">
+                            Your Journey Unfolds ✨
+                        </h2>
+                        <p class="text-xl text-gray-700 font-muli font-light leading-relaxed mb-8 animated-welcome" style="animation-delay: 0.3s;">
+                            Watch as your podcast planning journey comes alive with animated progress, flowing connections, and celebration moments that mark each milestone you achieve.
+                        </p>
+                        
+                        <!-- Animated Progress Stats -->
+                        <div class="grid grid-cols-3 gap-6 mb-8">
+                            <div class="text-center journey-stat" style="animation-delay: 0.5s;">
+                                <div class="text-3xl font-crimson font-semibold text-pewter-blue">2</div>
+                                <div class="text-sm font-muli font-light text-gray-600">Completed</div>
+                            </div>
+                            <div class="text-center journey-stat" style="animation-delay: 0.7s;">
+                                <div class="text-3xl font-crimson font-semibold text-coral">1</div>
+                                <div class="text-sm font-muli font-light text-gray-600">In Progress</div>
+                            </div>
+                            <div class="text-center journey-stat" style="animation-delay: 0.9s;">
+                                <div class="text-3xl font-crimson font-semibold text-gainsboro">5</div>
+                                <div class="text-sm font-muli font-light text-gray-600">Upcoming</div>
+                            </div>
+                        </div>
+                        
+                        <button class="bg-coral text-white px-10 py-5 rounded-2xl font-muli font-semibold text-lg milestone-card">
+                            Continue Your Journey
+                        </button>
+                    </div>
+                    
+                    <div class="relative">
+                        <img src="../brand-assets/New Branding Kit/TWN_310.jpg" alt="Coach Nikita" class="rounded-3xl shadow-2xl journey-node current">
+                        <div class="celebration-burst absolute -top-6 -right-6 text-4xl">✨</div>
+                        <div class="celebration-burst absolute -bottom-4 -left-4 text-3xl" style="animation-delay: -1s;">🎉</div>
+                        <div class="celebration-burst absolute top-1/2 -right-8 text-2xl" style="animation-delay: -2s;">💫</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Animated Journey Path -->
+        <section class="mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-crimson font-semibold text-pewter-blue mb-4">Your Animated Path to Success</h2>
+                <p class="text-gray-600 font-muli font-light text-xl">Follow the flowing path as it guides you through each section</p>
+            </div>
+            
+            <div class="relative bg-white/50 backdrop-blur-sm rounded-3xl p-8 overflow-hidden">
+                <!-- SVG Path Animation -->
+                <svg class="absolute inset-0 w-full h-full" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+                    <!-- Background decorative paths -->
+                    <path class="dotted-connection" d="M50,100 Q200,50 350,100 T650,100"/>
+                    <path class="dotted-connection" d="M50,200 Q200,150 350,200 T650,200" style="animation-delay: -1s;"/>
+                    <path class="dotted-connection" d="M50,300 Q200,250 350,300 T650,300" style="animation-delay: -2s;"/>
+                    
+                    <!-- Main journey path (completed sections) -->
+                    <path class="journey-path-completed" d="M80,120 Q200,80 320,120 T560,120"/>
+                    
+                    <!-- Current progress path -->
+                    <path class="journey-path" d="M560,120 Q650,100 720,140"/>
+                    
+                    <!-- Progress particles -->
+                    <circle class="progress-particle" cx="80" cy="120" r="2" style="animation-delay: 0s;"/>
+                    <circle class="progress-particle" cx="80" cy="120" r="2" style="animation-delay: -2s;"/>
+                    <circle class="progress-particle" cx="80" cy="120" r="2" style="animation-delay: -4s;"/>
+                </svg>
+                
+                <!-- Journey Nodes -->
+                <div class="path-container relative z-10">
+                    <!-- Section 1 - Completed -->
+                    <div class="journey-node completed absolute" style="left: 80px; top: 100px;">
+                        <div class="w-20 h-20 bg-pewter-blue rounded-full flex items-center justify-center shadow-lg">
+                            <span class="text-white text-xl font-semibold">1</span>
+                        </div>
+                        <div class="milestone-card bg-white/90 backdrop-blur-sm rounded-xl p-4 mt-4 min-w-48">
+                            <h3 class="font-crimson font-semibold text-pewter-blue">Foundation</h3>
+                            <p class="font-muli font-light text-gray-600 text-sm">Complete ✅</p>
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                                <div class="bg-pewter-blue h-2 rounded-full w-full"></div>
+                            </div>
+                        </div>
+                        <div class="celebration-burst absolute -top-2 -right-2 text-xl">🌟</div>
+                    </div>
+                    
+                    <!-- Section 2 - Completed -->
+                    <div class="journey-node completed absolute" style="left: 320px; top: 100px;">
+                        <div class="w-20 h-20 bg-coral rounded-full flex items-center justify-center shadow-lg">
+                            <span class="text-white text-xl font-semibold">2</span>
+                        </div>
+                        <div class="milestone-card bg-white/90 backdrop-blur-sm rounded-xl p-4 mt-4 min-w-48">
+                            <h3 class="font-crimson font-semibold text-coral">Audience</h3>
+                            <p class="font-muli font-light text-gray-600 text-sm">Complete ✅</p>
+                            <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                                <div class="bg-coral h-2 rounded-full w-full"></div>
+                            </div>
+                        </div>
+                        <div class="celebration-burst absolute -top-2 -right-2 text-xl" style="animation-delay: -1s;">⭐</div>
+                    </div>
+                    
+                    <!-- Section 3 - Current -->
+                    <div class="journey-node current absolute" style="left: 560px; top: 100px;">
+                        <div class="w-24 h-24 bg-baby-pink rounded-full flex items-center justify-center shadow-xl border-4 border-coral progress-indicator">
+                            <span class="text-coral text-xl font-semibold">3</span>
+                        </div>
+                        <div class="milestone-card bg-white/95 backdrop-blur-sm rounded-xl p-6 mt-4 min-w-56 border-2 border-coral/30">
+                            <h3 class="font-crimson font-semibold text-coral text-lg">Episode Planning</h3>
+                            <p class="font-muli font-light text-gray-600 text-sm">In Progress 🎯</p>
+                            <div class="w-full bg-gray-200 rounded-full h-3 mt-3">
+                                <div class="bg-gradient-to-r from-coral to-baby-pink h-3 rounded-full w-3/4 progress-indicator"></div>
+                            </div>
+                            <p class="font-muli font-light text-gray-700 text-xs mt-2">75% Complete</p>
+                        </div>
+                        <div class="celebration-burst absolute -top-4 -right-4 text-2xl">🎨</div>
+                    </div>
+                    
+                    <!-- Section 4 - Upcoming -->
+                    <div class="journey-node upcoming absolute" style="left: 200px; top: 280px;">
+                        <div class="w-16 h-16 bg-gainsboro rounded-full flex items-center justify-center shadow-md">
+                            <span class="text-gray-600 font-semibold">4</span>
+                        </div>
+                        <div class="milestone-card bg-white/70 backdrop-blur-sm rounded-xl p-4 mt-4 min-w-44">
+                            <h3 class="font-crimson font-semibold text-gray-600">Content</h3>
+                            <p class="font-muli font-light text-gray-500 text-sm">Coming Soon 🌟</p>
+                            <div class="w-full bg-gray-100 rounded-full h-2 mt-2">
+                                <div class="bg-gray-200 h-2 rounded-full w-0"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Section 5 - Upcoming -->
+                    <div class="journey-node upcoming absolute" style="left: 450px; top: 280px;">
+                        <div class="w-16 h-16 bg-gainsboro rounded-full flex items-center justify-center shadow-md">
+                            <span class="text-gray-600 font-semibold">5</span>
+                        </div>
+                        <div class="milestone-card bg-white/70 backdrop-blur-sm rounded-xl p-4 mt-4 min-w-44">
+                            <h3 class="font-crimson font-semibold text-gray-600">Recording</h3>
+                            <p class="font-muli font-light text-gray-500 text-sm">Soon ✨</p>
+                            <div class="w-full bg-gray-100 rounded-full h-2 mt-2">
+                                <div class="bg-gray-200 h-2 rounded-full w-0"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional upcoming sections -->
+                    <div class="journey-node upcoming absolute" style="left: 120px; top: 450px;">
+                        <div class="w-14 h-14 bg-gainsboro rounded-full flex items-center justify-center shadow-md">
+                            <span class="text-gray-600 font-semibold text-sm">6</span>
+                        </div>
+                    </div>
+                    
+                    <div class="journey-node upcoming absolute" style="left: 320px; top: 450px;">
+                        <div class="w-14 h-14 bg-gainsboro rounded-full flex items-center justify-center shadow-md">
+                            <span class="text-gray-600 font-semibold text-sm">7</span>
+                        </div>
+                    </div>
+                    
+                    <div class="journey-node upcoming absolute" style="left: 520px; top: 450px;">
+                        <div class="w-14 h-14 bg-gainsboro rounded-full flex items-center justify-center shadow-md">
+                            <span class="text-gray-600 font-semibold text-sm">8</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current Focus with Animation -->
+        <section class="mb-16">
+            <div class="milestone-card bg-gradient-to-br from-white to-coral/5 rounded-3xl p-12">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-crimson font-semibold text-pewter-blue mb-4">Your Active Journey</h2>
+                    <p class="text-gray-600 font-muli font-light text-xl">Watch your progress come alive</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <div class="space-y-8">
+                        <!-- Current Task Card -->
+                        <div class="milestone-card bg-gradient-to-br from-coral/10 to-baby-pink/20 rounded-2xl p-8 border border-coral/30">
+                            <div class="flex items-center mb-6">
+                                <div class="w-16 h-16 bg-coral rounded-full flex items-center justify-center mr-6 progress-indicator">
+                                    <span class="text-white text-xl font-semibold">3</span>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-crimson font-semibold text-coral">Episode Planning</h3>
+                                    <p class="text-gray-600 font-muli font-light">Currently crafting your format</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <div class="flex justify-between mb-3">
+                                    <span class="font-muli font-light text-gray-600">Section Progress</span>
+                                    <span class="font-muli font-semibold text-coral">75%</span>
+                                </div>
+                                <div class="bg-white rounded-full h-4 overflow-hidden">
+                                    <div class="bg-gradient-to-r from-coral to-baby-pink h-4 rounded-full w-3/4 progress-indicator"></div>
+                                </div>
+                            </div>
+                            
+                            <p class="text-gray-700 font-muli font-light mb-6 leading-relaxed">
+                                You're designing episode structures that will captivate your audience. This creative work is the heart of your podcast success.
+                            </p>
+                            
+                            <button class="milestone-card bg-coral text-white px-8 py-4 rounded-xl font-muli font-semibold w-full">
+                                Continue Planning
+                            </button>
+                        </div>
+                        
+                        <!-- Achievement Highlights -->
+                        <div class="space-y-4">
+                            <div class="milestone-card bg-pewter-blue/10 rounded-xl p-6 border border-pewter-blue/30">
+                                <h4 class="font-crimson font-semibold text-pewter-blue mb-2">✅ Foundation Complete</h4>
+                                <p class="font-muli font-light text-gray-600">Solid podcast foundation established</p>
+                                <div class="celebration-burst absolute -top-1 -right-1 text-sm">⭐</div>
+                            </div>
+                            
+                            <div class="milestone-card bg-coral/10 rounded-xl p-6 border border-coral/30">
+                                <h4 class="font-crimson font-semibold text-coral mb-2">✅ Audience Research Complete</h4>
+                                <p class="font-muli font-light text-gray-600">Deep understanding of your listeners</p>
+                                <div class="celebration-burst absolute -top-1 -right-1 text-sm" style="animation-delay: -1s;">🌟</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Next Steps Preview -->
+                    <div class="space-y-6">
+                        <div class="milestone-card bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-gainsboro">
+                            <h3 class="text-2xl font-crimson font-semibold text-pewter-blue mb-6">What's Coming Next</h3>
+                            
+                            <div class="space-y-4">
+                                <div class="journey-node upcoming relative">
+                                    <div class="flex items-center p-4 rounded-xl bg-cookies-cream/30">
+                                        <div class="w-12 h-12 bg-cookies-cream rounded-full flex items-center justify-center mr-4">
+                                            <span class="text-gray-700 font-semibold">4</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-crimson font-semibold text-gray-700">Content Creation</h4>
+                                            <p class="font-muli font-light text-gray-600 text-sm">Build your content library</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="journey-node upcoming relative">
+                                    <div class="flex items-center p-4 rounded-xl bg-gainsboro/30">
+                                        <div class="w-12 h-12 bg-gainsboro rounded-full flex items-center justify-center mr-4">
+                                            <span class="text-gray-700 font-semibold">5</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-crimson font-semibold text-gray-700">Recording Setup</h4>
+                                            <p class="font-muli font-light text-gray-600 text-sm">Optimize your audio quality</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="journey-node upcoming relative">
+                                    <div class="flex items-center p-4 rounded-xl bg-baby-pink/30">
+                                        <div class="w-12 h-12 bg-baby-pink rounded-full flex items-center justify-center mr-4">
+                                            <span class="text-gray-700 font-semibold">6</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-crimson font-semibold text-gray-700">Launch Strategy</h4>
+                                            <p class="font-muli font-light text-gray-600 text-sm">Plan your podcast launch</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Animated Motivation Section -->
+        <section class="mb-16">
+            <div class="milestone-card bg-gradient-to-r from-cookies-cream via-baby-pink to-pewter-blue/20 rounded-3xl p-12 text-center relative overflow-hidden">
+                <!-- Animated background elements -->
+                <div class="absolute inset-0 overflow-hidden">
+                    <div class="celebration-burst absolute top-12 left-12 text-3xl">✨</div>
+                    <div class="celebration-burst absolute top-8 right-16 text-2xl" style="animation-delay: -1s;">🎉</div>
+                    <div class="celebration-burst absolute bottom-12 left-1/4 text-2xl" style="animation-delay: -2s;">💫</div>
+                    <div class="celebration-burst absolute bottom-8 right-1/3 text-xl" style="animation-delay: -3s;">🌟</div>
+                </div>
+                
+                <div class="relative z-10 max-w-4xl mx-auto">
+                    <h2 class="text-4xl font-crimson font-semibold text-pewter-blue mb-6">
+                        Your Journey is Beautifully Unfolding
+                    </h2>
+                    <p class="text-xl text-gray-700 font-muli font-light leading-relaxed mb-10">
+                        Every animated step, every flowing connection, every celebration moment represents your dedication to creating something meaningful. Watch as your podcast vision transforms into reality, one beautiful milestone at a time.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                        <button class="milestone-card bg-coral text-white px-10 py-5 rounded-2xl font-muli font-semibold text-lg shadow-lg">
+                            Continue the Animation
+                        </button>
+                        <button class="milestone-card border-2 border-pewter-blue text-pewter-blue px-10 py-5 rounded-2xl font-muli font-semibold text-lg hover:bg-pewter-blue hover:text-white">
+                            View All Progress
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Animated Footer -->
+    <footer class="bg-white/90 backdrop-blur-sm text-gray-800 py-12 border-t border-white/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-6 md:mb-0">
+                    <img src="../brand-assets/New Branding Kit/Thrive-with-Nikita-Logo-Main.png" alt="Thrive with Nikita" class="h-12 mb-4 journey-node upcoming">
+                    <p class="font-muli font-light text-gray-600">Animated journeys to podcast success</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="font-crimson font-semibold text-pewter-blue text-lg mb-2">Your progress is a work of art ✨</p>
+                    <p class="font-muli font-light text-gray-500 text-sm">© 2024 Thrive with Nikita. Animated with purpose.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Stagger animations for journey stats
+            const stats = document.querySelectorAll('.journey-stat');
+            stats.forEach((stat, index) => {
+                stat.style.animationDelay = `${index * 0.2 + 0.5}s`;
+            });
+            
+            // Add interactive hover effects to milestone cards
+            document.querySelectorAll('.milestone-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+            });
+            
+            // Simulate progress particles following the path
+            const particles = document.querySelectorAll('.progress-particle');
+            particles.forEach((particle, index) => {
+                particle.style.animationDelay = `${index * -2}s`;
+            });
+        });
+    </script>
+</body>
+</html>

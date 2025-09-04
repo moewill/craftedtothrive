@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Warm & Inviting - Crafted to Thrive Podcast Planner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Muli:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pewter-blue': '#81B0AA',
+                        'coral': '#F18070',
+                        'baby-pink': '#F5CABF',
+                        'gainsboro': '#D8D7DF',
+                        'cookies-cream': '#F1E6B2'
+                    },
+                    fontFamily: {
+                        'crimson': ['Crimson Text', 'serif'],
+                        'muli': ['Muli', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .warm-gradient {
+            background: linear-gradient(135deg, #F5CABF 0%, #F18070 50%, #81B0AA 100%);
+        }
+        
+        .coaching-card {
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 20px rgba(129, 176, 170, 0.15);
+        }
+        
+        .coaching-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(129, 176, 170, 0.25);
+        }
+        
+        .gentle-pulse {
+            animation: gentlePulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes gentlePulse {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.02); }
+        }
+        
+        .warm-float {
+            animation: warmFloat 4s ease-in-out infinite;
+        }
+        
+        @keyframes warmFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .encouraging-glow {
+            position: relative;
+        }
+        
+        .encouraging-glow::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #F18070, #81B0AA, #F5CABF);
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .encouraging-glow:hover::before {
+            opacity: 0.7;
+        }
+        
+        .coach-signature {
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            color: #F18070;
+        }
+        
+        .progress-warmth {
+            background: linear-gradient(90deg, #81B0AA 0%, #F5CABF 75%, #F1E6B2 100%);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-baby-pink via-gainsboro to-cookies-cream font-muli">
+    <!-- Header with Warm Welcome -->
+    <header class="warm-gradient shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-8">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <img src="../brand-assets/New Branding Kit/Thrive-with-Nikita-Logo-Main.png" alt="Thrive with Nikita" class="h-16 warm-float">
+                    <div>
+                        <h1 class="text-3xl font-crimson font-semibold text-white">Your Podcast Journey</h1>
+                        <p class="text-white/90 font-muli font-light">Where dreams become reality, one episode at a time</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6 text-white">
+                    <span class="font-muli font-light">✨ You're doing amazing</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-12">
+        <!-- Warm Welcome Section with Coach Connection -->
+        <section class="mb-16">
+            <div class="coaching-card bg-white rounded-3xl p-12 encouraging-glow">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="lg:w-2/3">
+                        <div class="mb-6">
+                            <h2 class="text-4xl font-crimson font-semibold text-pewter-blue mb-4 gentle-pulse">
+                                Welcome back, beautiful soul! 💕
+                            </h2>
+                            <p class="text-xl text-gray-700 font-muli font-light leading-relaxed mb-6">
+                                I'm so proud of how far you've come on this journey. Building a podcast that truly serves your audience takes courage, and you're showing up with such intention and heart.
+                            </p>
+                            <div class="bg-coral/10 rounded-xl p-6 mb-6">
+                                <h3 class="text-lg font-crimson font-semibold text-coral mb-3">Your Progress Celebration</h3>
+                                <div class="flex items-center mb-4">
+                                    <div class="progress-warmth h-3 rounded-full w-3/4 mr-4"></div>
+                                    <span class="font-muli font-semibold text-pewter-blue">75%</span>
+                                </div>
+                                <p class="text-gray-600 font-muli font-light">You're in <strong>Section 3: Episode Planning</strong> - the creative heart of your podcast! This is where your vision truly comes to life.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <button class="encouraging-glow bg-coral text-white px-8 py-4 rounded-xl font-muli font-semibold hover:bg-coral/90 transition-all duration-300">
+                                Continue Your Journey
+                            </button>
+                            <button class="border-2 border-pewter-blue text-pewter-blue px-8 py-4 rounded-xl font-muli font-semibold hover:bg-pewter-blue hover:text-white transition-all duration-300">
+                                Review Progress
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3">
+                        <div class="relative">
+                            <img src="../brand-assets/New Branding Kit/TWN_310.jpg" alt="Coach Nikita" class="rounded-2xl shadow-2xl gentle-pulse">
+                            <div class="absolute -bottom-4 -right-4 bg-white rounded-xl p-4 shadow-lg warm-float">
+                                <p class="coach-signature text-sm">You've got this!</p>
+                                <p class="coach-signature text-xs">- Nikita ✨</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current Focus with Warm Encouragement -->
+        <section class="mb-16">
+            <div class="coaching-card bg-white rounded-3xl p-10">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-crimson font-semibold text-pewter-blue mb-4">Your Current Focus</h2>
+                    <p class="text-gray-600 font-muli font-light text-lg">Let's create something beautiful together</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gradient-to-br from-coral/20 to-baby-pink/30 rounded-2xl p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-coral rounded-full flex items-center justify-center mr-4 gentle-pulse">
+                                <span class="text-white text-xl">3</span>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-crimson font-semibold text-coral">Episode Planning</h3>
+                                <p class="text-gray-600 font-muli font-light">Currently in progress</p>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-muli font-light text-gray-600">Progress</span>
+                                <span class="font-muli font-semibold text-coral">75%</span>
+                            </div>
+                            <div class="bg-white/50 rounded-full h-2">
+                                <div class="progress-warmth h-2 rounded-full w-3/4"></div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 font-muli font-light mb-4">
+                            You're crafting episode structures that will deeply resonate with your ideal listeners. This foundational work is setting you up for podcasting success.
+                        </p>
+                        <button class="encouraging-glow bg-coral text-white px-6 py-3 rounded-xl font-muli font-semibold w-full hover:bg-coral/90 transition-all duration-300">
+                            Continue Planning
+                        </button>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-gradient-to-r from-pewter-blue/20 to-gainsboro/30 rounded-xl p-6">
+                            <h4 class="font-crimson font-semibold text-pewter-blue mb-3">Next: Content Creation</h4>
+                            <p class="font-muli font-light text-gray-600 mb-4">Ready when you are! We'll dive into creating that magnetic content your audience will love.</p>
+                            <div class="flex items-center text-pewter-blue">
+                                <span class="w-2 h-2 bg-pewter-blue rounded-full mr-2"></span>
+                                <span class="font-muli font-light text-sm">Coming up next</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-cookies-cream/40 to-baby-pink/20 rounded-xl p-6">
+                            <h4 class="font-crimson font-semibold text-gray-700 mb-3">Upcoming Milestones</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-center text-gray-600 font-muli font-light">
+                                    <span class="w-1.5 h-1.5 bg-coral rounded-full mr-3"></span>
+                                    Recording setup optimization
+                                </li>
+                                <li class="flex items-center text-gray-600 font-muli font-light">
+                                    <span class="w-1.5 h-1.5 bg-pewter-blue rounded-full mr-3"></span>
+                                    Launch strategy development
+                                </li>
+                                <li class="flex items-center text-gray-600 font-muli font-light">
+                                    <span class="w-1.5 h-1.5 bg-baby-pink rounded-full mr-3"></span>
+                                    Community building plan
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Overview with Gentle Guidance -->
+        <section class="mb-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-crimson font-semibold text-pewter-blue mb-4">Your Beautiful Journey So Far</h2>
+                <p class="text-gray-600 font-muli font-light text-lg">Every step forward is a victory worth celebrating</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Completed Sections -->
+                <div class="coaching-card bg-gradient-to-br from-pewter-blue to-pewter-blue/80 text-white rounded-2xl p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mr-3">
+                            <span class="text-sm font-semibold">1</span>
+                        </div>
+                        <div>
+                            <h3 class="font-crimson font-semibold">Foundation</h3>
+                            <p class="text-white/80 font-muli font-light text-sm">Completed ✨</p>
+                        </div>
+                    </div>
+                    <p class="font-muli font-light text-sm text-white/90 mb-4">You've built a solid foundation for your podcast vision.</p>
+                    <div class="w-full bg-white/20 rounded-full h-2">
+                        <div class="bg-white h-2 rounded-full w-full"></div>
+                    </div>
+                </div>
+
+                <div class="coaching-card bg-gradient-to-br from-coral to-coral/80 text-white rounded-2xl p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mr-3">
+                            <span class="text-sm font-semibold">2</span>
+                        </div>
+                        <div>
+                            <h3 class="font-crimson font-semibold">Audience</h3>
+                            <p class="text-white/80 font-muli font-light text-sm">Completed ✨</p>
+                        </div>
+                    </div>
+                    <p class="font-muli font-light text-sm text-white/90 mb-4">You deeply understand who you're serving and how to help them.</p>
+                    <div class="w-full bg-white/20 rounded-full h-2">
+                        <div class="bg-white h-2 rounded-full w-full"></div>
+                    </div>
+                </div>
+
+                <!-- Current Section -->
+                <div class="coaching-card bg-gradient-to-br from-baby-pink to-baby-pink/80 text-gray-800 rounded-2xl p-6 ring-2 ring-coral gentle-pulse">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-coral text-white rounded-full flex items-center justify-center mr-3">
+                            <span class="text-sm font-semibold">3</span>
+                        </div>
+                        <div>
+                            <h3 class="font-crimson font-semibold">Episodes</h3>
+                            <p class="text-gray-600 font-muli font-light text-sm">In Progress 🎯</p>
+                        </div>
+                    </div>
+                    <p class="font-muli font-light text-sm text-gray-700 mb-4">Crafting episode structures that will captivate your audience.</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="progress-warmth h-2 rounded-full w-3/4"></div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Section -->
+                <div class="coaching-card bg-white border-2 border-dashed border-gainsboro rounded-2xl p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-gainsboro rounded-full flex items-center justify-center mr-3">
+                            <span class="text-sm font-semibold text-gray-600">4</span>
+                        </div>
+                        <div>
+                            <h3 class="font-crimson font-semibold text-gray-600">Content</h3>
+                            <p class="text-gray-500 font-muli font-light text-sm">Coming Soon 🌟</p>
+                        </div>
+                    </div>
+                    <p class="font-muli font-light text-sm text-gray-500 mb-4">The exciting content creation phase awaits you.</p>
+                    <div class="w-full bg-gray-100 rounded-full h-2">
+                        <div class="bg-gray-200 h-2 rounded-full w-0"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Encouraging Message Section -->
+        <section class="mb-16">
+            <div class="coaching-card bg-gradient-to-r from-cookies-cream to-baby-pink rounded-3xl p-12 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-crimson font-semibold text-pewter-blue mb-6 gentle-pulse">
+                        You're Creating Something Meaningful
+                    </h2>
+                    <p class="text-xl text-gray-700 font-muli font-light leading-relaxed mb-8">
+                        Every successful podcast started exactly where you are right now. Your unique voice, perspective, and heart are exactly what your future listeners need. Trust the process, trust your vision, and most importantly - trust yourself.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button class="encouraging-glow bg-pewter-blue text-white px-8 py-4 rounded-xl font-muli font-semibold hover:bg-pewter-blue/90 transition-all duration-300">
+                            Continue Building Your Dream
+                        </button>
+                        <button class="border-2 border-coral text-coral px-8 py-4 rounded-xl font-muli font-semibold hover:bg-coral hover:text-white transition-all duration-300">
+                            Connect with Community
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Warm Footer -->
+    <footer class="warm-gradient text-white py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-6 md:mb-0">
+                    <img src="../brand-assets/New Branding Kit/Thrive-with-Nikita-Logo-Main.png" alt="Thrive with Nikita" class="h-12 mb-4 warm-float">
+                    <p class="font-muli font-light text-white/90">Building podcasts with purpose, heart, and authenticity</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="coach-signature text-white text-lg mb-2">You're exactly where you need to be ✨</p>
+                    <p class="font-muli font-light text-white/80 text-sm">© 2024 Thrive with Nikita. Made with love for creative entrepreneurs.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
