@@ -36,8 +36,9 @@
         
         .path-container {
             position: relative;
-            height: 600px;
+            height: 400px;
             z-index: 1;
+            overflow: visible;
         }
         
         .journey-path {
@@ -288,116 +289,123 @@
                 <p class="text-gray-600 font-muli font-light text-xl">Follow the flowing path as it guides you through each section</p>
             </div>
             
-            <div class="relative bg-white/80 rounded-3xl p-8">
+            <div class="bg-white rounded-3xl p-8 shadow-lg">
                 <!-- SVG Path Animation -->
-                <svg class="absolute inset-0 w-full h-full z-0" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet">
-                    <!-- Background decorative paths -->
-                    <path class="dotted-connection" d="M50,100 Q200,50 350,100 T650,100"/>
-                    <path class="dotted-connection" d="M50,200 Q200,150 350,200 T650,200" style="animation-delay: -1s;"/>
-                    <path class="dotted-connection" d="M50,300 Q200,250 350,300 T650,300" style="animation-delay: -2s;"/>
-                    
+                <svg class="w-full h-32 mb-8" viewBox="0 0 800 100" preserveAspectRatio="xMidYMid meet">
                     <!-- Main journey path (completed sections) -->
-                    <path class="journey-path-completed" d="M80,120 Q200,80 320,120 T560,120"/>
+                    <path class="journey-path-completed" d="M60,50 Q200,30 340,50 Q480,70 620,50"/>
                     
                     <!-- Current progress path -->
-                    <path class="journey-path" d="M560,120 Q650,100 720,140"/>
+                    <path class="journey-path" d="M620,50 Q700,60 760,50"/>
                     
                     <!-- Progress particles -->
-                    <circle class="progress-particle" cx="80" cy="120" r="2" style="animation-delay: 0s;"/>
-                    <circle class="progress-particle" cx="80" cy="120" r="2" style="animation-delay: -2s;"/>
-                    <circle class="progress-particle" cx="80" cy="120" r="2" style="animation-delay: -4s;"/>
+                    <circle class="progress-particle" cx="60" cy="50" r="2" style="animation-delay: 0s;"/>
+                    <circle class="progress-particle" cx="200" cy="40" r="2" style="animation-delay: -1s;"/>
+                    <circle class="progress-particle" cx="340" cy="50" r="2" style="animation-delay: -2s;"/>
                 </svg>
                 
-                <!-- Journey Nodes -->
-                <div class="path-container relative z-10">
+                <!-- Journey Milestones Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                     <!-- Section 1 - Completed -->
-                    <div class="journey-node completed absolute" style="left: 60px; top: 80px;">
-                        <div class="w-16 h-16 bg-pewter-blue rounded-full flex items-center justify-center shadow-lg">
-                            <span class="text-white font-semibold">1</span>
+                    <div class="text-center journey-node completed">
+                        <div class="relative inline-block">
+                            <div class="w-16 h-16 bg-pewter-blue rounded-full flex items-center justify-center shadow-lg mx-auto mb-4">
+                                <span class="text-white font-semibold">1</span>
+                            </div>
+                            <div class="celebration-burst absolute -top-2 -right-2 text-lg">🌟</div>
                         </div>
-                        <div class="milestone-card bg-white/95 rounded-xl p-3 mt-3 w-40">
-                            <h3 class="font-crimson font-semibold text-pewter-blue text-sm">Foundation</h3>
-                            <p class="font-muli font-light text-gray-600 text-xs">Complete ✅</p>
-                            <div class="w-full bg-gray-200 rounded-full h-1.5 mt-2">
+                        <div class="milestone-card bg-white/95 rounded-xl p-4 shadow-sm">
+                            <h3 class="font-crimson font-semibold text-pewter-blue text-sm mb-2">Foundation</h3>
+                            <p class="font-muli font-light text-gray-600 text-xs mb-3">Complete ✅</p>
+                            <div class="w-full bg-gray-200 rounded-full h-1.5">
                                 <div class="bg-pewter-blue h-1.5 rounded-full w-full"></div>
                             </div>
                         </div>
-                        <div class="celebration-burst absolute -top-2 -right-2 text-lg">🌟</div>
                     </div>
                     
                     <!-- Section 2 - Completed -->
-                    <div class="journey-node completed absolute" style="left: 260px; top: 80px;">
-                        <div class="w-16 h-16 bg-coral rounded-full flex items-center justify-center shadow-lg">
-                            <span class="text-white font-semibold">2</span>
+                    <div class="text-center journey-node completed">
+                        <div class="relative inline-block">
+                            <div class="w-16 h-16 bg-coral rounded-full flex items-center justify-center shadow-lg mx-auto mb-4">
+                                <span class="text-white font-semibold">2</span>
+                            </div>
+                            <div class="celebration-burst absolute -top-2 -right-2 text-lg" style="animation-delay: -1s;">⭐</div>
                         </div>
-                        <div class="milestone-card bg-white/95 rounded-xl p-3 mt-3 w-40">
-                            <h3 class="font-crimson font-semibold text-coral text-sm">Audience</h3>
-                            <p class="font-muli font-light text-gray-600 text-xs">Complete ✅</p>
-                            <div class="w-full bg-gray-200 rounded-full h-1.5 mt-2">
+                        <div class="milestone-card bg-white/95 rounded-xl p-4 shadow-sm">
+                            <h3 class="font-crimson font-semibold text-coral text-sm mb-2">Audience</h3>
+                            <p class="font-muli font-light text-gray-600 text-xs mb-3">Complete ✅</p>
+                            <div class="w-full bg-gray-200 rounded-full h-1.5">
                                 <div class="bg-coral h-1.5 rounded-full w-full"></div>
                             </div>
                         </div>
-                        <div class="celebration-burst absolute -top-2 -right-2 text-lg" style="animation-delay: -1s;">⭐</div>
                     </div>
                     
                     <!-- Section 3 - Current -->
-                    <div class="journey-node current absolute" style="left: 460px; top: 80px;">
-                        <div class="w-20 h-20 bg-baby-pink rounded-full flex items-center justify-center shadow-xl border-4 border-coral progress-indicator">
-                            <span class="text-coral font-semibold text-lg">3</span>
+                    <div class="text-center journey-node current">
+                        <div class="relative inline-block">
+                            <div class="w-20 h-20 bg-baby-pink rounded-full flex items-center justify-center shadow-xl border-4 border-coral progress-indicator mx-auto mb-4">
+                                <span class="text-coral font-semibold text-lg">3</span>
+                            </div>
+                            <div class="celebration-burst absolute -top-3 -right-3 text-xl">🎨</div>
                         </div>
-                        <div class="milestone-card bg-white/98 rounded-xl p-4 mt-4 w-48 border-2 border-coral/30">
-                            <h3 class="font-crimson font-semibold text-coral">Episode Planning</h3>
-                            <p class="font-muli font-light text-gray-600 text-xs">In Progress 🎯</p>
-                            <div class="w-full bg-gray-200 rounded-full h-2 mt-2">
+                        <div class="milestone-card bg-white/98 rounded-xl p-4 shadow-lg border-2 border-coral/30">
+                            <h3 class="font-crimson font-semibold text-coral mb-2">Episode Planning</h3>
+                            <p class="font-muli font-light text-gray-600 text-xs mb-3">In Progress 🎯</p>
+                            <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
                                 <div class="bg-gradient-to-r from-coral to-baby-pink h-2 rounded-full w-3/4 progress-indicator"></div>
                             </div>
-                            <p class="font-muli font-light text-gray-700 text-xs mt-1">75% Complete</p>
+                            <p class="font-muli font-light text-gray-700 text-xs">75% Complete</p>
                         </div>
-                        <div class="celebration-burst absolute -top-3 -right-3 text-xl">🎨</div>
                     </div>
                     
                     <!-- Section 4 - Upcoming -->
-                    <div class="journey-node upcoming absolute" style="left: 160px; top: 280px;">
-                        <div class="w-14 h-14 bg-gainsboro rounded-full flex items-center justify-center shadow-md">
+                    <div class="text-center journey-node upcoming">
+                        <div class="w-14 h-14 bg-gainsboro rounded-full flex items-center justify-center shadow-md mx-auto mb-4">
                             <span class="text-gray-600 font-semibold text-sm">4</span>
                         </div>
-                        <div class="milestone-card bg-white/80 rounded-xl p-3 mt-3 w-36">
-                            <h3 class="font-crimson font-semibold text-gray-600 text-sm">Content</h3>
+                        <div class="milestone-card bg-white/80 rounded-xl p-4 shadow-sm">
+                            <h3 class="font-crimson font-semibold text-gray-600 text-sm mb-2">Content</h3>
                             <p class="font-muli font-light text-gray-500 text-xs">Coming Soon 🌟</p>
                         </div>
                     </div>
-                    
-                    <!-- Section 5 - Upcoming -->
-                    <div class="journey-node upcoming absolute" style="left: 360px; top: 280px;">
-                        <div class="w-14 h-14 bg-gainsboro rounded-full flex items-center justify-center shadow-md">
-                            <span class="text-gray-600 font-semibold text-sm">5</span>
+                </div>
+                
+                <!-- Additional Sections Row -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-8">
+                    <!-- Section 5 -->
+                    <div class="text-center journey-node upcoming">
+                        <div class="w-12 h-12 bg-gainsboro rounded-full flex items-center justify-center shadow-md mx-auto mb-3">
+                            <span class="text-gray-600 font-semibold text-xs">5</span>
                         </div>
-                        <div class="milestone-card bg-white/80 rounded-xl p-3 mt-3 w-36">
-                            <h3 class="font-crimson font-semibold text-gray-600 text-sm">Recording</h3>
-                            <p class="font-muli font-light text-gray-500 text-xs">Soon ✨</p>
-                        </div>
+                        <h4 class="font-crimson font-semibold text-gray-600 text-sm mb-1">Recording</h4>
+                        <p class="font-muli text-xs text-gray-500">Soon ✨</p>
                     </div>
                     
-                    <!-- Additional upcoming sections -->
-                    <div class="journey-node upcoming absolute" style="left: 100px; top: 420px;">
-                        <div class="w-12 h-12 bg-gainsboro rounded-full flex items-center justify-center shadow-md">
+                    <!-- Section 6 -->
+                    <div class="text-center journey-node upcoming">
+                        <div class="w-12 h-12 bg-gainsboro rounded-full flex items-center justify-center shadow-md mx-auto mb-3">
                             <span class="text-gray-600 font-semibold text-xs">6</span>
                         </div>
-                        <p class="font-muli text-xs text-gray-500 mt-1 text-center w-16">Launch</p>
+                        <h4 class="font-crimson font-semibold text-gray-600 text-sm mb-1">Launch</h4>
+                        <p class="font-muli text-xs text-gray-500">Upcoming</p>
                     </div>
                     
-                    <div class="journey-node upcoming absolute" style="left: 250px; top: 420px;">
-                        <div class="w-12 h-12 bg-gainsboro rounded-full flex items-center justify-center shadow-md">
+                    <!-- Section 7 -->
+                    <div class="text-center journey-node upcoming">
+                        <div class="w-12 h-12 bg-gainsboro rounded-full flex items-center justify-center shadow-md mx-auto mb-3">
                             <span class="text-gray-600 font-semibold text-xs">7</span>
                         </div>
-                        <p class="font-muli text-xs text-gray-500 mt-1 text-center w-16">Growth</p>
+                        <h4 class="font-crimson font-semibold text-gray-600 text-sm mb-1">Growth</h4>
+                        <p class="font-muli text-xs text-gray-500">Future</p>
                     </div>
                     
-                    <div class="journey-node upcoming absolute" style="left: 400px; top: 420px;">
-                        <div class="w-12 h-12 bg-gainsboro rounded-full flex items-center justify-center shadow-md">
+                    <!-- Section 8 -->
+                    <div class="text-center journey-node upcoming">
+                        <div class="w-12 h-12 bg-gainsboro rounded-full flex items-center justify-center shadow-md mx-auto mb-3">
                             <span class="text-gray-600 font-semibold text-xs">8</span>
                         </div>
-                        <p class="font-muli text-xs text-gray-500 mt-1 text-center w-16">Scale</p>
+                        <h4 class="font-crimson font-semibold text-gray-600 text-sm mb-1">Scale</h4>
+                        <p class="font-muli text-xs text-gray-500">Goal</p>
                     </div>
                 </div>
             </div>
