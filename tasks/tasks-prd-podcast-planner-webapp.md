@@ -1,0 +1,555 @@
+# Task List: Podcast Planner Web Application
+
+Based on PRD: `prd-podcast-planner-webapp.md`
+
+## Relevant Files
+
+### Backend Files
+- `backend/app.py` - Main Flask application entry point with CORS and route registration
+- `backend/wsgi.py` - WSGI entry point for production deployment (Gunicorn)
+- `backend/models/__init__.py` - Database models initialization and SQLAlchemy setup
+- `backend/models/user.py` - User model with OAuth integration and relationships
+- `backend/models/user_progress.py` - UserProgress model for tracking section completion
+- `backend/models/section_content.py` - Static section content model for 8 podcast sections
+- `backend/api/__init__.py` - API blueprint initialization and error handlers
+- `backend/api/auth.py` - OAuth token validation middleware and utilities
+- `backend/api/progress.py` - Progress tracking API endpoints (GET/POST /api/user/progress)
+- `backend/api/sections.py` - Section content API endpoints (GET /api/sections)
+- `backend/api/users.py` - User profile API endpoints (GET/PUT /api/user/profile)
+- `backend/config.py` - Flask configuration classes (Development, Production, Testing)
+- `backend/utils/oauth_validators.py` - OAuth provider-specific token validation utilities
+- `backend/utils/serializers.py` - Marshmallow schemas for request/response serialization
+- `backend/utils/exceptions.py` - Custom exception classes for API error handling
+- `backend/migrations/` - Alembic migration files for database schema management
+- `backend/migrations/env.py` - Alembic environment configuration
+- `backend/migrations/script.py.mako` - Alembic migration template
+- `backend/requirements.txt` - Python dependencies including Flask, SQLAlchemy, psycopg3
+- `backend/requirements-dev.txt` - Development dependencies (pytest, black, flake8)
+- `backend/tests/conftest.py` - Pytest fixtures and test configuration
+- `backend/tests/test_auth.py` - Unit tests for OAuth authentication middleware
+- `backend/tests/test_progress.py` - Unit tests for progress API endpoints
+- `backend/tests/test_models.py` - Unit tests for database models and relationships
+- `backend/tests/test_oauth_validators.py` - Unit tests for OAuth validation utilities
+- `backend/tests/test_serializers.py` - Unit tests for Marshmallow schemas
+
+### Frontend Files
+- `frontend/src/main.tsx` - React application entry point with AuthProvider setup
+- `frontend/src/App.tsx` - Main App component with routing and protected routes
+- `frontend/src/router/index.tsx` - React Router configuration with route definitions
+- `frontend/src/contexts/AuthContext.tsx` - OAuth authentication context using react-oidc-context
+- `frontend/src/contexts/ProgressContext.tsx` - User progress state management context
+- `frontend/src/components/auth/LoginButton.tsx` - OAuth login buttons for Google/Facebook
+- `frontend/src/components/auth/LoginPage.tsx` - Dedicated login page component
+- `frontend/src/components/auth/CallbackPage.tsx` - OAuth callback handler component
+- `frontend/src/components/auth/ProtectedRoute.tsx` - Route protection wrapper component
+- `frontend/src/components/dashboard/Dashboard.tsx` - Main dashboard with 8-section progress cards
+- `frontend/src/components/dashboard/ProgressCard.tsx` - Individual section progress card component
+- `frontend/src/components/dashboard/ProgressHeader.tsx` - Progress overview header with statistics
+- `frontend/src/components/dashboard/WelcomeSection.tsx` - Welcome message and user greeting
+- `frontend/src/components/sections/SectionView.tsx` - Individual section detail view component
+- `frontend/src/components/sections/SectionContent.tsx` - Section content renderer component
+- `frontend/src/components/sections/ProgressTracker.tsx` - Section progress tracking component
+- `frontend/src/components/layout/Layout.tsx` - Base layout template with header/footer
+- `frontend/src/components/layout/Header.tsx` - Application header with navigation and user menu
+- `frontend/src/components/layout/Footer.tsx` - Application footer component
+- `frontend/src/components/layout/Navigation.tsx` - Navigation component with user menu
+- `frontend/src/components/layout/Sidebar.tsx` - Collapsible sidebar navigation
+- `frontend/src/components/ui/LoadingSpinner.tsx` - Loading state component
+- `frontend/src/components/ui/ErrorBoundary.tsx` - Error boundary for graceful error handling
+- `frontend/src/components/ui/Modal.tsx` - Reusable modal component for dialogs
+- `frontend/src/components/ui/Toast.tsx` - Toast notification component
+- `frontend/src/components/ui/SkeletonLoader.tsx` - Skeleton loading components
+- `frontend/src/hooks/useAuth.tsx` - Custom hook for authentication state management
+- `frontend/src/hooks/useProgress.tsx` - Custom hook for progress data fetching
+- `frontend/src/hooks/useLocalStorage.tsx` - Custom hook for localStorage management
+- `frontend/src/hooks/useDebounce.tsx` - Custom hook for debouncing user inputs
+- `frontend/src/services/api.ts` - API client with OAuth token interceptors
+- `frontend/src/services/oauth.ts` - OAuth service utilities and token management
+- `frontend/src/services/progress.ts` - Progress-specific API service methods
+- `frontend/src/config/oauth.ts` - OAuth provider configurations (Google/Facebook)
+- `frontend/src/config/constants.ts` - Application constants and configuration
+- `frontend/src/types/auth.ts` - TypeScript interfaces for authentication
+- `frontend/src/types/progress.ts` - TypeScript interfaces for progress tracking
+- `frontend/src/types/api.ts` - TypeScript interfaces for API responses
+- `frontend/src/utils/formatters.ts` - Utility functions for data formatting
+- `frontend/src/utils/validators.ts` - Client-side validation utilities
+- `frontend/src/styles/globals.css` - Global styles with Tailwind CSS imports and custom brand colors
+- `frontend/src/styles/animations.css` - Glassmorphism and transition animations
+- `frontend/src/styles/components.css` - Component-specific CSS classes
+- `frontend/.env.example` - Frontend environment variables template
+- `frontend/package.json` - Frontend dependencies including React, TypeScript, Vite
+- `frontend/tailwind.config.js` - Tailwind configuration with custom brand colors
+- `frontend/vite.config.ts` - Vite build configuration with development settings
+- `frontend/tsconfig.json` - TypeScript configuration with strict settings
+- `frontend/tests/setup.ts` - Jest test setup with React Testing Library
+- `frontend/tests/__mocks__/` - Mock implementations for testing
+- `frontend/tests/components/Dashboard.test.tsx` - Dashboard component tests
+- `frontend/tests/components/ProgressCard.test.tsx` - ProgressCard component tests
+- `frontend/tests/components/LoginButton.test.tsx` - LoginButton component tests
+- `frontend/tests/hooks/useAuth.test.tsx` - Authentication hook tests
+- `frontend/tests/hooks/useProgress.test.tsx` - Progress hook tests
+- `frontend/tests/services/api.test.ts` - API client tests with mock OAuth tokens
+- `frontend/tests/utils/formatters.test.ts` - Utility function tests
+
+### DevOps Files
+- `docker-compose.yml` - Multi-service Docker Compose configuration
+- `docker-compose.dev.yml` - Development-specific Docker Compose overrides
+- `backend/Dockerfile` - Multi-stage Flask backend container
+- `frontend/Dockerfile` - Multi-stage React frontend container with nginx
+- `postgres/init.sql` - PostgreSQL database initialization script
+- `helm/postgresql/` - PostgreSQL Helm chart for local development
+- `.env.example` - Environment variable template
+- `.gitignore` - Git ignore patterns for both frontend and backend
+- `package.json` - Root package.json for project scripts
+
+### Testing Files
+- `percy.config.js` - Percy visual regression testing configuration
+- `jest.config.js` - Jest testing configuration for frontend
+- `frontend/tests/setup.ts` - Jest test setup with React Testing Library
+- `backend/pytest.ini` - Pytest configuration for backend tests
+- `.github/workflows/ci.yml` - GitHub Actions CI/CD pipeline
+
+### Notes
+
+- Unit tests should be placed in `tests/` directories alongside their respective modules
+- Use `npm test` to run frontend tests and `pytest` for backend tests
+- Percy visual regression tests run automatically in CI/CD pipeline
+- Database migrations are managed via `flask db migrate` and `flask db upgrade`
+- OAuth client credentials must be configured in environment variables
+
+## Tasks
+
+- [x] 1.0 Set up project infrastructure and development environment
+  - [x] 1.1 Initialize project structure with backend/ and frontend/ directories
+  - [x] 1.2 Create root package.json with workspace scripts for both frontend and backend
+  - [x] 1.3 Set up Python virtual environment (venv) and install Flask dependencies
+    - [x] 1.3.1 Create backend/requirements.txt with Flask 3.1+, SQLAlchemy 3.1+, psycopg3, Flask-CORS, Flask-Migrate, Marshmallow, requests
+    - [x] 1.3.2 Create backend/requirements-dev.txt with pytest, black, flake8, pytest-cov, factory-boy
+    - [x] 1.3.3 Install dependencies and verify Flask application can start
+  - [x] 1.4 Initialize React project with Vite and TypeScript
+    - [x] 1.4.1 Run `npm create vite@latest frontend -- --template react-ts`
+    - [x] 1.4.2 Install additional dependencies: react-oidc-context, oidc-client-ts, axios, framer-motion, @tailwindcss/forms
+    - [x] 1.4.3 Configure TypeScript with strict mode and path aliases
+  - [x] 1.5 Configure Tailwind CSS with custom brand colors (pewter-blue, coral, baby-pink, gainsboro, cookies-cream)
+    - [x] 1.5.1 Install Tailwind CSS and configure with Vite
+    - [x] 1.5.2 Create custom color palette using Tailwind v4 @theme syntax
+    - [x] 1.5.3 Set up CSS imports with @import "tailwindcss"
+    - [x] 1.5.4 Test brand colors are correctly applied in a sample component
+  - [x] 1.6 Set up ESLint, Prettier, Black, and Flake8 for code quality
+    - [x] 1.6.1 Configure ESLint with TypeScript and React rules for frontend
+    - [x] 1.6.2 Set up Prettier with consistent formatting rules
+    - [x] 1.6.3 Configure Black with line-length 88 for Python backend
+    - [x] 1.6.4 Set up Flake8 with max-line-length 88 and ignore specific rules
+    - [x] 1.6.5 Create .editorconfig for consistent editor settings
+  - [x] 1.7 Create comprehensive .env.example with all required environment variables
+    - [x] 1.7.1 Backend variables: DATABASE_URL, FLASK_ENV, SECRET_KEY, CORS_ORIGINS
+    - [x] 1.7.2 Frontend variables: VITE_API_BASE_URL, VITE_GOOGLE_CLIENT_ID, VITE_FACEBOOK_CLIENT_ID
+    - [x] 1.7.3 Document each variable with comments explaining purpose and format
+  - [x] 1.8 Configure Git hooks with pre-commit for code quality checks
+    - [x] 1.8.1 Install pre-commit package and create .pre-commit-config.yaml
+    - [x] 1.8.2 Add hooks for black, flake8, eslint, prettier, trailing whitespace
+    - [x] 1.8.3 Test pre-commit hooks work correctly on sample commits
+  - [x] 1.9 Set up Jest and pytest testing frameworks
+    - [x] 1.9.1 Configure Vitest with React Testing Library and TypeScript support
+    - [x] 1.9.2 Create vite.config.ts with test configuration and coverage reporting
+    - [x] 1.9.3 Set up pytest with conftest.py and test database configuration
+    - [x] 1.9.4 Create sample test files to verify testing setup works
+  - [x] 1.10 Initialize Git repository and create initial commit
+    - [x] 1.10.1 Create comprehensive .gitignore for Node.js, Python, and IDE files
+    - [x] 1.10.2 Add all configuration files and commit with descriptive message
+    - [x] 1.10.3 Set up main branch protection if using remote repository
+
+- [ ] 2.0 Implement OAuth 2.0 PKCE authentication with react-oidc-context
+  - [ ] 2.1 Install and configure OAuth packages
+    - [ ] 2.1.1 Install react-oidc-context and oidc-client-ts packages
+    - [ ] 2.1.2 Verify package versions are compatible and up-to-date
+  - [ ] 2.2 Create OAuth provider configurations for Google and Facebook
+    - [ ] 2.2.1 Set up Google OAuth 2.0 configuration with proper scopes (openid, profile, email)
+    - [ ] 2.2.2 Set up Facebook OAuth 2.0 configuration with proper permissions
+    - [ ] 2.2.3 Create environment-specific OAuth configs (dev, staging, production)
+    - [ ] 2.2.4 Document OAuth app registration process for both providers
+  - [ ] 2.3 Set up AuthProvider wrapper with react-oidc-context
+    - [ ] 2.3.1 Create AuthContext using react-oidc-context AuthProvider
+    - [ ] 2.3.2 Configure OIDC client settings with PKCE enabled
+    - [ ] 2.3.3 Set up automatic token refresh and silent renew
+    - [ ] 2.3.4 Handle provider-specific configuration differences
+  - [ ] 2.4 Create LoginButton components for Google/Facebook authentication
+    - [ ] 2.4.1 Create GoogleLoginButton with brand styling and loading states
+    - [ ] 2.4.2 Create FacebookLoginButton with brand styling and loading states
+    - [ ] 2.4.3 Add proper ARIA labels and accessibility features
+    - [ ] 2.4.4 Implement click handlers that trigger OAuth flows
+  - [ ] 2.5 Implement ProtectedRoute component for route protection
+    - [ ] 2.5.1 Create ProtectedRoute wrapper component
+    - [ ] 2.5.2 Handle loading states during authentication check
+    - [ ] 2.5.3 Redirect unauthenticated users to login page
+    - [ ] 2.5.4 Preserve intended route for post-login redirect
+  - [ ] 2.6 Create useAuth custom hook for authentication state management
+    - [ ] 2.6.1 Wrap react-oidc-context useAuth hook with application-specific logic
+    - [ ] 2.6.2 Add helper methods for login, logout, and token retrieval
+    - [ ] 2.6.3 Include user profile information and provider details
+    - [ ] 2.6.4 Handle authentication state transitions smoothly
+  - [ ] 2.7 Configure OAuth redirect URIs and callback handling
+    - [ ] 2.7.1 Create CallbackPage component to handle OAuth callbacks
+    - [ ] 2.7.2 Set up proper redirect URI patterns for each provider
+    - [ ] 2.7.3 Handle OAuth callback errors and display appropriate messages
+    - [ ] 2.7.4 Test callback handling with both successful and failed authentications
+  - [ ] 2.8 Implement logout functionality with proper token cleanup
+    - [ ] 2.8.1 Create logout function that clears all tokens and user state
+    - [ ] 2.8.2 Implement server-side logout if supported by providers
+    - [ ] 2.8.3 Redirect to appropriate page after logout
+    - [ ] 2.8.4 Clear any cached user data or preferences
+  - [ ] 2.9 Add comprehensive error handling for OAuth failures and network issues
+    - [ ] 2.9.1 Handle network connectivity errors during authentication
+    - [ ] 2.9.2 Handle OAuth provider errors (invalid_client, access_denied, etc.)
+    - [ ] 2.9.3 Display user-friendly error messages with recovery options
+    - [ ] 2.9.4 Implement retry mechanisms for transient failures
+    - [ ] 2.9.5 Log authentication errors for debugging (without sensitive data)
+  - [ ] 2.10 Write comprehensive unit tests for authentication components and hooks
+    - [ ] 2.10.1 Test LoginButton components with user interactions
+    - [ ] 2.10.2 Test ProtectedRoute component with authenticated and unauthenticated states
+    - [ ] 2.10.3 Test useAuth hook with mock OAuth providers
+    - [ ] 2.10.4 Test error handling scenarios with appropriate mocks
+    - [ ] 2.10.5 Test callback page with successful and failed OAuth responses
+
+- [ ] 3.0 Build Flask API backend with PostgreSQL database
+  - [ ] 3.1 Create Flask application structure with blueprints
+    - [ ] 3.1.1 Create backend/app.py with Flask app factory pattern
+    - [ ] 3.1.2 Set up blueprint structure: api, auth, and main blueprints
+    - [ ] 3.1.3 Create backend/config.py with environment-specific configurations
+    - [ ] 3.1.4 Create backend/wsgi.py for production deployment with Gunicorn
+  - [ ] 3.2 Configure Flask-SQLAlchemy with PostgreSQL connection
+    - [ ] 3.2.1 Set up database configuration with connection pooling
+    - [ ] 3.2.2 Configure SQLAlchemy with proper timezone handling (UTC)
+    - [ ] 3.2.3 Set up database connection error handling and retry logic
+    - [ ] 3.2.4 Test database connection with sample query
+  - [ ] 3.3 Set up Alembic for database migrations
+    - [ ] 3.3.1 Initialize Flask-Migrate with `flask db init`
+    - [ ] 3.3.2 Configure migrations/env.py with proper database URL and context
+    - [ ] 3.3.3 Set up naming conventions for constraints and indexes
+    - [ ] 3.3.4 Create initial migration template and test migration process
+  - [ ] 3.4 Create User model with OAuth ID, email, name, provider fields
+    - [ ] 3.4.1 Define User model with all required fields and constraints
+    - [ ] 3.4.2 Add proper field validation (email format, required fields)
+    - [ ] 3.4.3 Implement model methods for user creation and updates
+    - [ ] 3.4.4 Add timestamps (created_at, updated_at) with automatic updates
+    - [ ] 3.4.5 Create unique constraint on (oauth_id, provider) combination
+  - [ ] 3.5 Create UserProgress model with foreign key to User and section tracking
+    - [ ] 3.5.1 Define UserProgress model with user_id, section_id, completion_percentage
+    - [ ] 3.5.2 Add section_data JSONB field for storing additional section information
+    - [ ] 3.5.3 Create unique constraint on (user_id, section_id) to prevent duplicates
+    - [ ] 3.5.4 Add model methods for progress updates and retrieval
+    - [ ] 3.5.5 Implement validation for completion_percentage (0.0 to 100.0)
+  - [ ] 3.6 Create SectionContent model for storing 8 podcast planner sections
+    - [ ] 3.6.1 Define SectionContent model with id, title, description, content fields
+    - [ ] 3.6.2 Populate initial data for all 8 podcast planner sections
+    - [ ] 3.6.3 Add section ordering and content versioning capabilities
+    - [ ] 3.6.4 Create data migration to seed initial section content
+  - [ ] 3.7 Implement OAuth token validation middleware using provider userinfo endpoints
+    - [ ] 3.7.1 Create oauth_validators.py with provider-specific validation functions
+    - [ ] 3.7.2 Implement Google OAuth token validation using userinfo endpoint
+    - [ ] 3.7.3 Implement Facebook OAuth token validation using graph API
+    - [ ] 3.7.4 Create middleware decorator for protecting API endpoints
+    - [ ] 3.7.5 Add token caching to reduce external API calls
+    - [ ] 3.7.6 Handle token expiration and refresh scenarios
+  - [ ] 3.8 Create comprehensive API endpoints for user management and progress
+    - [ ] 3.8.1 Create GET /api/user/profile endpoint with user information
+    - [ ] 3.8.2 Create PUT /api/user/profile endpoint for profile updates
+    - [ ] 3.8.3 Create GET /api/user/progress endpoint with proper serialization
+    - [ ] 3.8.4 Create POST /api/user/progress endpoint with validation
+    - [ ] 3.8.5 Create GET /api/sections endpoint for section content retrieval
+    - [ ] 3.8.6 Create GET /api/sections/{id} endpoint for individual section details
+  - [ ] 3.9 Add CORS configuration for frontend-backend communication
+    - [ ] 3.9.1 Configure Flask-CORS with specific origins for development and production
+    - [ ] 3.9.2 Set up proper CORS headers for preflight requests
+    - [ ] 3.9.3 Configure allowed methods and headers for API endpoints
+    - [ ] 3.9.4 Test CORS configuration with frontend application
+  - [ ] 3.10 Implement comprehensive error handling and HTTP status codes
+    - [ ] 3.10.1 Create custom exception classes in utils/exceptions.py
+    - [ ] 3.10.2 Implement global error handlers for different exception types
+    - [ ] 3.10.3 Add proper HTTP status codes for all API responses
+    - [ ] 3.10.4 Create consistent error response format with error codes and messages
+    - [ ] 3.10.5 Add request ID tracking for error debugging
+  - [ ] 3.11 Add request validation using Marshmallow schemas
+    - [ ] 3.11.1 Create serializers.py with Marshmallow schemas for all API endpoints
+    - [ ] 3.11.2 Implement user profile validation schema
+    - [ ] 3.11.3 Implement progress update validation schema
+    - [ ] 3.11.4 Add custom validation methods for complex business rules
+    - [ ] 3.11.5 Create response serializers for consistent API output format
+  - [ ] 3.12 Create database indexes for performance optimization
+    - [ ] 3.12.1 Add indexes on User.oauth_id and User.provider for fast lookups
+    - [ ] 3.12.2 Add composite index on UserProgress(user_id, section_id)
+    - [ ] 3.12.3 Add indexes on timestamp fields for efficient queries
+    - [ ] 3.12.4 Generate migration for all indexes and test query performance
+  - [ ] 3.13 Write comprehensive unit tests for API endpoints and database models
+    - [ ] 3.13.1 Set up test database configuration and pytest fixtures
+    - [ ] 3.13.2 Create factory classes for test data generation
+    - [ ] 3.13.3 Test all User model methods and validations
+    - [ ] 3.13.4 Test all UserProgress model methods and constraints
+    - [ ] 3.13.5 Test OAuth token validation with mock provider responses
+    - [ ] 3.13.6 Test all API endpoints with various scenarios (success, error, edge cases)
+    - [ ] 3.13.7 Test database transactions and rollback scenarios
+    - [ ] 3.13.8 Add integration tests for complete API workflows
+  - [ ] 3.14 Generate initial database migration files and deployment scripts
+    - [ ] 3.14.1 Generate migration for User and UserProgress models
+    - [ ] 3.14.2 Generate migration for SectionContent model and initial data
+    - [ ] 3.14.3 Generate migration for database indexes
+    - [ ] 3.14.4 Create database initialization script for fresh deployments
+    - [ ] 3.14.5 Test migration and rollback processes
+
+- [ ] 4.0 Create React frontend with dashboard and glassmorphism transitions
+  - [ ] 4.1 Set up React Router and create base application structure
+    - [ ] 4.1.1 Configure React Router with route definitions for dashboard, sections, auth
+    - [ ] 4.1.2 Create main App.tsx with AuthProvider and route protection
+    - [ ] 4.1.3 Set up TypeScript interfaces for all application data types
+    - [ ] 4.1.4 Create constants file with API endpoints and configuration
+  - [ ] 4.2 Create base Layout component with header, footer, and navigation
+    - [ ] 4.2.1 Build Layout component with proper semantic HTML structure
+    - [ ] 4.2.2 Create Header component with navigation and user menu
+    - [ ] 4.2.3 Create Footer component with appropriate links and branding
+    - [ ] 4.2.4 Implement responsive navigation with mobile hamburger menu
+    - [ ] 4.2.5 Add proper ARIA landmarks and navigation structure
+  - [ ] 4.3 Implement Dashboard component with 8-section progress grid
+    - [ ] 4.3.1 Create Dashboard layout with welcome section and progress overview
+    - [ ] 4.3.2 Implement responsive grid system for progress cards
+    - [ ] 4.3.3 Add progress statistics header with overall completion percentage
+    - [ ] 4.3.4 Create WelcomeSection with personalized user greeting
+    - [ ] 4.3.5 Implement section filtering and search functionality
+  - [ ] 4.4 Create ProgressCard component with completion indicators and animations
+    - [ ] 4.4.1 Build ProgressCard with section title, description, and completion status
+    - [ ] 4.4.2 Add circular progress indicators with animated percentages
+    - [ ] 4.4.3 Implement different card states (locked, in-progress, completed)
+    - [ ] 4.4.4 Add hover effects and micro-interactions
+    - [ ] 4.4.5 Include accessibility features (ARIA labels, keyboard navigation)
+  - [ ] 4.5 Build SectionView component for individual section details
+    - [ ] 4.5.1 Create SectionView layout with content area and progress tracker
+    - [ ] 4.5.2 Implement SectionContent component for rendering section materials
+    - [ ] 4.5.3 Add ProgressTracker component for updating completion status
+    - [ ] 4.5.4 Create navigation breadcrumbs and back-to-dashboard functionality
+    - [ ] 4.5.5 Implement section completion confirmation modals
+  - [ ] 4.6 Implement glassmorphism effects using CSS backdrop-filter
+    - [ ] 4.6.1 Create animations.css with glassmorphism utility classes
+    - [ ] 4.6.2 Apply backdrop-blur effects to cards and modal overlays
+    - [ ] 4.6.3 Add subtle transparency and border effects
+    - [ ] 4.6.4 Test browser compatibility and provide fallbacks
+    - [ ] 4.6.5 Optimize performance for lower-end devices
+  - [ ] 4.7 Create smooth transitions between dashboard and section views using Framer Motion
+    - [ ] 4.7.1 Install and configure Framer Motion for page transitions
+    - [ ] 4.7.2 Implement enter/exit animations for route changes
+    - [ ] 4.7.3 Add stagger animations for progress cards loading
+    - [ ] 4.7.4 Create smooth scroll-based animations
+    - [ ] 4.7.5 Add reduced-motion preferences support
+  - [ ] 4.8 Add responsive design for mobile (320px+), tablet, and desktop breakpoints
+    - [ ] 4.8.1 Implement mobile-first responsive design approach
+    - [ ] 4.8.2 Test and optimize layouts for all breakpoint ranges
+    - [ ] 4.8.3 Ensure touch targets are appropriately sized (44px minimum)
+    - [ ] 4.8.4 Optimize typography scaling across devices
+    - [ ] 4.8.5 Test horizontal and vertical orientations
+  - [ ] 4.9 Implement loading states with skeleton screens
+    - [ ] 4.9.1 Create SkeletonLoader components matching actual content layout
+    - [ ] 4.9.2 Implement loading states for dashboard and section views
+    - [ ] 4.9.3 Add shimmer animations for skeleton loaders
+    - [ ] 4.9.4 Create loading spinners for button actions
+    - [ ] 4.9.5 Handle loading state transitions smoothly
+  - [ ] 4.10 Create error boundaries for graceful error handling
+    - [ ] 4.10.1 Implement ErrorBoundary component with fallback UI
+    - [ ] 4.10.2 Add error reporting and recovery mechanisms
+    - [ ] 4.10.3 Create user-friendly error messages with action buttons
+    - [ ] 4.10.4 Implement retry functionality for failed operations
+    - [ ] 4.10.5 Add error boundary at multiple component levels
+  - [ ] 4.11 Implement comprehensive API client with Axios and OAuth token interceptors
+    - [ ] 4.11.1 Create API client with base configuration and interceptors
+    - [ ] 4.11.2 Add request interceptors for OAuth token attachment
+    - [ ] 4.11.3 Add response interceptors for error handling and token refresh
+    - [ ] 4.11.4 Implement retry logic for transient network errors
+    - [ ] 4.11.5 Create service layer for specific API endpoints
+  - [ ] 4.12 Create custom hooks for progress data fetching and state management
+    - [ ] 4.12.1 Create useProgress hook for progress data management
+    - [ ] 4.12.2 Create useLocalStorage hook for client-side data persistence
+    - [ ] 4.12.3 Create useDebounce hook for optimizing API calls
+    - [ ] 4.12.4 Implement data caching and invalidation strategies
+    - [ ] 4.12.5 Add optimistic updates for better user experience
+  - [ ] 4.13 Add comprehensive accessibility features (ARIA labels, keyboard navigation)
+    - [ ] 4.13.1 Add proper ARIA labels and roles to all interactive elements
+    - [ ] 4.13.2 Implement keyboard navigation for all components
+    - [ ] 4.13.3 Add focus management for modals and dynamic content
+    - [ ] 4.13.4 Test with screen readers and assistive technologies
+    - [ ] 4.13.5 Ensure proper color contrast ratios throughout the application
+  - [ ] 4.14 Create Toast notification system for user feedback
+    - [ ] 4.14.1 Build Toast component with different notification types
+    - [ ] 4.14.2 Implement toast queue and auto-dismiss functionality
+    - [ ] 4.14.3 Add animations for toast appearance and dismissal
+    - [ ] 4.14.4 Create toast hooks for easy integration across components
+    - [ ] 4.14.5 Test toast accessibility with screen readers
+  - [ ] 4.15 Write comprehensive component tests using React Testing Library
+    - [ ] 4.15.1 Test Dashboard component with various progress states
+    - [ ] 4.15.2 Test ProgressCard interactions and state changes
+    - [ ] 4.15.3 Test SectionView navigation and progress updates
+    - [ ] 4.15.4 Test responsive behavior across different screen sizes
+    - [ ] 4.15.5 Test accessibility features and keyboard navigation
+    - [ ] 4.15.6 Test error boundaries and error handling scenarios
+
+- [ ] 5.0 Implement CSS testing and visual regression testing
+  - [ ] 5.1 Set up Percy visual regression testing platform
+    - [ ] 5.1.1 Create Percy account and configure project integration
+    - [ ] 5.1.2 Install @percy/cli and @percy/cypress packages
+    - [ ] 5.1.3 Configure Percy token and project settings
+    - [ ] 5.1.4 Set up Percy build environments (development, staging, production)
+  - [ ] 5.2 Create Percy configuration and baseline settings
+    - [ ] 5.2.1 Create percy.config.js with snapshot configuration
+    - [ ] 5.2.2 Configure browser versions and viewport sizes for testing
+    - [ ] 5.2.3 Set up Percy ignore regions for dynamic content
+    - [ ] 5.2.4 Configure visual comparison thresholds and sensitivity
+  - [ ] 5.3 Write CSS unit tests for brand color applications
+    - [ ] 5.3.1 Test custom Tailwind color palette implementation
+    - [ ] 5.3.2 Verify brand colors (pewter-blue, coral, baby-pink, gainsboro, cookies-cream) are correctly applied
+    - [ ] 5.3.3 Test color contrast ratios meet WCAG AA standards
+    - [ ] 5.3.4 Validate color usage consistency across components
+  - [ ] 5.4 Test responsive grid layouts at different breakpoints
+    - [ ] 5.4.1 Test dashboard grid layout at mobile breakpoint (320px-767px)
+    - [ ] 5.4.2 Test tablet layout behavior (768px-1023px)
+    - [ ] 5.4.3 Test desktop layout (1024px+) and large screen optimization
+    - [ ] 5.4.4 Validate grid item spacing and alignment at all breakpoints
+    - [ ] 5.4.5 Test orientation changes (portrait/landscape) on mobile devices
+  - [ ] 5.5 Create comprehensive tests for glassmorphism effects and animations
+    - [ ] 5.5.1 Test backdrop-blur effects render correctly across browsers
+    - [ ] 5.5.2 Verify transparency and border effects on glassmorphism components
+    - [ ] 5.5.3 Test animation performance and smooth transitions
+    - [ ] 5.5.4 Validate fallback styles for unsupported browsers
+    - [ ] 5.5.5 Test reduced-motion preferences are respected
+  - [ ] 5.6 Implement comprehensive accessibility testing for contrast ratios and focus states
+    - [ ] 5.6.1 Install and configure axe-core for automated accessibility testing
+    - [ ] 5.6.2 Test color contrast ratios for all text-background combinations
+    - [ ] 5.6.3 Validate focus states are visible and properly styled
+    - [ ] 5.6.4 Test keyboard navigation paths through all components
+    - [ ] 5.6.5 Verify screen reader compatibility and ARIA label accuracy
+  - [ ] 5.7 Set up automated visual regression testing in CI/CD pipeline
+    - [ ] 5.7.1 Configure Percy integration in GitHub Actions workflow
+    - [ ] 5.7.2 Set up automatic screenshot capture on pull requests
+    - [ ] 5.7.3 Configure Percy approval workflow for design changes
+    - [ ] 5.7.4 Set up notifications for visual regression failures
+    - [ ] 5.7.5 Create parallel test execution for faster CI builds
+  - [ ] 5.8 Create baseline screenshots for all major components and user flows
+    - [ ] 5.8.1 Capture baseline screenshots for login page and OAuth flows
+    - [ ] 5.8.2 Create baselines for dashboard in various states (empty, partial, complete)
+    - [ ] 5.8.3 Capture section view baselines for all 8 podcast sections
+    - [ ] 5.8.4 Create responsive baselines for mobile, tablet, and desktop
+    - [ ] 5.8.5 Capture error states and loading state baselines
+  - [ ] 5.9 Configure smart baseline updates for legitimate design changes
+    - [ ] 5.9.1 Set up Percy approval workflow for design reviews
+    - [ ] 5.9.2 Create guidelines for when to approve vs reject visual changes
+    - [ ] 5.9.3 Configure automatic baseline updates for approved changes
+    - [ ] 5.9.4 Set up branch-specific baselines for feature development
+  - [ ] 5.10 Add CSS bundle size monitoring and unused CSS detection
+    - [ ] 5.10.1 Configure bundlephobia integration for dependency size tracking
+    - [ ] 5.10.2 Set up PurgeCSS for unused CSS detection and removal
+    - [ ] 5.10.3 Monitor Tailwind CSS bundle size and optimization
+    - [ ] 5.10.4 Create performance budgets for CSS bundle sizes
+    - [ ] 5.10.5 Set up alerts for bundle size increases
+  - [ ] 5.11 Test authentication flow UI components with visual regression
+    - [ ] 5.11.1 Capture login button states (default, hover, loading, error)
+    - [ ] 5.11.2 Test OAuth provider login flows (Google and Facebook)
+    - [ ] 5.11.3 Capture callback page states (loading, success, error)
+    - [ ] 5.11.4 Test logout confirmation and success states
+    - [ ] 5.11.5 Validate authentication error messages and recovery flows
+  - [ ] 5.12 Validate comprehensive WCAG 2.1 AA compliance across all pages
+    - [ ] 5.12.1 Run automated WCAG compliance testing on all pages
+    - [ ] 5.12.2 Test with multiple screen readers (NVDA, JAWS, VoiceOver)
+    - [ ] 5.12.3 Validate keyboard-only navigation for all functionality
+    - [ ] 5.12.4 Test with high contrast mode and custom browser themes
+    - [ ] 5.12.5 Create accessibility compliance report and remediation plan
+
+- [ ] 6.0 Configure containerization and deployment setup
+  - [ ] 6.1 Create multi-stage Dockerfile for Flask backend
+    - [ ] 6.1.1 Create base stage with Python 3.11 and system dependencies
+    - [ ] 6.1.2 Add development stage with dev dependencies and debugging tools
+    - [ ] 6.1.3 Create production stage with optimized Python installation
+    - [ ] 6.1.4 Configure non-root user for security best practices
+    - [ ] 6.1.5 Set up proper file permissions and working directory structure
+    - [ ] 6.1.6 Add health check endpoint and HEALTHCHECK instruction
+  - [ ] 6.2 Create multi-stage Dockerfile for React frontend with nginx
+    - [ ] 6.2.1 Create Node.js build stage for compiling React application
+    - [ ] 6.2.2 Configure Vite build with proper environment variables
+    - [ ] 6.2.3 Create nginx production stage with optimized static file serving
+    - [ ] 6.2.4 Configure nginx.conf with proper routing for SPA
+    - [ ] 6.2.5 Set up gzip compression and caching headers
+    - [ ] 6.2.6 Add security headers and HTTPS redirect configuration
+  - [ ] 6.3 Configure comprehensive docker-compose.yml for development environment
+    - [ ] 6.3.1 Define services for frontend, backend, and PostgreSQL database
+    - [ ] 6.3.2 Set up proper service dependencies and startup order
+    - [ ] 6.3.3 Configure volume mounts for live code reloading during development
+    - [ ] 6.3.4 Set up environment file loading (.env files)
+    - [ ] 6.3.5 Configure port mappings and service discovery
+  - [ ] 6.4 Set up PostgreSQL service in Docker Compose
+    - [ ] 6.4.1 Configure PostgreSQL 16 service with proper initialization
+    - [ ] 6.4.2 Set up database credentials and initial database creation
+    - [ ] 6.4.3 Configure persistent data volumes for database storage
+    - [ ] 6.4.4 Set up database backup and restore capabilities
+    - [ ] 6.4.5 Configure PostgreSQL performance settings for development
+  - [ ] 6.5 Create PostgreSQL Helm chart for local development
+    - [ ] 6.5.1 Initialize Helm chart structure for PostgreSQL deployment
+    - [ ] 6.5.2 Configure values.yaml with development-specific settings
+    - [ ] 6.5.3 Set up persistent volume claims for database storage
+    - [ ] 6.5.4 Configure service and ingress for database access
+    - [ ] 6.5.5 Add database initialization scripts and migrations
+    - [ ] 6.5.6 Test Helm chart deployment and database connectivity
+  - [ ] 6.6 Configure comprehensive environment variable handling in containers
+    - [ ] 6.6.1 Create .env.example with all required variables documented
+    - [ ] 6.6.2 Set up environment-specific .env files (dev, staging, prod)
+    - [ ] 6.6.3 Configure Docker Compose to load environment files properly
+    - [ ] 6.6.4 Implement environment variable validation in applications
+    - [ ] 6.6.5 Set up secrets management for sensitive configuration
+  - [ ] 6.7 Set up Docker networking between frontend, backend, and database
+    - [ ] 6.7.1 Create custom Docker network for service communication
+    - [ ] 6.7.2 Configure service discovery using Docker Compose service names
+    - [ ] 6.7.3 Set up proper network isolation and security groups
+    - [ ] 6.7.4 Configure proxy settings for development environment
+    - [ ] 6.7.5 Test network connectivity between all services
+  - [ ] 6.8 Implement database initialization and migration scripts
+    - [ ] 6.8.1 Create database initialization script (postgres/init.sql)
+    - [ ] 6.8.2 Set up automatic database migration on container startup
+    - [ ] 6.8.3 Create database seeding scripts for development data
+    - [ ] 6.8.4 Configure database backup and restore procedures
+    - [ ] 6.8.5 Test database initialization with fresh containers
+  - [ ] 6.9 Configure nginx for React frontend with proper SPA routing
+    - [ ] 6.9.1 Create nginx.conf with SPA routing configuration (try_files)
+    - [ ] 6.9.2 Configure proper MIME types and static file serving
+    - [ ] 6.9.3 Set up reverse proxy configuration for API endpoints
+    - [ ] 6.9.4 Configure SSL/TLS settings for HTTPS support
+    - [ ] 6.9.5 Add security headers (CSP, HSTS, X-Frame-Options)
+    - [ ] 6.9.6 Test nginx configuration with frontend routing
+  - [ ] 6.10 Add comprehensive health checks for all services
+    - [ ] 6.10.1 Implement health check endpoint in Flask backend (/health)
+    - [ ] 6.10.2 Add database connectivity check in backend health endpoint
+    - [ ] 6.10.3 Configure Docker health checks for all services
+    - [ ] 6.10.4 Set up health check monitoring and alerting
+    - [ ] 6.10.5 Test health checks work correctly in all scenarios
+  - [ ] 6.11 Create development and production Docker Compose variants
+    - [ ] 6.11.1 Create docker-compose.dev.yml with development overrides
+    - [ ] 6.11.2 Create docker-compose.prod.yml with production optimizations
+    - [ ] 6.11.3 Configure different environment variables for each environment
+    - [ ] 6.11.4 Set up proper logging and monitoring for production
+    - [ ] 6.11.5 Test both development and production compose configurations
+  - [ ] 6.12 Document single-command startup process and development workflow
+    - [ ] 6.12.1 Create comprehensive README.md with setup instructions
+    - [ ] 6.12.2 Document prerequisite installations (Docker, Docker Compose)
+    - [ ] 6.12.3 Create Makefile with common development commands
+    - [ ] 6.12.4 Document environment variable configuration process
+    - [ ] 6.12.5 Create troubleshooting guide for common issues
+  - [ ] 6.13 Test complete application startup with `docker-compose up`
+    - [ ] 6.13.1 Test fresh startup from scratch with no existing containers
+    - [ ] 6.13.2 Verify all services start in correct order and dependency resolution
+    - [ ] 6.13.3 Test database migrations run automatically on startup
+    - [ ] 6.13.4 Verify frontend builds and serves correctly
+    - [ ] 6.13.5 Test hot reload functionality for development
+  - [ ] 6.14 Verify OAuth authentication works in containerized environment
+    - [ ] 6.14.1 Test Google OAuth flow with containerized application
+    - [ ] 6.14.2 Test Facebook OAuth flow with containerized application
+    - [ ] 6.14.3 Verify OAuth callbacks work with Docker networking
+    - [ ] 6.14.4 Test token validation between frontend and backend containers
+    - [ ] 6.14.5 Verify user data persistence across container restarts
+  - [ ] 6.15 Create CI/CD pipeline configuration
+    - [ ] 6.15.1 Create GitHub Actions workflow for automated testing
+    - [ ] 6.15.2 Set up Docker image building and pushing to registry
+    - [ ] 6.15.3 Configure automatic deployment triggers
+    - [ ] 6.15.4 Set up environment-specific deployment pipelines
+    - [ ] 6.15.5 Add security scanning for Docker images and dependencies
