@@ -3,26 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crafted to Thrive - Podcast Planner (Option 1: Clean Professional)</title>
+    <title>Podcast Planner - Thrive with Nikita</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
+                        'pewter-blue': '#81B0AA',
+                        'coral': '#F18070',
+                        'baby-pink': '#F5CABF',
+                        'gainsboro': '#D8D7DF',
+                        'cookies-cream': '#F1E6B2',
                         sage: '#6B8E6B',
                         blush: '#F4E4E1',
                         cream: '#F8F6F3',
                         teal: '#4A6B6B',
                         'warm-gray': '#8B8680'
+                    },
+                    fontFamily: {
+                        'crimson': ['Crimson Text', 'serif'],
+                        'muli': ['Muli', 'sans-serif']
                     }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Muli:wght@300;400;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Muli', 'Inter', sans-serif; }
+        .font-heading { font-family: 'Crimson Text', serif; }
     </style>
 </head>
 <body class="bg-cream min-h-screen">
@@ -32,12 +44,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <h1 class="text-xl font-bold text-sage">Crafted to Thrive</h1>
-                    <span class="ml-2 text-sm text-warm-gray">Podcast Planner</span>
+                    <img src="../brand-assets/New Branding Kit/Web Files/Thrive-with-Nikita-Logo-Main.png" alt="Thrive with Nikita" class="h-10">
+                    <span class="ml-3 text-sm text-warm-gray">Podcast Planner</span>
                 </div>
                 <div class="flex items-center space-x-4">
                     <div class="text-sm text-warm-gray">Welcome back, Nikita</div>
-                    <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=32&h=32&fit=crop&crop=face" alt="Profile">
+                    <img class="h-8 w-8 rounded-full" src="../brand-assets/Headshot, BTS & Show Logo/TWN_310.jpg" alt="Nikita Profile">
                 </div>
             </div>
         </div>
@@ -47,7 +59,6 @@
     <div class="bg-white border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div class="flex items-center justify-between mb-2">
-                <h2 class="text-sm font-medium text-teal">Your Podcast Journey</h2>
                 <span class="text-sm text-warm-gray">3 of 8 sections completed</span>
             </div>
             <div class="w-full bg-gray-200 rounded-full h-2">
