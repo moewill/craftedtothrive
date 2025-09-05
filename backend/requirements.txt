@@ -1,0 +1,9 @@
+Flask==3.1.0
+SQLAlchemy==2.0.35
+psycopg==3.2.1
+Flask-CORS==5.0.0
+Flask-Migrate==4.0.7
+marshmallow==3.22.0
+requests==2.32.3
+python-dotenv==1.0.1
+gunicorn==23.0.0
